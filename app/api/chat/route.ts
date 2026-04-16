@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { rateLimit, getIP } from "@/lib/ratelimit";
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -21,17 +22,48 @@ Cómo responder:
 - Si el cliente parece interesado, sugiere que rellene el formulario de contacto o escriba a Niko directamente
 - No inventes datos ni hagas promesas de resultados concretos que no puedas garantizar`;
 
+const WHITELISTED_IPS = (process.env.WHITELISTED_IPS ?? "").split(",").map((ip) => ip.trim()).filter(Boolean);
+const CHAT_LIMIT = 20;
+const CHAT_WINDOW_MS = 60 * 60 * 1000; // 1 hora
+const MAX_MESSAGE_LENGTH = 500;
+const MAX_MESSAGES_IN_HISTORY = 20;
+
 export async function POST(request: Request) {
-  const { messages } = await request.json();
+  const ip = getIP(request);
+
+  // Rate limiting — skip for whitelisted IPs
+  if (!WHITELISTED_IPS.includes(ip)) {
+    const { allowed } = rateLimit(ip, "chat", CHAT_LIMIT, CHAT_WINDOW_MS);
+    if (!allowed) {
+      return Response.json(
+        { error: "Has alcanzado el límite de mensajes. Inténtalo en una hora." },
+        { status: 429 }
+      );
+    }
+  }
+
+  const body = await request.json();
+  const { messages } = body;
+
+  // Validate messages
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return Response.json({ error: "Mensaje inválido." }, { status: 400 });
+  }
+
+  // Limit history and message length
+  const sanitized: { role: "user" | "assistant"; content: string }[] = messages
+    .slice(-MAX_MESSAGES_IN_HISTORY)
+    .filter((m: { role: string; content: string }) => m.role && typeof m.content === "string")
+    .map((m: { role: string; content: string }) => ({
+      role: (m.role === "user" ? "user" : "assistant") as "user" | "assistant",
+      content: m.content.slice(0, MAX_MESSAGE_LENGTH),
+    }));
 
   const response = await client.messages.create({
     model: "claude-sonnet-4-6",
     max_tokens: 400,
     system: SYSTEM_PROMPT,
-    messages: messages.map((m: { role: string; content: string }) => ({
-      role: m.role,
-      content: m.content,
-    })),
+    messages: sanitized,
   });
 
   const reply =

@@ -41,9 +41,12 @@ export default function Chat() {
       });
 
       const data = await res.json();
+      const reply = res.status === 429
+        ? data.error
+        : data.reply ?? "Lo siento, ha ocurrido un error. Inténtalo de nuevo.";
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: data.reply },
+        { role: "assistant", content: reply },
       ]);
     } catch {
       setMessages((prev) => [
