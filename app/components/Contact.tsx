@@ -5,14 +5,34 @@ import { useState } from "react";
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    // Simulate send — replace with real email service (Resend, EmailJS, etc.)
-    await new Promise((r) => setTimeout(r, 1000));
-    setLoading(false);
-    setSent(true);
+    setError(false);
+
+    const form = e.currentTarget;
+    const data = {
+      nombre: (form.elements.namedItem("nombre") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      telefono: (form.elements.namedItem("telefono") as HTMLInputElement).value,
+      mensaje: (form.elements.namedItem("mensaje") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error();
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -51,6 +71,7 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="nombre"
                   required
                   placeholder="Tu nombre"
                   className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-colors"
@@ -62,6 +83,7 @@ export default function Contact() {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   required
                   placeholder="tu@email.com"
                   className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-colors"
@@ -75,6 +97,7 @@ export default function Contact() {
               </label>
               <input
                 type="tel"
+                name="telefono"
                 placeholder="+34 600 000 000"
                 className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-colors"
               />
@@ -85,6 +108,7 @@ export default function Contact() {
                 ¿Qué necesitas?
               </label>
               <textarea
+                name="mensaje"
                 required
                 rows={5}
                 placeholder="Cuéntame tu negocio y lo que necesitas — web nueva, tienda online, chatbot..."
@@ -92,6 +116,11 @@ export default function Contact() {
               />
             </div>
 
+            {error && (
+              <p className="text-red-500 text-sm text-center">
+                Ha ocurrido un error. Inténtalo de nuevo.
+              </p>
+            )}
             <button
               type="submit"
               disabled={loading}
