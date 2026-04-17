@@ -73,7 +73,7 @@ export default function Chat() {
       {/* Floating button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/30 flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/30 flex items-center justify-center"
         aria-label="Abrir chat"
       >
         {open ? (
@@ -89,7 +89,7 @@ export default function Chat() {
 
       {/* Chat window */}
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 rounded-2xl border border-slate-200 bg-white shadow-2xl flex flex-col overflow-hidden">
+        <div className="fixed bottom-24 right-6 z-[100] w-80 sm:w-96 rounded-2xl border border-slate-200 bg-white shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
           <div className="px-5 py-4 bg-indigo-600 flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm">
