@@ -31,6 +31,10 @@ const MAX_MESSAGES_IN_HISTORY = 20;
 export async function POST(request: Request) {
   const ip = getIP(request);
 
+  if (ip === "unknown") {
+    return Response.json({ error: "Petición inválida." }, { status: 429 });
+  }
+
   // Rate limiting — skip for whitelisted IPs
   if (!WHITELISTED_IPS.includes(ip)) {
     const { allowed } = rateLimit(ip, "chat", CHAT_LIMIT, CHAT_WINDOW_MS);
@@ -42,9 +46,13 @@ export async function POST(request: Request) {
     }
   }
 
-  const body = await request.json();
-  const { messages } = body;
-
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return Response.json({ error: "Petición inválida." }, { status: 400 });
+  }
+  const { messages } = body as { messages?: unknown };
   // Validate messages
   if (!Array.isArray(messages) || messages.length === 0) {
     return Response.json({ error: "Mensaje inválido." }, { status: 400 });
