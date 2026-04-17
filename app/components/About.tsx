@@ -20,7 +20,7 @@ export default function About() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/30 to-transparent pointer-events-none" />
           </div>
           {/* Floating location badge */}
           <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg px-5 py-3 flex items-center gap-3 border border-slate-100">
