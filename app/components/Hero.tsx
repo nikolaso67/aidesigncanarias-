@@ -2,15 +2,13 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16">
-      {/* Decorative background — overflow-hidden scoped here so it never captures touch events on the full viewport */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-indigo-50 to-sky-100" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-indigo-400/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-sky-300/20 rounded-full blur-3xl" />
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-indigo-50 to-sky-100" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-indigo-400/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-sky-300/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
         {/* Text */}
         <div>
           <span className="inline-block text-xs font-medium tracking-widest uppercase text-indigo-600 mb-6 px-3 py-1 border border-indigo-200 bg-indigo-50 rounded-full">
@@ -72,7 +70,7 @@ export default function Hero() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/10 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/10 to-transparent" />
           </div>
           {/* Floating badge */}
           <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-5 py-3 flex items-center gap-3 border border-slate-100">
