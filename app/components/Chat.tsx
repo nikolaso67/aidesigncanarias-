@@ -74,7 +74,9 @@ export default function Chat() {
       <button
         onClick={() => setOpen(!open)}
         className="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/30 flex items-center justify-center"
+        style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
         aria-label="Abrir chat"
+        type="button"
       >
         {open ? (
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

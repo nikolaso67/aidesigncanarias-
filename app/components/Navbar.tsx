@@ -13,7 +13,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-[100] bg-white border-b border-slate-100 shadow-sm">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="font-semibold text-lg tracking-tight">
           AI Design <span className="text-indigo-600">Canarias</span>
@@ -40,9 +40,11 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-slate-600"
+          className="md:hidden text-slate-600 p-2 touch-manipulation"
+          style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
           onClick={() => setOpen(!open)}
           aria-label="Menú"
+          type="button"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
