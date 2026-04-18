@@ -48,7 +48,7 @@ export const metadata: Metadata = {
       "Agencia de diseño web e inteligencia artificial en Gran Canaria. Webs profesionales, SEO local, tiendas online y chatbots con IA. Presupuesto gratis en 24h.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "AI Design Canarias — Diseño web con inteligencia artificial en Gran Canaria",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "AI Design Canarias | Diseño Web con IA en Gran Canaria",
     description:
       "Agencia de diseño web e IA en Gran Canaria. Webs profesionales, SEO, tiendas online y chatbots. Presupuesto gratis.",
-    images: ["/og-image.jpg"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -93,8 +93,8 @@ const structuredData = {
         "Agencia de diseño web e inteligencia artificial en Gran Canaria. Webs profesionales, SEO, tiendas online y chatbots con IA.",
       url: SITE_URL,
       email: "info@aidesigncanarias.com",
-      image: `${SITE_URL}/og-image.jpg`,
-      logo: `${SITE_URL}/og-image.jpg`,
+      image: `${SITE_URL}/opengraph-image`,
+      logo: `${SITE_URL}/opengraph-image`,
       address: {
         "@type": "PostalAddress",
         addressLocality: "Las Palmas de Gran Canaria",
