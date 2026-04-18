@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geist = Geist({
@@ -145,6 +146,18 @@ export default function RootLayout({
       <body className="min-h-screen bg-white text-slate-900 antialiased">
         {children}
       </body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-M5DNQL035H"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-M5DNQL035H');
+        `}
+      </Script>
     </html>
   );
 }
