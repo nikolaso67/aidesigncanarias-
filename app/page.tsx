@@ -7,7 +7,8 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Chat from "./components/Chat";
 import WhatsAppButton from "./components/WhatsAppButton";
-import FAQ, { faqStructuredData } from "./components/FAQ";
+import FAQ from "./components/FAQ";
+import { faqStructuredData } from "./data/faq-data";
 
 export default function Home() {
   return (
