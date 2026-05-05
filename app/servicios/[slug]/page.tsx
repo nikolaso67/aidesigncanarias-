@@ -15,10 +15,27 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return {};
+  const url = `https://aidesigncanarias.com/servicios/${slug}`;
   return {
     title: service.metaTitle,
     description: service.metaDescription,
-    alternates: { canonical: `https://aidesigncanarias.com/servicios/${slug}` },
+    alternates: {
+      canonical: url,
+      languages: { "es-ES": url, "x-default": url },
+    },
+    openGraph: {
+      type: "website",
+      locale: "es_ES",
+      url,
+      siteName: "AI Design Canarias",
+      title: service.metaTitle,
+      description: service.metaDescription,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: service.metaTitle,
+      description: service.metaDescription,
+    },
   };
 }
 
@@ -31,26 +48,44 @@ export default async function ServicePage({
   const service = getService(slug);
   if (!service) notFound();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    description: service.metaDescription,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "AI Design Canarias",
-      url: "https://aidesigncanarias.com",
-      telephone: "+34605007753",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Las Palmas de Gran Canaria",
-        addressRegion: "Canary Islands",
-        addressCountry: "ES",
+  const BASE = "https://aidesigncanarias.com";
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: service.title,
+      description: service.metaDescription,
+      provider: {
+        "@type": "LocalBusiness",
+        "@id": `${BASE}/#business`,
+        name: "AI Design Canarias",
+        url: BASE,
+        telephone: "+34605007753",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Las Palmas de Gran Canaria",
+          addressRegion: "Gran Canaria",
+          addressCountry: "ES",
+        },
       },
+      areaServed: [
+        { "@type": "City", name: "Las Palmas de Gran Canaria" },
+        { "@type": "Island", name: "Gran Canaria" },
+        { "@type": "AdministrativeArea", name: "Islas Canarias" },
+      ],
+      url: `${BASE}/servicios/${slug}`,
     },
-    areaServed: "Gran Canaria",
-    url: `https://aidesigncanarias.com/servicios/${slug}`,
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Inicio", item: BASE },
+        { "@type": "ListItem", position: 2, name: "Servicios", item: `${BASE}/#servicios` },
+        { "@type": "ListItem", position: 3, name: service.title, item: `${BASE}/servicios/${slug}` },
+      ],
+    },
+  ];
 
   return (
     <>
@@ -62,6 +97,15 @@ export default async function ServicePage({
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-sky-100">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-indigo-400/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <nav className="text-xs text-slate-400 mb-8 flex items-center gap-2">
+            <Link href="/" className="hover:text-indigo-600 transition-colors">Inicio</Link>
+            <span>/</span>
+            <Link href="/#servicios" className="hover:text-indigo-600 transition-colors">Servicios</Link>
+            <span>/</span>
+            <span className="text-slate-600">{service.title}</span>
+          </nav>
+        </div>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <span className="text-4xl mb-6 block">{service.icon}</span>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6 text-slate-900">

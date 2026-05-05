@@ -8,6 +8,7 @@ const GA_ID = "G-M5DNQL035H";
 const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const SITE_URL = "https://aidesigncanarias.com";
@@ -39,7 +40,10 @@ export const metadata: Metadata = {
   publisher: "AI Design Canarias",
   alternates: {
     canonical: SITE_URL,
-    languages: { "es-ES": SITE_URL },
+    languages: {
+      "es-ES": SITE_URL,
+      "x-default": SITE_URL,
+    },
   },
   openGraph: {
     type: "website",
@@ -149,6 +153,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={geist.variable}>
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
