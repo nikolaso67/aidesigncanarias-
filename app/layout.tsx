@@ -3,6 +3,8 @@ import { Geist } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
+const GA_ID = "G-M5DNQL035H";
+
 const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -94,6 +96,7 @@ const structuredData = {
         "Agencia de diseño web e inteligencia artificial en Gran Canaria. Webs profesionales, SEO, tiendas online y chatbots con IA.",
       url: SITE_URL,
       email: "info@aidesigncanarias.com",
+      telephone: "+34605007753",
       image: `${SITE_URL}/opengraph-image`,
       logo: `${SITE_URL}/opengraph-image`,
       address: {
@@ -107,6 +110,14 @@ const structuredData = {
         latitude: "28.1235",
         longitude: "-15.4366",
       },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          opens: "10:00",
+          closes: "21:00",
+        },
+      ],
       areaServed: [
         { "@type": "City", name: "Las Palmas de Gran Canaria" },
         { "@type": "Island", name: "Gran Canaria" },
@@ -143,6 +154,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga4" strategy="afterInteractive">
+        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}');`}
+      </Script>
       <body className="min-h-screen bg-white text-slate-900 antialiased">
         {children}
       </body>
