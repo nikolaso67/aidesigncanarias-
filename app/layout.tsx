@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 
 const GA_ID = "G-M5DNQL035H";
+const CLARITY_ID = "wmeor4nkaw";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -167,6 +168,9 @@ export default function RootLayout({
       />
       <Script id="ga4" strategy="afterInteractive">
         {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}');`}
+      </Script>
+      <Script id="clarity" strategy="afterInteractive">
+        {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`}
       </Script>
       <body className="min-h-screen bg-white text-slate-900 antialiased">
         {children}
