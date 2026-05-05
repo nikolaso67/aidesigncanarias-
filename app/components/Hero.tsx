@@ -16,17 +16,17 @@ export default function Hero() {
           </span>
 
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-            Diseño web{" "}
+            Tu web nueva{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-sky-500">
-              inteligente
+              en 7–14 días
             </span>{" "}
-            para tu negocio
+            — con IA que atiende mientras duermes
           </h1>
 
           <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-            Creamos webs rápidas, modernas y optimizadas para Google. Integramos
-            inteligencia artificial para que tu negocio trabaje solo, incluso
-            fuera de horario.
+            Webs profesionales para negocios en Gran Canaria. Sin permanencia,
+            con soporte en español y una IA integrada que responde a tus
+            clientes 24/7.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
