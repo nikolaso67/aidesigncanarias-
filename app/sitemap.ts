@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { services } from "./servicios/data";
+import { zonas } from "./zonas/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://aidesigncanarias.com";
@@ -11,10 +12,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const zonaUrls: MetadataRoute.Sitemap = zonas.map((z) => ({
+    url: `${base}/zonas/${z.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   return [
     { url: base, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
     { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     ...serviceUrls,
+    ...zonaUrls,
     { url: `${base}/aviso-legal`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },
     { url: `${base}/privacidad`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },
     { url: `${base}/cookies`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },
