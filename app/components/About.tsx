@@ -53,19 +53,13 @@ export default function About() {
     });
 
     // Stats bounce
-    ScrollTrigger.batch(".stat-card", {
-      onEnter: (elements) => {
-        gsap.to(elements, {
-          scale: 1,
-          autoAlpha: 1,
-          duration: 0.55,
-          ease: "back.out(1.7)",
-          stagger: 0.1,
-          overwrite: true,
-        });
-      },
-      start: "top 88%",
-      once: true,
+    gsap.to(".stat-card", {
+      scale: 1,
+      autoAlpha: 1,
+      duration: 0.55,
+      ease: "back.out(1.7)",
+      stagger: 0.1,
+      scrollTrigger: { trigger: ".stats-grid", start: "top 88%", once: true },
     });
   }, { scope: sectionRef });
 
@@ -123,7 +117,7 @@ export default function About() {
             Hablemos de tu proyecto
           </a>
 
-          <div className="grid grid-cols-2 gap-4 mt-10">
+          <div className="stats-grid grid grid-cols-2 gap-4 mt-10">
             {stats.map((s) => (
               <div
                 key={s.label}

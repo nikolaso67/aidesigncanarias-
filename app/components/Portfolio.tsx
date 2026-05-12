@@ -49,29 +49,22 @@ export default function Portfolio() {
     gsap.set(".portfolio-header", { y: 50, autoAlpha: 0 });
     gsap.set(".portfolio-card", { y: 80, autoAlpha: 0, scale: 0.96 });
 
-    ScrollTrigger.create({
-      trigger: ".portfolio-header",
-      start: "top 85%",
-      once: true,
-      onEnter: () => {
-        gsap.to(".portfolio-header", { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" });
-      },
+    gsap.to(".portfolio-header", {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".portfolio-header", start: "top 85%", once: true },
     });
 
-    ScrollTrigger.batch(".portfolio-card", {
-      onEnter: (elements) => {
-        gsap.to(elements, {
-          y: 0,
-          autoAlpha: 1,
-          scale: 1,
-          duration: 0.75,
-          ease: "power2.out",
-          stagger: 0.15,
-          overwrite: true,
-        });
-      },
-      start: "top 88%",
-      once: true,
+    gsap.to(".portfolio-card", {
+      y: 0,
+      autoAlpha: 1,
+      scale: 1,
+      duration: 0.75,
+      ease: "power2.out",
+      stagger: 0.15,
+      scrollTrigger: { trigger: ".portfolio-grid", start: "top 85%", once: true },
     });
   }, { scope: sectionRef });
 
@@ -91,7 +84,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="portfolio-grid grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((p) => (
             <div
               key={p.name}

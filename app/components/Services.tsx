@@ -14,30 +14,23 @@ export default function Services() {
 
   useGSAP(() => {
     gsap.set(".services-header", { y: 50, autoAlpha: 0 });
-    gsap.set(".service-card", { y: 70, autoAlpha: 0 });
+    gsap.set(".service-card", { y: 60, autoAlpha: 0 });
 
-    ScrollTrigger.create({
-      trigger: ".services-header",
-      start: "top 85%",
-      once: true,
-      onEnter: () => {
-        gsap.to(".services-header", { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" });
-      },
+    gsap.to(".services-header", {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".services-header", start: "top 85%", once: true },
     });
 
-    ScrollTrigger.batch(".service-card", {
-      onEnter: (elements) => {
-        gsap.to(elements, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.7,
-          ease: "power2.out",
-          stagger: 0.08,
-          overwrite: true,
-        });
-      },
-      start: "top 88%",
-      once: true,
+    gsap.to(".service-card", {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.7,
+      ease: "power2.out",
+      stagger: 0.08,
+      scrollTrigger: { trigger: ".services-grid", start: "top 85%", once: true },
     });
   }, { scope: sectionRef });
 
@@ -57,7 +50,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="services-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((s) => (
             <Link
               key={s.slug}
