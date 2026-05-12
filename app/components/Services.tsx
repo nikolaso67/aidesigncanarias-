@@ -1,11 +1,50 @@
+"use client";
+
 import Link from "next/link";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { services } from "../servicios/data";
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 export default function Services() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    gsap.set(".services-header", { y: 50, autoAlpha: 0 });
+    gsap.set(".service-card", { y: 70, autoAlpha: 0 });
+
+    ScrollTrigger.create({
+      trigger: ".services-header",
+      start: "top 85%",
+      once: true,
+      onEnter: () => {
+        gsap.to(".services-header", { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" });
+      },
+    });
+
+    ScrollTrigger.batch(".service-card", {
+      onEnter: (elements) => {
+        gsap.to(elements, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.08,
+          overwrite: true,
+        });
+      },
+      start: "top 88%",
+      once: true,
+    });
+  }, { scope: sectionRef });
+
   return (
-    <section id="servicios" className="py-24 px-6 bg-slate-50">
+    <section ref={sectionRef} id="servicios" className="py-24 px-6 bg-slate-50">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="services-header text-center mb-16">
           <span className="text-xs font-medium tracking-widest uppercase text-indigo-500">
             Lo que hacemos
           </span>
@@ -23,7 +62,7 @@ export default function Services() {
             <Link
               key={s.slug}
               href={`/servicios/${s.slug}`}
-              className="p-6 rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
+              className="service-card p-6 rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
             >
               <span className="text-3xl mb-4 block">{s.icon}</span>
               <h3 className="font-semibold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">

@@ -1,3 +1,12 @@
+"use client";
+
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 const projects = [
   {
     name: "Ferretería El Sur",
@@ -34,10 +43,42 @@ const projects = [
 ];
 
 export default function Portfolio() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    gsap.set(".portfolio-header", { y: 50, autoAlpha: 0 });
+    gsap.set(".portfolio-card", { y: 80, autoAlpha: 0, scale: 0.96 });
+
+    ScrollTrigger.create({
+      trigger: ".portfolio-header",
+      start: "top 85%",
+      once: true,
+      onEnter: () => {
+        gsap.to(".portfolio-header", { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" });
+      },
+    });
+
+    ScrollTrigger.batch(".portfolio-card", {
+      onEnter: (elements) => {
+        gsap.to(elements, {
+          y: 0,
+          autoAlpha: 1,
+          scale: 1,
+          duration: 0.75,
+          ease: "power2.out",
+          stagger: 0.15,
+          overwrite: true,
+        });
+      },
+      start: "top 88%",
+      once: true,
+    });
+  }, { scope: sectionRef });
+
   return (
-    <section id="portfolio" className="py-24 px-6 bg-slate-50">
+    <section ref={sectionRef} id="portfolio" className="py-24 px-6 bg-slate-50">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="portfolio-header text-center mb-16">
           <span className="text-xs font-medium tracking-widest uppercase text-indigo-500">
             Trabajos recientes
           </span>
@@ -54,7 +95,7 @@ export default function Portfolio() {
           {projects.map((p) => (
             <div
               key={p.name}
-              className={`p-8 rounded-2xl bg-gradient-to-br ${p.color} hover:shadow-md transition-all`}
+              className={`portfolio-card p-8 rounded-2xl bg-gradient-to-br ${p.color} hover:shadow-md transition-all`}
             >
               <span className="text-xs font-medium tracking-widest uppercase text-slate-500 mb-3 block">
                 {p.category}
@@ -73,7 +114,10 @@ export default function Portfolio() {
                   </span>
                 ))}
               </div>
-              <a href="#contacto" className="mt-4 inline-flex items-center text-xs font-medium text-indigo-600 hover:text-indigo-500 transition-colors">
+              <a
+                href="#contacto"
+                className="mt-4 inline-flex items-center text-xs font-medium text-indigo-600 hover:text-indigo-500 transition-colors"
+              >
                 Ver más <span className="ml-1">→</span>
               </a>
             </div>
