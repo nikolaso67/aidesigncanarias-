@@ -16,9 +16,9 @@ export default function Hero() {
           </span>
 
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-            Tu web nueva{" "}
+            Diseño web profesional{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-sky-500">
-              en 7–14 días
+              en Gran Canaria
             </span>{" "}
             — con IA que atiende mientras duermes
           </h1>
@@ -65,7 +65,7 @@ export default function Hero() {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-200/60 aspect-[4/3]">
             <Image
               src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=900&q=80"
-              alt="Diseño web profesional"
+              alt="Diseño web profesional para negocios en Las Palmas de Gran Canaria"
               fill
               className="object-cover"
               priority
