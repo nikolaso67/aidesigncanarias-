@@ -25,6 +25,16 @@ const TOPIC_POOL = [
   "publicidad digital para pequeños negocios en Canarias",
   "PWA vs app nativa: qué conviene a los negocios canarios",
   "diseño web accesible para negocios en Las Palmas",
+  "diseño web para negocios en Maspalomas y Playa del Inglés",
+  "cómo atraer clientes turistas con tu web en el sur de Gran Canaria",
+  "diseño web para empresas en Telde: posicionarse en el segundo municipio más grande",
+  "presencia digital para negocios en Santa Lucía de Tirajana",
+  "web y SEO para negocios turísticos en Puerto de Mogán",
+  "diseño web para negocios en Arucas: el norte de Gran Canaria online",
+  "SEO para restaurantes en Las Palmas de Gran Canaria",
+  "cómo una clínica dental en Gran Canaria puede captar más pacientes con SEO",
+  "tienda online para comercios locales en Las Palmas",
+  "gestión de redes sociales para negocios en Gran Canaria: qué funciona",
 ];
 
 function slugify(text: string): string {
@@ -60,11 +70,23 @@ Escribe un artículo de blog SEO-optimizado sobre: "${topic}"
 
 El artículo debe:
 - Estar dirigido a propietarios de pequeños negocios en Gran Canaria
-- Tener entre 600 y 800 palabras
+- Tener entre 700 y 900 palabras
 - Incluir el topic principal y variaciones de la keyword de forma natural
-- Mencionar localidades de Gran Canaria (Las Palmas, Maspalomas, Playa del Inglés, etc.) donde tenga sentido
+- Mencionar localidades de Gran Canaria (Las Palmas, Maspalomas, Playa del Inglés, Telde, Mogán, Arucas, etc.) donde tenga sentido
 - Usar encabezados H2 y H3 con Markdown
-- Terminar con una llamada a la acción para contactar con AI Design Canarias (aidesigncanarias.com)
+- Incluir 2-3 enlaces internos relevantes usando Markdown: [texto del enlace](URL). Usa estas URLs reales:
+  * Diseño web: /servicios/diseno-web-gran-canaria
+  * SEO: /servicios/seo-posicionamiento-canarias
+  * Chatbot IA: /servicios/integracion-ia
+  * Tiendas online: /servicios/tiendas-online
+  * Redes sociales: /servicios/gestion-redes-sociales
+  * Las Palmas: /zonas/las-palmas-de-gran-canaria
+  * Maspalomas: /zonas/maspalomas
+  * Telde: /zonas/telde
+  * Santa Lucía: /zonas/santa-lucia-de-tirajana
+  * Mogán: /zonas/mogan
+  * Arucas: /zonas/arucas
+- Terminar con una llamada a la acción para contactar con AI Design Canarias
 - Estar escrito en español de España, tono profesional pero cercano
 
 Responde SOLO con JSON válido con este formato exacto:
@@ -72,7 +94,7 @@ Responde SOLO con JSON válido con este formato exacto:
   "title": "título del artículo (máx 60 caracteres, incluye keyword principal)",
   "description": "meta description (máx 155 caracteres, incluye keyword)",
   "keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"],
-  "content": "contenido completo en Markdown"
+  "content": "contenido completo en Markdown con los enlaces internos incluidos"
 }`;
 
   const message = await client.messages.create({

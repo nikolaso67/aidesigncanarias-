@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 
 export const revalidate = 3600;
 
+const BASE = "https://aidesigncanarias.com";
+
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
@@ -17,10 +19,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) return {};
+  const url = `${BASE}/blog/${slug}`;
   return {
     title: post.title,
     description: post.description,
     keywords: post.keywords,
+    alternates: { canonical: url },
+    openGraph: { type: "article", url, title: post.title, description: post.description, publishedTime: post.publishedAt },
   };
 }
 
@@ -30,6 +35,7 @@ function renderMarkdown(content: string): string {
     .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">$1</h2>')
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-indigo-600 hover:underline">$1</a>')
     .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc text-slate-600">$1</li>')
     .replace(/(<li.*<\/li>\n?)+/g, '<ul class="my-4 space-y-1">$&</ul>')
     .replace(/\n\n/g, '</p><p class="text-slate-600 leading-relaxed my-4">')
@@ -46,8 +52,38 @@ export default async function BlogPostPage({
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
+  const url = `${BASE}/blog/${slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    url,
+    inLanguage: "es-ES",
+    keywords: post.keywords?.join(", "),
+    author: {
+      "@type": "Organization",
+      name: "AI Design Canarias",
+      url: BASE,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "AI Design Canarias",
+      url: BASE,
+      logo: { "@type": "ImageObject", url: `${BASE}/opengraph-image` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  };
+
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="max-w-3xl mx-auto px-4 py-20">
         <a href="/blog" className="text-indigo-600 hover:underline text-sm mb-8 inline-block">
           ← Volver al blog
