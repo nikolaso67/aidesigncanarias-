@@ -12,7 +12,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
 
-  useGSAP(() => {
+  const { contextSafe } = useGSAP(() => {
     gsap.set(".services-header", { y: 50, autoAlpha: 0 });
     gsap.set(".service-card", { y: 60, autoAlpha: 0 });
 
@@ -33,6 +33,28 @@ export default function Services() {
       scrollTrigger: { trigger: ".services-grid", start: "top 85%", once: true },
     });
   }, { scope: sectionRef });
+
+  const onEnter = contextSafe((e: React.MouseEvent<HTMLAnchorElement>) => {
+    gsap.to(e.currentTarget, {
+      y: -8,
+      scale: 1.03,
+      boxShadow: "0 20px 40px -8px rgba(99,102,241,0.18)",
+      duration: 0.3,
+      ease: "power2.out",
+      overwrite: true,
+    });
+  });
+
+  const onLeave = contextSafe((e: React.MouseEvent<HTMLAnchorElement>) => {
+    gsap.to(e.currentTarget, {
+      y: 0,
+      scale: 1,
+      boxShadow: "0 1px 3px 0 rgba(0,0,0,0.05)",
+      duration: 0.4,
+      ease: "power2.inOut",
+      overwrite: true,
+    });
+  });
 
   return (
     <section ref={sectionRef} id="servicios" className="py-24 px-6 bg-slate-50">
@@ -55,7 +77,9 @@ export default function Services() {
             <Link
               key={s.slug}
               href={`/servicios/${s.slug}`}
-              className="service-card p-6 rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
+              className="service-card p-6 rounded-2xl border border-slate-100 bg-white shadow-sm group"
+              onMouseEnter={onEnter}
+              onMouseLeave={onLeave}
             >
               <span className="text-3xl mb-4 block">{s.icon}</span>
               <h3 className="font-semibold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
