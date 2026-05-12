@@ -9,14 +9,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const stats = [
-  { value: "30+", label: "Proyectos entregados" },
-  { value: "100%", label: "Clientes satisfechos" },
-  { value: "7–14", label: "Días de entrega" },
-  { value: "24/7", label: "Soporte con IA" },
+  { value: "30+", label: "Proyectos entregados", countTo: 30, suffix: "+" },
+  { value: "100%", label: "Clientes satisfechos", countTo: 100, suffix: "%" },
+  { value: "7–14", label: "Días de entrega", countTo: null, suffix: "" },
+  { value: "24/7", label: "Soporte con IA", countTo: null, suffix: "" },
 ];
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
+  const counterRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useGSAP(() => {
     // Set initial states
@@ -60,6 +61,29 @@ export default function About() {
       ease: "back.out(1.7)",
       stagger: 0.1,
       scrollTrigger: { trigger: ".stats-grid", start: "top 88%", once: true },
+    });
+
+    // Counter animations
+    stats.forEach((s, i) => {
+      if (s.countTo === null) return;
+      const el = counterRefs.current[i];
+      if (!el) return;
+      const obj = { val: 0 };
+      ScrollTrigger.create({
+        trigger: ".stats-grid",
+        start: "top 88%",
+        once: true,
+        onEnter: () => {
+          gsap.to(obj, {
+            val: s.countTo,
+            duration: 1.6,
+            ease: "power2.out",
+            onUpdate: () => {
+              el.textContent = Math.round(obj.val) + s.suffix;
+            },
+          });
+        },
+      });
     });
   }, { scope: sectionRef });
 
@@ -118,13 +142,17 @@ export default function About() {
           </a>
 
           <div className="stats-grid grid grid-cols-2 gap-4 mt-10">
-            {stats.map((s) => (
+            {stats.map((s, i) => (
               <div
                 key={s.label}
                 className="stat-card p-5 rounded-2xl border border-slate-100 bg-slate-50 shadow-sm text-center"
               >
                 <div className="text-3xl font-bold text-indigo-600 mb-1">
-                  {s.value}
+                  {s.countTo !== null ? (
+                    <span ref={(el) => { counterRefs.current[i] = el; }}>0{s.suffix}</span>
+                  ) : (
+                    s.value
+                  )}
                 </div>
                 <div className="text-xs text-slate-500">{s.label}</div>
               </div>

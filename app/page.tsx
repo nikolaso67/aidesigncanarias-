@@ -1,3 +1,4 @@
+import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -14,6 +15,7 @@ import { faqStructuredData } from "./data/faq-data";
 export default function Home() {
   return (
     <>
+      <Preloader />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
