@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { scrambleText } from "../utils/scramble";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -44,6 +45,7 @@ const projects = [
 
 export default function Portfolio() {
   const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(() => {
     gsap.set(".portfolio-header", { y: 50, autoAlpha: 0 });
@@ -54,7 +56,14 @@ export default function Portfolio() {
       autoAlpha: 1,
       duration: 0.8,
       ease: "power3.out",
-      scrollTrigger: { trigger: ".portfolio-header", start: "top 85%", once: true },
+      scrollTrigger: {
+        trigger: ".portfolio-header",
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          if (headingRef.current) scrambleText(headingRef.current, "Portfolio");
+        },
+      },
     });
 
     gsap.to(".portfolio-card", {
@@ -75,7 +84,7 @@ export default function Portfolio() {
           <span className="text-xs font-medium tracking-widest uppercase text-indigo-500">
             Trabajos recientes
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4">
+          <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mt-4 mb-4">
             Portfolio
           </h2>
           <p className="text-slate-600 max-w-xl mx-auto">

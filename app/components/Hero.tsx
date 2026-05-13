@@ -4,14 +4,18 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { scrambleText } from "../utils/scramble";
 
 gsap.registerPlugin(useGSAP);
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
+  const line1Ref = useRef<HTMLDivElement>(null);
+  const line2Ref = useRef<HTMLDivElement>(null);
+  const line3Ref = useRef<HTMLDivElement>(null);
+  const line4Ref = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    gsap.set(".hero-line", { y: "110%", autoAlpha: 0 });
     gsap.set(".hero-badge", { y: -20, autoAlpha: 0 });
     gsap.set(".hero-subtitle", { y: 30, autoAlpha: 0 });
     gsap.set(".hero-buttons", { y: 20, autoAlpha: 0 });
@@ -19,11 +23,24 @@ export default function Hero() {
     gsap.set(".hero-image", { x: 60, autoAlpha: 0 });
     gsap.set(".hero-float-badge", { y: 20, autoAlpha: 0, scale: 0.85 });
 
+    // Each line starts scattered at a random position
+    gsap.set(".hero-line", {
+      x: () => (Math.random() - 0.5) * 520,
+      y: () => (Math.random() - 0.5) * 340,
+      rotation: () => (Math.random() - 0.5) * 18,
+      autoAlpha: 0,
+    });
+
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     tl.to(".hero-badge", { y: 0, autoAlpha: 1, duration: 0.5 })
-      .to(".hero-line", { y: "0%", autoAlpha: 1, duration: 0.75, stagger: 0.1 }, "-=0.2")
-      .to(".hero-subtitle", { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.45")
+      .to(".hero-line", {
+        x: 0, y: 0, rotation: 0, autoAlpha: 1,
+        duration: 1.0,
+        stagger: 0.12,
+        ease: "power3.out",
+      }, "-=0.2")
+      .to(".hero-subtitle", { y: 0, autoAlpha: 1, duration: 0.6 }, "-=0.5")
       .to(".hero-buttons", { y: 0, autoAlpha: 1, duration: 0.5 }, "-=0.35")
       .to(".hero-trust", { autoAlpha: 1, x: 0, duration: 0.4, stagger: 0.12 }, "-=0.25")
       .to(".hero-image", { x: 0, autoAlpha: 1, duration: 0.9, ease: "power2.out" }, 0.3)
@@ -31,7 +48,22 @@ export default function Hero() {
 
     gsap.to(".hero-blob-1", { y: -25, x: 12, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut" });
     gsap.to(".hero-blob-2", { y: 18, x: -10, duration: 7.5, repeat: -1, yoyo: true, ease: "sine.inOut" });
-    gsap.to(".hero-image", { y: -10, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1.8 });
+
+    // Scramble starts simultaneously with each line's flight
+    const lineData: [React.RefObject<HTMLDivElement | null>, string, number, boolean][] = [
+      [line1Ref, "Diseño web profesional", 0.3, false],
+      [line2Ref, "en Gran Canaria", 0.42, true],
+      [line3Ref, "— con IA que atiende", 0.54, false],
+      [line4Ref, "mientras duermes", 0.66, false],
+    ];
+    lineData.forEach(([ref, text, delay, useSpan]) => {
+      gsap.delayedCall(delay, () => {
+        const el = useSpan
+          ? (ref.current?.querySelector("span") as HTMLElement | null)
+          : ref.current;
+        if (el) scrambleText(el, text, 1.5);
+      });
+    });
   }, { scope: containerRef });
 
   return (
@@ -47,22 +79,14 @@ export default function Hero() {
           </span>
 
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-            <div className="overflow-hidden">
-              <div className="hero-line">Diseño web profesional</div>
+            <div ref={line1Ref} className="hero-line">Diseño web profesional</div>
+            <div ref={line2Ref} className="hero-line">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-sky-500">
+                en Gran Canaria
+              </span>
             </div>
-            <div className="overflow-hidden">
-              <div className="hero-line">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-sky-500">
-                  en Gran Canaria
-                </span>
-              </div>
-            </div>
-            <div className="overflow-hidden">
-              <div className="hero-line">— con IA que atiende</div>
-            </div>
-            <div className="overflow-hidden">
-              <div className="hero-line">mientras duermes</div>
-            </div>
+            <div ref={line3Ref} className="hero-line">— con IA que atiende</div>
+            <div ref={line4Ref} className="hero-line">mientras duermes</div>
           </h1>
 
           <p className="hero-subtitle text-xl text-slate-600 mb-10 leading-relaxed">

@@ -6,11 +6,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { services } from "../servicios/data";
+import { scrambleText } from "../utils/scramble";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   const { contextSafe } = useGSAP(() => {
     gsap.set(".services-header", { y: 50, autoAlpha: 0 });
@@ -21,7 +23,14 @@ export default function Services() {
       autoAlpha: 1,
       duration: 0.8,
       ease: "power3.out",
-      scrollTrigger: { trigger: ".services-header", start: "top 85%", once: true },
+      scrollTrigger: {
+        trigger: ".services-header",
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          if (headingRef.current) scrambleText(headingRef.current, "Servicios");
+        },
+      },
     });
 
     gsap.to(".service-card", {
@@ -63,7 +72,7 @@ export default function Services() {
           <span className="text-xs font-medium tracking-widest uppercase text-indigo-500">
             Lo que hacemos
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4">
+          <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mt-4 mb-4">
             Servicios
           </h2>
           <p className="text-slate-600 max-w-xl mx-auto">
