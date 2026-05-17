@@ -48,33 +48,41 @@ export default function Portfolio() {
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(() => {
-    gsap.set(".portfolio-header", { y: 50, autoAlpha: 0 });
-    gsap.set(".portfolio-card", { y: 80, autoAlpha: 0, scale: 0.96 });
+    const inView = (selector: string) => {
+      const el = sectionRef.current?.querySelector(selector);
+      return el ? el.getBoundingClientRect().top < window.innerHeight * 0.9 : false;
+    };
 
-    gsap.to(".portfolio-header", {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.8,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".portfolio-header",
-        start: "top 85%",
-        once: true,
-        onEnter: () => {
-          if (headingRef.current) scrambleText(headingRef.current, "Portfolio");
+    if (!inView(".portfolio-header")) {
+      gsap.set(".portfolio-header", { y: 50, autoAlpha: 0 });
+      gsap.to(".portfolio-header", {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".portfolio-header",
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            if (headingRef.current) scrambleText(headingRef.current, "Portfolio");
+          },
         },
-      },
-    });
+      });
+    }
 
-    gsap.to(".portfolio-card", {
-      y: 0,
-      autoAlpha: 1,
-      scale: 1,
-      duration: 0.75,
-      ease: "power2.out",
-      stagger: 0.15,
-      scrollTrigger: { trigger: ".portfolio-grid", start: "top 85%", once: true },
-    });
+    if (!inView(".portfolio-grid")) {
+      gsap.set(".portfolio-card", { y: 80, autoAlpha: 0, scale: 0.96 });
+      gsap.to(".portfolio-card", {
+        y: 0,
+        autoAlpha: 1,
+        scale: 1,
+        duration: 0.75,
+        ease: "power2.out",
+        stagger: 0.15,
+        scrollTrigger: { trigger: ".portfolio-grid", start: "top 85%", once: true },
+      });
+    }
   }, { scope: sectionRef });
 
   return (

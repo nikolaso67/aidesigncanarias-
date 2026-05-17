@@ -15,32 +15,40 @@ export default function Services() {
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const { contextSafe } = useGSAP(() => {
-    gsap.set(".services-header", { y: 50, autoAlpha: 0 });
-    gsap.set(".service-card", { y: 60, autoAlpha: 0 });
+    const inView = (selector: string) => {
+      const el = sectionRef.current?.querySelector(selector);
+      return el ? el.getBoundingClientRect().top < window.innerHeight * 0.9 : false;
+    };
 
-    gsap.to(".services-header", {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.8,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".services-header",
-        start: "top 85%",
-        once: true,
-        onEnter: () => {
-          if (headingRef.current) scrambleText(headingRef.current, "Servicios");
+    if (!inView(".services-header")) {
+      gsap.set(".services-header", { y: 50, autoAlpha: 0 });
+      gsap.to(".services-header", {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".services-header",
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            if (headingRef.current) scrambleText(headingRef.current, "Servicios");
+          },
         },
-      },
-    });
+      });
+    }
 
-    gsap.to(".service-card", {
-      y: 0,
-      autoAlpha: 1,
-      duration: 0.7,
-      ease: "power2.out",
-      stagger: 0.08,
-      scrollTrigger: { trigger: ".services-grid", start: "top 85%", once: true },
-    });
+    if (!inView(".services-grid")) {
+      gsap.set(".service-card", { y: 60, autoAlpha: 0 });
+      gsap.to(".service-card", {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.7,
+        ease: "power2.out",
+        stagger: 0.08,
+        scrollTrigger: { trigger: ".services-grid", start: "top 85%", once: true },
+      });
+    }
   }, { scope: sectionRef });
 
   const onEnter = contextSafe((e: React.MouseEvent<HTMLAnchorElement>) => {
