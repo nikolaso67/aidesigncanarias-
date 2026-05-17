@@ -195,6 +195,32 @@ export const services: Service[] = [
     description: "Actualizaciones, copias de seguridad, seguridad y soporte continuo. Tu web siempre en perfecto estado.",
   },
   {
+    slug: "software-a-medida",
+    icon: "⚙️",
+    title: "Software a medida",
+    h1: "Software a medida para negocios en Gran Canaria",
+    metaTitle: "Software a medida para negocios en Gran Canaria | AI Design Canarias",
+    metaDescription:
+      "Desarrollamos software a medida para negocios en Gran Canaria. Gestión de facturas, reservas, pedidos, inventario y más. Sin pagar licencias eternas. Presupuesto gratis.",
+    intro:
+      "Desarrollamos herramientas digitales hechas exactamente para tu negocio: sistemas de facturación, gestión de reservas, control de pedidos, inventario, paneles de administración y cualquier proceso que ahora haces a mano o con hojas de Excel. Software propio, sin licencias mensuales de por vida.",
+    features: [
+      { title: "Gestión de facturas", description: "Crea, envía y registra facturas en segundos. Olvídate del papeleo y los errores manuales." },
+      { title: "Sistemas de reservas", description: "Tus clientes reservan online y tú gestionas todo desde un panel claro y sencillo." },
+      { title: "Control de pedidos", description: "Seguimiento en tiempo real de cada pedido, desde que entra hasta que sale." },
+      { title: "Gestión de inventario", description: "Stock actualizado automáticamente. Alertas cuando un producto se agota." },
+      { title: "Panel de administración", description: "Controla tu negocio desde cualquier dispositivo, en cualquier momento." },
+      { title: "Integraciones a medida", description: "Conectamos tu software con WhatsApp, email, TPV, contabilidad u otras herramientas que ya usas." },
+    ],
+    benefits: [
+      "Ahorra horas cada semana en tareas administrativas",
+      "Sin errores humanos en facturación o stock",
+      "Software que crece con tu negocio",
+      "Sin pagar licencias mensuales a terceros",
+    ],
+    description: "Herramientas digitales hechas para tu negocio: facturación, reservas, pedidos, inventario y más. Sin licencias eternas.",
+  },
+  {
     slug: "consultoria-digital",
     icon: "💡",
     title: "Consultoría digital",

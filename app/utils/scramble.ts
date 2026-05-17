@@ -19,10 +19,9 @@ export function scrambleText(el: HTMLElement, finalText: string, duration = 1.4)
     duration,
     ease: "power2.out",
     onUpdate() {
-      const revealed = Math.floor(obj.progress * len);
       let result = "";
       for (let i = 0; i < len; i++) {
-        if (i < revealed || finalText[i] === " " || finalText[i] === "—") {
+        if (finalText[i] === " " || finalText[i] === "—") {
           result += finalText[i];
         } else {
           result += randChar(finalText[i]);
