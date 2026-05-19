@@ -80,8 +80,8 @@ export default function Hero() {
     <section ref={containerRef} className="relative min-h-screen flex items-center overflow-hidden pt-16">
       <div className="absolute inset-0 bg-gradient-to-br from-white via-indigo-50 to-sky-100" />
       <ParticleCanvas />
-      <div className="hero-blob-1 absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-indigo-400/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="hero-blob-2 absolute bottom-0 right-0 w-[400px] h-[400px] bg-sky-300/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="hero-blob-1 absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-indigo-400/20 rounded-full blur-3xl pointer-events-none" style={{ willChange: "transform" }} />
+      <div className="hero-blob-2 absolute bottom-0 right-0 w-[400px] h-[400px] bg-sky-300/20 rounded-full blur-3xl pointer-events-none" style={{ willChange: "transform" }} />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
         <div>
@@ -138,7 +138,7 @@ export default function Hero() {
         </div>
 
         <div className="hero-image relative hidden lg:block">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-200/60 aspect-[4/3]">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-200/60 aspect-[4/3]" style={{ willChange: "transform", transform: "translateZ(0)" }}>
             <Image
               src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=900&q=80"
               alt="Diseño web profesional para negocios en Las Palmas de Gran Canaria"
