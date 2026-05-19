@@ -80,8 +80,8 @@ export default function Hero() {
     <section ref={containerRef} className="relative min-h-screen flex items-center overflow-hidden pt-16">
       <div className="absolute inset-0 bg-gradient-to-br from-white via-indigo-50 to-sky-100" />
       <ParticleCanvas />
-      <div className="hero-blob-1 absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-indigo-400/20 rounded-full blur-3xl pointer-events-none" style={{ willChange: "transform" }} />
-      <div className="hero-blob-2 absolute bottom-0 right-0 w-[400px] h-[400px] bg-sky-300/20 rounded-full blur-3xl pointer-events-none" style={{ willChange: "transform" }} />
+      <div className="hero-blob-1 absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-indigo-400/15 rounded-full blur-2xl pointer-events-none" style={{ willChange: "transform" }} />
+      <div className="hero-blob-2 absolute bottom-0 right-0 w-[400px] h-[400px] bg-sky-300/15 rounded-full blur-2xl pointer-events-none" style={{ willChange: "transform" }} />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
         <div>
