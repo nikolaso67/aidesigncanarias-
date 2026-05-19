@@ -3,10 +3,26 @@
 import { useState } from "react";
 import ParticleCanvas from "./ParticleCanvas";
 
+const SERVICIOS = [
+  "Diseño web",
+  "Tienda online",
+  "SEO local",
+  "Chatbot IA",
+  "Redes sociales",
+  "Software a medida",
+];
+
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [servicios, setServicios] = useState<string[]>([]);
+
+  function toggleServicio(s: string) {
+    setServicios((prev) =>
+      prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
+    );
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -19,6 +35,7 @@ export default function Contact() {
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       telefono: (form.elements.namedItem("telefono") as HTMLInputElement).value,
       mensaje: (form.elements.namedItem("mensaje") as HTMLTextAreaElement).value,
+      servicios: servicios.length > 0 ? servicios.join(", ") : "No especificado",
     };
 
     try {
@@ -68,6 +85,28 @@ export default function Contact() {
             onSubmit={handleSubmit}
             className="flex flex-col gap-5 p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-xl"
           >
+            <div>
+              <label className="text-sm text-indigo-200 mb-3 block">
+                ¿Qué necesitas? <span className="text-indigo-400">(selecciona uno o varios)</span>
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {SERVICIOS.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => toggleServicio(s)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all border ${
+                      servicios.includes(s)
+                        ? "bg-indigo-500 border-indigo-400 text-white shadow-md shadow-indigo-500/30"
+                        : "bg-white/5 border-white/10 text-indigo-200 hover:border-indigo-400 hover:text-white"
+                    }`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label className="text-sm text-indigo-200 mb-2 block">
@@ -109,13 +148,13 @@ export default function Contact() {
 
             <div>
               <label className="text-sm text-indigo-200 mb-2 block">
-                ¿Qué necesitas?
+                Cuéntanos más
               </label>
               <textarea
                 name="mensaje"
                 required
-                rows={5}
-                placeholder="Cuéntame tu negocio y lo que necesitas — web nueva, tienda online, chatbot..."
+                rows={4}
+                placeholder="Cuéntanos tu negocio, dónde estás y qué quieres conseguir..."
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder-indigo-300/50 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30 transition-colors resize-none"
               />
             </div>

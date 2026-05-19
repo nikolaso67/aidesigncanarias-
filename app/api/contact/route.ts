@@ -49,6 +49,7 @@ export async function POST(request: Request) {
   const email = sanitize(b.email, 200);
   const telefono = sanitize(b.telefono, 20);
   const mensaje = sanitize(b.mensaje, MAX_FIELD_LENGTH);
+  const servicios = sanitize(b.servicios, 200);
 
   if (!nombre || !email || !mensaje) {
     return Response.json({ error: "Faltan campos obligatorios." }, { status: 400 });
@@ -67,6 +68,7 @@ export async function POST(request: Request) {
       <p><strong>Nombre:</strong> ${escapeHtml(nombre)}</p>
       <p><strong>Email:</strong> ${escapeHtml(email)}</p>
       <p><strong>Teléfono:</strong> ${escapeHtml(telefono || "No proporcionado")}</p>
+      <p><strong>Servicios de interés:</strong> ${escapeHtml(servicios || "No especificado")}</p>
       <p><strong>Mensaje:</strong></p>
       <p>${escapeHtml(mensaje)}</p>
     `,
