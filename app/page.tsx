@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Chat from "./components/Chat";
 import WhatsAppButton from "./components/WhatsAppButton";
+import Results from "./components/Results";
 import FAQ from "./components/FAQ";
 import Zonas from "./components/Zonas";
 import { faqStructuredData } from "./data/faq-data";
@@ -26,6 +27,7 @@ export default function Home() {
         <Services />
         <About />
         <Portfolio />
+        <Results />
         <FAQ />
         <Zonas />
         <Contact />
