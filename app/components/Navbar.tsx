@@ -22,8 +22,8 @@ export default function Navbar() {
           <Image
             src="/logo.svg"
             alt="AI Design Canarias"
-            width={148}
-            height={32}
+            width={230}
+            height={50}
             priority
           />
         </a>
