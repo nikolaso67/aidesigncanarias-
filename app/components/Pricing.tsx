@@ -96,13 +96,13 @@ export default function Pricing() {
       <div className="max-w-6xl mx-auto">
         <div className="pricing-header text-center mb-16">
           <span className="text-xs font-medium tracking-widest uppercase text-indigo-500">
-            Precios
+            Precios · Desarrollo web
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4 text-slate-900">
             Transparentes y sin sorpresas
           </h2>
           <p className="text-slate-500 max-w-xl mx-auto">
-            Pago único para lanzar tu web. Mantenimiento mensual opcional, sin permanencia, cancela cuando quieras.
+            Pago único para lanzar tu web profesional. Mantenimiento mensual opcional, sin permanencia, cancela cuando quieras. Para otros servicios como SEO, chatbot IA o tiendas online, <a href="#contacto" className="text-indigo-500 hover:underline">solicita presupuesto</a>.
           </p>
         </div>
 
