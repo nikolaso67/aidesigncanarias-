@@ -14,12 +14,16 @@ export function scrambleText(el: HTMLElement, finalText: string, duration = 1.4)
   const len = finalText.length;
   const obj = { progress: 0 };
 
-  // Lock height before scrambling to prevent layout shifts while random chars
-  // wrap differently than the final text, which would shift sibling elements
-  const lockedHeight = el.getBoundingClientRect().height;
-  el.style.minHeight = `${lockedHeight}px`;
-  el.style.maxHeight = `${lockedHeight}px`;
-  el.style.overflow = "hidden";
+  // For inline elements (e.g. gradient span) lock the parent block instead,
+  // since min/max-height has no effect on inline elements.
+  // Use offsetHeight (layout height) not getBoundingClientRect (visual/rotated height),
+  // because GSAP may be mid-flight with rotation when scramble starts.
+  const isInline = getComputedStyle(el).display === "inline";
+  const lockTarget = (isInline ? el.parentElement : el) as HTMLElement;
+  const lockedHeight = lockTarget.offsetHeight;
+  lockTarget.style.minHeight = `${lockedHeight}px`;
+  lockTarget.style.maxHeight = `${lockedHeight}px`;
+  lockTarget.style.overflow = "hidden";
 
   gsap.to(obj, {
     progress: 1,
@@ -38,9 +42,9 @@ export function scrambleText(el: HTMLElement, finalText: string, duration = 1.4)
     },
     onComplete() {
       el.textContent = finalText;
-      el.style.minHeight = "";
-      el.style.maxHeight = "";
-      el.style.overflow = "";
+      lockTarget.style.minHeight = "";
+      lockTarget.style.maxHeight = "";
+      lockTarget.style.overflow = "";
     },
   });
 }
