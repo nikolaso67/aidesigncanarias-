@@ -131,6 +131,7 @@ export default function Hero() {
               src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=900&q=80"
               alt="Diseño web profesional para negocios en Las Palmas de Gran Canaria"
               fill
+              sizes="(max-width: 1023px) 0vw, 50vw"
               className="object-cover"
               priority
             />
