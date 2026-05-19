@@ -4,11 +4,10 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { scrambleText } from "../utils/scramble";
 import ParticleCanvas from "./ParticleCanvas";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -47,17 +46,6 @@ export default function Hero() {
       .to(".hero-trust", { autoAlpha: 1, x: 0, duration: 0.4, stagger: 0.12 }, "-=0.25")
       .to(".hero-image", { x: 0, autoAlpha: 1, duration: 0.9, ease: "power2.out" }, 0.3)
       .to(".hero-float-badge", { y: 0, autoAlpha: 1, scale: 1, duration: 0.55, ease: "back.out(1.7)" }, "-=0.25");
-
-    const blob1 = gsap.to(".hero-blob-1", { y: -25, x: 12, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut" });
-    const blob2 = gsap.to(".hero-blob-2", { y: 18, x: -10, duration: 7.5, repeat: -1, yoyo: true, ease: "sine.inOut" });
-
-    ScrollTrigger.create({
-      trigger: containerRef.current,
-      start: "top bottom",
-      end: "bottom top",
-      onLeave: () => { blob1.pause(); blob2.pause(); },
-      onEnterBack: () => { blob1.resume(); blob2.resume(); },
-    });
 
     // Scramble starts simultaneously with each line's flight
     const lineData: [React.RefObject<HTMLDivElement | null>, string, number, boolean][] = [
