@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Chat from "./components/Chat";
 import WhatsAppButton from "./components/WhatsAppButton";
 import Results from "./components/Results";
+import Pricing from "./components/Pricing";
 import FAQ from "./components/FAQ";
 import Zonas from "./components/Zonas";
 import { faqStructuredData } from "./data/faq-data";
@@ -28,6 +29,7 @@ export default function Home() {
         <About />
         <Portfolio />
         <Results />
+        <Pricing />
         <FAQ />
         <Zonas />
         <Contact />
