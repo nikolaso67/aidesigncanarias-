@@ -14,6 +14,13 @@ export function scrambleText(el: HTMLElement, finalText: string, duration = 1.4)
   const len = finalText.length;
   const obj = { progress: 0 };
 
+  // Lock height before scrambling to prevent layout shifts while random chars
+  // wrap differently than the final text, which would shift sibling elements
+  const lockedHeight = el.getBoundingClientRect().height;
+  el.style.minHeight = `${lockedHeight}px`;
+  el.style.maxHeight = `${lockedHeight}px`;
+  el.style.overflow = "hidden";
+
   gsap.to(obj, {
     progress: 1,
     duration,
@@ -31,6 +38,9 @@ export function scrambleText(el: HTMLElement, finalText: string, duration = 1.4)
     },
     onComplete() {
       el.textContent = finalText;
+      el.style.minHeight = "";
+      el.style.maxHeight = "";
+      el.style.overflow = "";
     },
   });
 }
