@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const links = [
   { label: "Servicios", href: "#servicios" },
@@ -17,8 +18,14 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="font-semibold text-lg tracking-tight">
-          AI Design <span className="text-indigo-600">Canarias</span>
+        <a href="#" className="flex items-center">
+          <Image
+            src="/logo.svg"
+            alt="AI Design Canarias"
+            width={148}
+            height={32}
+            priority
+          />
         </a>
 
         {/* Desktop nav */}
