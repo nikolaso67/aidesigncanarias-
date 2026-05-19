@@ -97,7 +97,7 @@ export default function Hero() {
           <div className="hero-buttons flex flex-col sm:flex-row gap-4">
             <a
               href="#contacto"
-              className="px-8 py-4 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-colors font-semibold text-white shadow-lg shadow-indigo-500/25 text-center"
+              className="px-8 py-4 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-colors font-bold text-white tracking-wide shadow-lg shadow-indigo-500/25 text-center"
             >
               Solicitar presupuesto gratis
             </a>

@@ -33,7 +33,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contacto"
-            className="text-sm px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-colors font-medium"
+            className="text-sm px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-colors font-bold text-white tracking-wide"
           >
             Solicitar presupuesto
           </a>
