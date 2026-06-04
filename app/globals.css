@@ -24,3 +24,26 @@ h1 {
 h2 {
   letter-spacing: -0.02em;
 }
+
+@layer base {
+  /* Cursor custom: solo se activa cuando el CustomCursor monta */
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+
+  @keyframes marquee-x {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+}
+
+@layer utilities {
+  .marquee-track {
+    animation: marquee-x 30s linear infinite;
+    will-change: transform;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+}

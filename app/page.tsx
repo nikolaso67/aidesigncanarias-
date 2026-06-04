@@ -1,17 +1,18 @@
-import Preloader from "./components/Preloader";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import About from "./components/About";
-import Portfolio from "./components/Portfolio";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Preloader from "./components/PreloaderV2";
+import Navbar from "./components/NavbarV2";
+import Hero from "./components/HeroV2";
+import Marquee from "./components/Marquee";
+import Services from "./components/ServicesV2";
+import About from "./components/AboutV2";
+import Portfolio from "./components/PortfolioV2";
+import Contact from "./components/ContactV2";
+import Footer from "./components/FooterV2";
 import Chat from "./components/Chat";
 import WhatsAppButton from "./components/WhatsAppButton";
-import Results from "./components/Results";
-import Pricing from "./components/Pricing";
-import FAQ from "./components/FAQ";
-import Zonas from "./components/Zonas";
+import Results from "./components/ResultsV2";
+import Pricing from "./components/PricingV2";
+import FAQ from "./components/FAQV2";
+import Zonas from "./components/ZonasV2";
 import { faqStructuredData } from "./data/faq-data";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Marquee />
         <Services />
         <About />
         <Portfolio />

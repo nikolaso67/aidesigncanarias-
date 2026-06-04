@@ -1,5 +1,5 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../components/NavbarV2";
+import Footer from "../components/FooterV2";
 import Chat from "../components/Chat";
 import WhatsAppButton from "../components/WhatsAppButton";
 

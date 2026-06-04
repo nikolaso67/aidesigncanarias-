@@ -8,6 +8,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
+      data-cursor
       className="fixed bottom-24 right-6 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-400 transition-colors text-white rounded-full shadow-lg shadow-green-500/30 px-4 py-3 text-sm font-semibold"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 shrink-0">
