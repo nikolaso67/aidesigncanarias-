@@ -23,6 +23,9 @@ export default function NavbarV2() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Sobre el hero (tinta) el navbar va claro-sobre-oscuro; con scroll pasa a cristal blanco
+  const dark = !scrolled;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
@@ -39,16 +42,25 @@ export default function NavbarV2() {
             width={200}
             height={44}
             priority
+            className={`transition-all duration-300 ${dark ? "brightness-0 invert" : ""}`}
           />
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1 bg-white/60 backdrop-blur border border-slate-200/70 rounded-full px-2 py-1.5">
+        <nav
+          className={`hidden lg:flex items-center gap-1 backdrop-blur border rounded-full px-2 py-1.5 transition-colors duration-300 ${
+            dark ? "bg-white/5 border-white/15" : "bg-white/60 border-slate-200/70"
+          }`}
+        >
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-white px-4 py-2 rounded-full transition-all"
+              className={`text-sm font-medium px-4 py-2 rounded-full transition-all ${
+                dark
+                  ? "text-white/80 hover:text-white hover:bg-white/10"
+                  : "text-slate-700 hover:text-slate-900 hover:bg-white"
+              }`}
               data-cursor
             >
               {l.label}
@@ -59,7 +71,11 @@ export default function NavbarV2() {
         <div className="hidden lg:block">
           <a
             href="#contacto"
-            className="group inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors font-semibold"
+            className={`group inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-full transition-colors font-semibold ${
+              dark
+                ? "bg-white text-ink hover:bg-accent hover:text-white"
+                : "bg-ink text-white hover:bg-accent"
+            }`}
             data-cursor
           >
             Solicitar presupuesto
@@ -69,7 +85,7 @@ export default function NavbarV2() {
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden text-slate-900"
+          className={`lg:hidden transition-colors ${dark ? "text-white" : "text-slate-900"}`}
           onClick={() => setOpen(!open)}
           aria-label="Menú"
           aria-expanded={open}
@@ -100,7 +116,7 @@ export default function NavbarV2() {
           ))}
           <a
             href="#contacto"
-            className="mt-3 text-sm font-semibold py-3 px-5 rounded-full bg-slate-900 text-white text-center"
+            className="mt-3 text-sm font-semibold py-3 px-5 rounded-full bg-ink text-white text-center"
             onClick={() => setOpen(false)}
           >
             Solicitar presupuesto →

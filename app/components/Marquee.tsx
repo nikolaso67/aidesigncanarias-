@@ -1,16 +1,15 @@
 "use client";
 
 const ITEMS = [
-  "Webs entregadas",
   "La Taberna El Tablero",
   "Cabana by Efi",
   "Corona Roja",
-  "+30 proyectos",
+  "Diseño web",
   "Integración de IA",
   "SEO local",
   "E-commerce",
   "Branding",
-  "Apps web",
+  "Demo gratis antes de pagar",
 ];
 
 /** Marquee horizontal infinito, full-width. CSS-driven, sin JS por frame. */
@@ -21,16 +20,16 @@ export default function Marquee() {
   return (
     <div
       aria-hidden
-      className="relative w-full overflow-hidden border-y border-slate-200/70 bg-white/40 backdrop-blur-sm py-5"
+      className="relative w-full overflow-hidden border-y border-white/10 bg-ink py-6"
     >
       <div className="marquee-track flex w-max gap-12 whitespace-nowrap">
         {doubled.map((label, i) => (
           <span
             key={`${label}-${i}`}
-            className="flex items-center gap-12 text-slate-700/80 text-sm md:text-base font-medium tracking-wide"
+            className="flex items-center gap-12 text-white/50 font-display font-semibold uppercase tracking-widest text-sm md:text-base"
           >
             {label}
-            <span className="text-indigo-400" aria-hidden>
+            <span className="text-accent" aria-hidden>
               ◆
             </span>
           </span>

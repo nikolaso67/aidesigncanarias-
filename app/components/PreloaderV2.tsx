@@ -51,7 +51,7 @@ export default function PreloaderV2() {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[9999] bg-slate-950 flex items-end justify-between pointer-events-none p-8 md:p-12"
+      className="fixed inset-0 z-[9999] bg-ink flex items-end justify-between pointer-events-none p-8 md:p-12"
       style={{ clipPath: "inset(0% 0% 0% 0%)" }}
     >
       <div ref={labelRef} className="text-white">
@@ -64,7 +64,7 @@ export default function PreloaderV2() {
       </div>
       <div
         ref={counterRef}
-        className="font-extrabold text-white tracking-tighter text-7xl md:text-9xl leading-none tabular-nums"
+        className="font-display font-bold text-white tracking-tight text-7xl md:text-9xl leading-none tabular-nums"
       >
         00
       </div>

@@ -20,23 +20,21 @@ const servicios = [
 
 export default function FooterV2() {
   return (
-    <footer className="relative bg-slate-950 text-white overflow-hidden">
-      <div className="absolute top-0 left-1/3 w-[600px] h-[400px] bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+    <footer className="grain relative bg-ink text-white overflow-hidden border-t border-white/10">
+      <div className="absolute top-0 left-1/3 w-[600px] h-[400px] bg-accent/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 py-20">
         {/* Gigante claim */}
         <div className="mb-20">
-          <h3 className="font-extrabold tracking-tighter leading-[0.95] text-5xl md:text-7xl lg:text-8xl">
+          <h3 className="font-display font-bold tracking-tight leading-[0.95] text-5xl md:text-7xl lg:text-8xl">
             ¿Listo para{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-sky-400">
-              empezar
-            </span>
+            <span className="text-accent-bright">empezar</span>
             ?
           </h3>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#contacto"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-900 hover:bg-indigo-100 transition-colors font-semibold"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-ink hover:bg-accent hover:text-white transition-colors font-semibold"
               data-cursor
             >
               Solicitar presupuesto

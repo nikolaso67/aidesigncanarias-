@@ -5,16 +5,16 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionTitle from "./agency/SectionTitle";
 import Parallax from "./agency/Parallax";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+// Compromisos verificables — nada de cifras infladas
 const stats = [
-  { value: 30, suffix: "+", label: "Proyectos entregados" },
+  { value: 14, suffix: " días", label: "Entrega máxima" },
   { value: 100, suffix: "%", label: "Sin permanencia" },
-  { value: 14, suffix: " días", label: "Entrega media" },
   { value: 24, suffix: "/7", label: "IA atendiendo" },
+  { value: 24, suffix: "h", label: "Respuesta a presupuestos" },
 ];
 
 export default function AboutV2() {
@@ -98,10 +98,10 @@ export default function AboutV2() {
     <section
       ref={sectionRef}
       id="sobre-nosotros"
-      className="relative py-32 px-6 bg-slate-950 text-white overflow-hidden"
+      className="grain relative py-32 px-6 bg-ink text-white overflow-hidden"
     >
       {/* Mesh gradient con parallax */}
-      <Parallax speed={0.4} className="absolute top-0 left-1/4 w-[700px] h-[700px] bg-indigo-500/15 rounded-full blur-3xl pointer-events-none">
+      <Parallax speed={0.4} className="absolute top-0 left-1/4 w-[700px] h-[700px] bg-accent/15 rounded-full blur-3xl pointer-events-none">
         <span />
       </Parallax>
       <Parallax speed={-0.5} className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-3xl pointer-events-none">
@@ -111,15 +111,13 @@ export default function AboutV2() {
       <div className="relative max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
           <div className="av2-text-block lg:col-span-7 order-2 lg:order-1">
-            <span className="inline-flex items-center gap-2 text-xs font-medium tracking-widest uppercase text-indigo-300 mb-6 px-3 py-1 border border-indigo-400/30 bg-indigo-500/10 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+            <span className="inline-flex items-center gap-3 text-xs font-semibold tracking-[0.25em] uppercase text-accent-bright mb-6">
+              <span className="w-8 h-px bg-accent-bright" aria-hidden />
               02 — Nosotros
             </span>
-            <h2 className="font-extrabold tracking-tighter leading-[0.98] text-4xl md:text-5xl lg:text-6xl mb-8">
+            <h2 className="font-display font-bold tracking-tight leading-[1.02] text-4xl md:text-5xl lg:text-6xl mb-8">
               Diseñadores. Developers.{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-sky-400">
-                Expertos en IA.
-              </span>
+              <span className="text-accent-bright">Expertos en IA.</span>
             </h2>
             <p className="text-lg text-slate-300 leading-relaxed mb-5 max-w-2xl">
               Un equipo con base en Gran Canaria que combina diseño moderno con
@@ -134,7 +132,7 @@ export default function AboutV2() {
             </p>
             <a
               href="#contacto"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-900 hover:bg-indigo-100 transition-colors font-semibold"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-ink hover:bg-accent hover:text-white transition-colors font-semibold"
               data-cursor
             >
               Hablemos de tu proyecto
@@ -171,7 +169,7 @@ export default function AboutV2() {
         <div className="av2-stats grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-white/10">
           {stats.map((s, i) => (
             <div key={s.label} className="av2-stat">
-              <div className="text-5xl md:text-6xl font-extrabold tracking-tighter text-white mb-2">
+              <div className="font-display text-5xl md:text-6xl font-bold tracking-tight text-white mb-2">
                 <span ref={(el) => { counterRefs.current[i] = el; }}>0{s.suffix}</span>
               </div>
               <div className="text-sm text-slate-400 uppercase tracking-wider">{s.label}</div>

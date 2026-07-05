@@ -84,7 +84,7 @@ export default function PricingV2() {
     <section
       ref={sectionRef}
       id="precios"
-      className="relative py-32 px-6 bg-slate-50 overflow-hidden"
+      className="relative py-32 px-6 bg-paper overflow-hidden"
     >
       <div className="relative max-w-7xl mx-auto">
         <div className="mb-20">
@@ -93,9 +93,7 @@ export default function PricingV2() {
             title={
               <>
                 Transparentes.{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-violet-500 to-sky-500">
-                  Sin sorpresas.
-                </span>
+                <span className="text-accent">Sin sorpresas.</span>
               </>
             }
             description="Pago único para lanzar tu web. Mantenimiento mensual opcional, sin permanencia. Cancelas cuando quieras."
@@ -108,18 +106,18 @@ export default function PricingV2() {
               key={plan.name}
               className={`prv2-card relative rounded-3xl p-8 flex flex-col gap-6 ${
                 plan.highlighted
-                  ? "bg-slate-900 text-white shadow-2xl shadow-slate-900/20"
-                  : "bg-white border border-slate-200"
+                  ? "bg-ink text-white shadow-2xl shadow-ink/25"
+                  : "bg-white border border-ink/10"
               }`}
             >
               {plan.highlighted && (
-                <span className="absolute -top-3 left-8 bg-gradient-to-r from-indigo-500 to-sky-500 text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full">
+                <span className="absolute -top-3 left-8 bg-accent text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full">
                   Más popular
                 </span>
               )}
 
               <div>
-                <h3 className={`text-2xl font-bold mb-2 ${plan.highlighted ? "text-white" : "text-slate-900"}`}>
+                <h3 className={`font-display text-2xl font-bold mb-2 ${plan.highlighted ? "text-white" : "text-slate-900"}`}>
                   {plan.name}
                 </h3>
                 <p className={`text-sm ${plan.highlighted ? "text-slate-300" : "text-slate-500"}`}>
@@ -129,7 +127,7 @@ export default function PricingV2() {
 
               <div>
                 <div className="flex items-baseline gap-1">
-                  <span className={`text-5xl md:text-6xl font-extrabold tracking-tighter ${plan.highlighted ? "text-white" : "text-slate-900"}`}>
+                  <span className={`font-display text-5xl md:text-6xl font-bold tracking-tight ${plan.highlighted ? "text-white" : "text-slate-900"}`}>
                     {plan.price}
                   </span>
                   <span className={`text-2xl font-bold ${plan.highlighted ? "text-white" : "text-slate-900"}`}>€</span>
@@ -146,7 +144,7 @@ export default function PricingV2() {
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm">
                     <svg
-                      className={`w-4 h-4 mt-0.5 shrink-0 ${plan.highlighted ? "text-sky-400" : "text-indigo-500"}`}
+                      className={`w-4 h-4 mt-0.5 shrink-0 ${plan.highlighted ? "text-accent-bright" : "text-accent"}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -164,8 +162,8 @@ export default function PricingV2() {
                 href="#contacto"
                 className={`mt-auto text-center text-sm font-semibold py-3.5 px-6 rounded-full transition-colors ${
                   plan.highlighted
-                    ? "bg-white text-slate-900 hover:bg-slate-100"
-                    : "bg-slate-900 text-white hover:bg-slate-800"
+                    ? "bg-accent text-white hover:bg-accent-bright"
+                    : "bg-ink text-white hover:bg-accent"
                 }`}
                 data-cursor
               >
@@ -176,23 +174,23 @@ export default function PricingV2() {
         </div>
 
         {/* Complemento tienda online */}
-        <div className="prv2-card mt-8 bg-white border border-slate-200 rounded-3xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="prv2-card mt-8 bg-white border border-ink/10 rounded-3xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <span className="text-xs font-medium tracking-widest uppercase text-indigo-500 mb-2 block">
+            <span className="text-xs font-medium tracking-widest uppercase text-accent mb-2 block">
               Complemento
             </span>
-            <h3 className="text-2xl font-bold text-slate-900 mb-1">Tienda online</h3>
+            <h3 className="font-display text-2xl font-bold text-slate-900 mb-1">Tienda online</h3>
             <p className="text-slate-500 text-sm">
               E-commerce completo: pasarela de pago, gestión de productos y pedidos.
             </p>
           </div>
           <div className="text-right shrink-0">
-            <div className="text-4xl font-extrabold tracking-tighter text-slate-900">699€</div>
+            <div className="font-display text-4xl font-bold tracking-tight text-slate-900">699€</div>
             <div className="text-xs text-slate-400">+ 59€/mes mantenimiento</div>
           </div>
           <a
             href="#contacto"
-            className="shrink-0 text-sm font-semibold py-3.5 px-6 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-colors"
+            className="shrink-0 text-sm font-semibold py-3.5 px-6 rounded-full bg-ink text-white hover:bg-accent transition-colors"
             data-cursor
           >
             Solicitar presupuesto

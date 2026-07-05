@@ -55,9 +55,9 @@ export default function ContactV2() {
   }
 
   return (
-    <section id="contacto" className="relative py-32 px-6 overflow-hidden">
-      <div className="absolute inset-0 bg-slate-950" />
-      <Parallax speed={0.4} className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-3xl pointer-events-none">
+    <section id="contacto" className="grain relative py-32 px-6 overflow-hidden">
+      <div className="absolute inset-0 bg-ink" />
+      <Parallax speed={0.4} className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/20 rounded-full blur-3xl pointer-events-none">
         <span />
       </Parallax>
       <Parallax speed={-0.5} className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-violet-500/20 rounded-full blur-3xl pointer-events-none">
@@ -67,15 +67,13 @@ export default function ContactV2() {
 
       <div className="relative z-10 max-w-4xl mx-auto">
         <div className="mb-16 max-w-2xl">
-          <span className="inline-flex items-center gap-2 text-xs font-medium tracking-widest uppercase text-indigo-300 mb-6 px-3 py-1 border border-indigo-400/30 bg-indigo-500/10 rounded-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+          <span className="inline-flex items-center gap-3 text-xs font-semibold tracking-[0.25em] uppercase text-accent-bright mb-6">
+            <span className="w-8 h-px bg-accent-bright" aria-hidden />
             08 — Contacto
           </span>
-          <h2 className="font-extrabold tracking-tighter leading-[0.98] text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+          <h2 className="font-display font-bold tracking-tight leading-[1.02] text-4xl md:text-5xl lg:text-6xl text-white mb-6">
             Cuéntanos tu{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-sky-400">
-              proyecto.
-            </span>
+            <span className="text-accent-bright">proyecto.</span>
           </h2>
           <p className="text-lg text-slate-300 leading-relaxed">
             Te respondemos con un presupuesto adaptado a tu negocio en menos de
@@ -159,7 +157,7 @@ export default function ContactV2() {
               type="submit"
               disabled={loading}
               data-cursor
-              className="mt-2 px-8 py-4 rounded-full bg-white text-slate-900 hover:bg-indigo-100 disabled:opacity-60 disabled:cursor-not-allowed transition-colors font-bold tracking-wide shadow-2xl"
+              className="mt-2 px-8 py-4 rounded-full bg-accent text-white hover:bg-accent-bright disabled:opacity-60 disabled:cursor-not-allowed transition-colors font-bold tracking-wide shadow-2xl shadow-accent/30"
             >
               {loading ? "Enviando..." : "Solicitar presupuesto gratis →"}
             </button>

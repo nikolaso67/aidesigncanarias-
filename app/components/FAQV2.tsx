@@ -17,15 +17,13 @@ export default function FAQV2() {
               title={
                 <>
                   Lo que suelen{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-violet-500 to-sky-500">
-                    preguntar
-                  </span>
+                  <span className="text-accent">preguntar</span>
                 </>
               }
               description={
                 <>
                   Si tu duda no está aquí, escríbenos por{" "}
-                  <a href="https://wa.me/34605007753" className="text-indigo-600 hover:text-indigo-500 underline-offset-4 underline">
+                  <a href="https://wa.me/34605007753" className="text-accent hover:text-accent-bright underline-offset-4 underline">
                     WhatsApp
                   </a>{" "}
                   y respondemos al momento.
@@ -46,7 +44,7 @@ export default function FAQV2() {
                       data-cursor
                       aria-expanded={isOpen}
                     >
-                      <span className="font-semibold text-lg text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug">
+                      <span className="font-semibold text-lg text-slate-900 group-hover:text-accent transition-colors leading-snug">
                         {faq.question}
                       </span>
                       <span

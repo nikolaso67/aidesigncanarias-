@@ -13,7 +13,7 @@ const zonas = [
 
 export default function ZonasV2() {
   return (
-    <section className="relative py-32 px-6 bg-slate-50 overflow-hidden">
+    <section className="relative py-32 px-6 bg-paper overflow-hidden">
       <div className="relative max-w-7xl mx-auto">
         <div className="mb-16">
           <SectionTitle
@@ -21,9 +21,7 @@ export default function ZonasV2() {
             title={
               <>
                 Diseño web en{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-violet-500 to-sky-500">
-                  toda Gran Canaria
-                </span>
+                <span className="text-accent">toda Gran Canaria</span>
               </>
             }
             description="Trabajamos con negocios de todo el archipiélago. Especial presencia en los municipios principales — pero llegamos a cualquier rincón."
@@ -34,20 +32,25 @@ export default function ZonasV2() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           stagger={0.06}
         >
-          {zonas.map((z) => (
+          {zonas.map((z, i) => (
             <Link
               key={z.slug}
               href={`/zonas/${z.slug}`}
-              className="group flex items-center justify-between gap-4 p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-900 hover:bg-slate-900 hover:text-white transition-all duration-300"
+              className="group flex items-center justify-between gap-4 p-6 rounded-2xl border border-ink/10 bg-white hover:border-ink hover:bg-ink hover:text-white transition-all duration-300"
               data-cursor
             >
               <div className="flex items-center gap-4">
-                <span className="text-3xl" aria-hidden>{z.emoji}</span>
+                <span
+                  className="font-display font-bold text-sm tracking-[0.2em] text-accent"
+                  aria-hidden
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <span className="font-semibold text-slate-900 group-hover:text-white transition-colors">
                   {z.nombre}
                 </span>
               </div>
-              <span className="text-slate-400 group-hover:text-white transition-all group-hover:translate-x-1" aria-hidden>
+              <span className="text-slate-400 group-hover:text-accent-bright transition-all group-hover:translate-x-1" aria-hidden>
                 →
               </span>
             </Link>

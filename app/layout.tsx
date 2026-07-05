@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Bricolage_Grotesque } from "next/font/google";
 import Script from "next/script";
 import SmoothScroll from "./components/SmoothScroll";
 import CustomCursor from "./components/CustomCursor";
@@ -10,6 +10,12 @@ const CLARITY_ID = "wmeor4nkaw";
 
 const geist = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
   display: "swap",
 });
@@ -154,7 +160,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={geist.variable}>
+    <html lang="es" className={`${geist.variable} ${bricolage.variable}`}>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

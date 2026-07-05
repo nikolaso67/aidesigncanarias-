@@ -8,42 +8,38 @@ import SectionTitle from "./agency/SectionTitle";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const cases = [
+/**
+ * Compromisos medibles — cosas que garantizamos en cada proyecto.
+ * Nada de casos de éxito inventados: solo promesas que podemos firmar.
+ */
+const commitments = [
   {
-    stat: "180",
-    suffix: "%",
-    prefix: "+",
-    label: "visitas orgánicas en 3 meses",
-    sector: "Ferretería",
-    location: "Maspalomas",
-    service: "Web + SEO Local",
+    stat: "90",
+    suffix: "+",
+    prefix: "",
+    label: "de puntuación en Google PageSpeed como objetivo en cada entrega",
+    detail: "Rendimiento",
   },
   {
-    stat: "60",
-    suffix: "%",
+    stat: "14",
+    suffix: " días",
     prefix: "",
-    label: "de reservas llegan por web",
-    sector: "Restaurante",
-    location: "Las Palmas",
-    service: "Web + Reservas online",
+    label: "máximo desde que empezamos hasta que tu web está online",
+    detail: "Entrega",
   },
   {
     stat: "24",
-    suffix: "/7",
+    suffix: "h",
     prefix: "",
-    label: "atención a pacientes sin personal",
-    sector: "Clínica dental",
-    location: "Gran Canaria",
-    service: "Web + Chatbot IA",
+    label: "para responderte con presupuesto cerrado, sin letra pequeña",
+    detail: "Respuesta",
   },
   {
-    stat: "3",
-    suffix: "×",
+    stat: "0",
+    suffix: "€",
     prefix: "",
-    label: "más ventas en temporada alta",
-    sector: "Escuela de surf",
-    location: "Maspalomas",
-    service: "Tienda online + Pagos",
+    label: "de coste de salida: sin permanencia y tu web es tuya",
+    detail: "Libertad",
   },
 ];
 
@@ -66,7 +62,7 @@ export default function ResultsV2() {
         scrollTrigger: { trigger: ".rv2-grid", start: "top 80%", once: true },
       });
 
-      cases.forEach((c, i) => {
+      commitments.forEach((c, i) => {
         const el = counterRefs.current[i];
         if (!el) return;
         const target = parseInt(c.stat, 10);
@@ -94,46 +90,42 @@ export default function ResultsV2() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-32 px-6 bg-white overflow-hidden"
+      className="grain relative py-32 px-6 bg-ink text-white overflow-hidden"
     >
+      <div className="absolute top-0 left-1/3 w-[600px] h-[500px] bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+
       <div className="relative max-w-7xl mx-auto">
         <div className="mb-20">
           <SectionTitle
-            eyebrow="04 — Resultados"
+            eyebrow="04 — Compromisos"
+            tone="dark"
             title={
               <>
-                Datos que{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-violet-500 to-sky-500">
-                  se pueden medir
-                </span>
+                Lo que firmamos{" "}
+                <span className="text-accent-bright">contigo</span>
               </>
             }
-            description="Negocios reales con resultados reales. Sin humo, sin promesas mágicas, sin frases vacías."
+            description="Sin métricas infladas ni casos inventados. Esto es lo que te garantizamos por escrito en cada proyecto — y lo puedes comprobar."
           />
         </div>
 
-        <div className="rv2-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-y border-slate-200">
-          {cases.map((c, i) => (
+        <div className="rv2-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10 border-y border-white/10">
+          {commitments.map((c, i) => (
             <div key={i} className="rv2-card p-8 lg:p-10 flex flex-col gap-3">
-              <div className="font-extrabold tracking-tighter text-slate-900 text-6xl md:text-7xl leading-none">
+              <div className="font-display font-bold tracking-tight text-accent-bright text-6xl md:text-7xl leading-none">
                 <span ref={(el) => { counterRefs.current[i] = el; }}>{c.prefix}0{c.suffix}</span>
               </div>
-              <p className="text-slate-700 font-medium text-sm leading-snug">
+              <p className="text-slate-300 font-medium text-sm leading-snug">
                 {c.label}
               </p>
-              <div className="mt-auto pt-6 flex flex-col gap-0.5">
-                <span className="text-xs font-semibold text-slate-900 uppercase tracking-wider">
-                  {c.sector} · {c.location}
+              <div className="mt-auto pt-6">
+                <span className="text-xs font-semibold text-white/40 uppercase tracking-[0.2em]">
+                  {c.detail}
                 </span>
-                <span className="text-xs text-slate-500">{c.service}</span>
               </div>
             </div>
           ))}
         </div>
-
-        <p className="text-center text-xs text-slate-400 mt-8">
-          Datos basados en proyectos reales. Los nombres de los clientes se mantienen confidenciales.
-        </p>
       </div>
     </section>
   );

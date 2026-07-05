@@ -14,7 +14,7 @@ const projects = [
     name: "La Taberna El Tablero",
     category: "Restaurante · Web + SEO local",
     description:
-      "Web profesional para taberna familiar en El Tablero con menú digital, ubicación clara y SEO local. Recibe reservas todos los días desde Google.",
+      "Web para taberna en El Tablero con menú digital, reservas, ubicación clara y SEO local. Entra y navégala: está publicada y funcionando.",
     tags: ["Next.js", "SEO Local", "Menú digital"],
     image: "/portfolio/taberna.webp",
     url: "https://taberna-el-tablero.vercel.app",
@@ -23,7 +23,7 @@ const projects = [
     name: "Cabana by Efi",
     category: "Gastrobar · Web de autor",
     description:
-      "Rediseño completo para gastrobar de autor con identidad visual cuidada, galería de platos y reservas. Una web que vende experiencia, no solo comida.",
+      "Web de autor para gastrobar con identidad visual cuidada, galería de platos y reservas. Una web que vende experiencia, no solo comida.",
     tags: ["Diseño", "Identidad", "Mobile-first"],
     image: "/portfolio/cabana.webp",
     url: "https://cabana-by-efi.vercel.app",
@@ -72,13 +72,11 @@ export default function PortfolioV2() {
             eyebrow="03 — Portfolio"
             title={
               <>
-                Trabajos hechos para{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-violet-500 to-sky-500">
-                  negocios reales
-                </span>
+                Proyectos que puedes{" "}
+                <span className="text-accent">visitar ahora mismo</span>
               </>
             }
-            description="Webs en producción, no mockups. Cada una entregada en 7–14 días, con SEO local y diseño hecho a medida del negocio."
+            description="Nuestro portfolio: webs publicadas y en producción, no mockups. Cada una demuestra cómo trabajamos el diseño, el SEO local y la velocidad."
           />
         </div>
 
@@ -107,7 +105,7 @@ export default function PortfolioV2() {
                     <span className="inline-block text-xs font-medium tracking-widest uppercase text-white/70 mb-2">
                       {p.category}
                     </span>
-                    <h3 className="font-bold text-white text-2xl md:text-3xl leading-tight">
+                    <h3 className="font-display font-bold text-white text-2xl md:text-3xl leading-tight">
                       {p.name}
                     </h3>
                   </div>
