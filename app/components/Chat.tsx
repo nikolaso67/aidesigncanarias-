@@ -73,7 +73,7 @@ export default function Chat() {
       {/* Floating button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/30 flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-accent hover:bg-accent-bright transition-colors shadow-lg shadow-accent/30 flex items-center justify-center"
         aria-label="Abrir chat"
       >
         {open ? (
@@ -91,13 +91,13 @@ export default function Chat() {
       {open && (
         <div className="fixed bottom-24 right-6 z-[100] w-80 sm:w-96 rounded-2xl border border-slate-200 bg-white shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="px-5 py-4 bg-indigo-600 flex items-center gap-3">
+          <div className="px-5 py-4 bg-accent flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm">
               🤖
             </div>
             <div>
               <div className="font-semibold text-sm text-white">Asistente AI</div>
-              <div className="text-xs text-indigo-200">AI Design Canarias</div>
+              <div className="text-xs text-white/70">AI Design Canarias</div>
             </div>
           </div>
 
@@ -111,7 +111,7 @@ export default function Chat() {
                 <div
                   className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
                     m.role === "user"
-                      ? "bg-indigo-600 text-white rounded-br-sm"
+                      ? "bg-accent text-white rounded-br-sm"
                       : "bg-slate-100 text-slate-700 rounded-bl-sm"
                   }`}
                 >
@@ -137,12 +137,12 @@ export default function Chat() {
               onKeyDown={handleKey}
               maxLength={500}
               placeholder="Escribe un mensaje..."
-              className="flex-1 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-400 transition-colors"
+              className="flex-1 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-accent transition-colors"
             />
             <button
               onClick={sendMessage}
               disabled={loading || !input.trim()}
-              className="w-9 h-9 rounded-full bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 transition-colors flex items-center justify-center flex-shrink-0"
+              className="w-9 h-9 rounded-full bg-accent hover:bg-accent-bright disabled:opacity-40 transition-colors flex items-center justify-center flex-shrink-0"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

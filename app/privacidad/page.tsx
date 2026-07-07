@@ -34,7 +34,7 @@ export default function PrivacidadPage() {
             <li>Número de teléfono (opcional)</li>
             <li>Mensaje o consulta enviada</li>
           </ul>
-          <p className="mt-3">Adicionalmente, a través de cookies y herramientas de analítica (Google Analytics 4) recogemos datos de navegación de forma anonimizada. Consulta nuestra <a href="/cookies" className="text-indigo-600 hover:underline">Política de Cookies</a> para más información.</p>
+          <p className="mt-3">Adicionalmente, a través de cookies y herramientas de analítica (Google Analytics 4) recogemos datos de navegación de forma anonimizada. Consulta nuestra <a href="/cookies" className="text-accent hover:underline">Política de Cookies</a> para más información.</p>
         </section>
 
         <section>
@@ -74,7 +74,7 @@ export default function PrivacidadPage() {
 
         <section>
           <h2 className="text-xl font-semibold text-slate-900 mb-3">7. Tus derechos</h2>
-          <p>Tienes derecho a acceder, rectificar y suprimir tus datos, así como a oponerte a su tratamiento, solicitar su limitación o portabilidad. Para ejercer estos derechos, contacta con nosotros en <a href="mailto:info@aidesigncanarias.com" className="text-indigo-600 hover:underline">info@aidesigncanarias.com</a>.</p>
+          <p>Tienes derecho a acceder, rectificar y suprimir tus datos, así como a oponerte a su tratamiento, solicitar su limitación o portabilidad. Para ejercer estos derechos, contacta con nosotros en <a href="mailto:info@aidesigncanarias.com" className="text-accent hover:underline">info@aidesigncanarias.com</a>.</p>
           <p className="mt-3">Si consideras que el tratamiento no es conforme a la normativa, tienes derecho a presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> (aepd.es).</p>
         </section>
 

@@ -143,7 +143,7 @@ export default function AboutV2() {
           {/* Imagen */}
           <div className="lg:col-span-5 order-1 lg:order-2">
             <div className="relative">
-              <div className="av2-image relative rounded-3xl shadow-2xl shadow-indigo-500/20">
+              <div className="av2-image relative rounded-3xl shadow-2xl shadow-accent/20">
                 <ParallaxImage
                   src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80"
                   alt="Gran Canaria — base de AI Design Canarias"

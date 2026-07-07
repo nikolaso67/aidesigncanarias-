@@ -29,7 +29,7 @@ export default function AvisoLegalPage() {
 
         <section>
           <h2 className="text-xl font-semibold text-slate-900 mb-3">2. Objeto y ámbito de aplicación</h2>
-          <p>El presente aviso legal regula el acceso y uso del sitio web <strong>aidesigncanarias.com</strong> (en adelante, "el Sitio"), titularidad de AI Design Canarias. El acceso al Sitio implica la aceptación plena y sin reservas de las presentes condiciones.</p>
+          <p>El presente aviso legal regula el acceso y uso del sitio web <strong>aidesigncanarias.com</strong> (en adelante, «el Sitio»), titularidad de AI Design Canarias. El acceso al Sitio implica la aceptación plena y sin reservas de las presentes condiciones.</p>
         </section>
 
         <section>
@@ -46,12 +46,12 @@ export default function AvisoLegalPage() {
 
         <section>
           <h2 className="text-xl font-semibold text-slate-900 mb-3">5. Protección de datos personales</h2>
-          <p>El tratamiento de datos personales realizado a través del Sitio se rige por nuestra <a href="/privacidad" className="text-indigo-600 hover:underline">Política de Privacidad</a>, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).</p>
+          <p>El tratamiento de datos personales realizado a través del Sitio se rige por nuestra <a href="/privacidad" className="text-accent hover:underline">Política de Privacidad</a>, de conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).</p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold text-slate-900 mb-3">6. Cookies</h2>
-          <p>El Sitio utiliza cookies propias y de terceros. Puedes obtener más información en nuestra <a href="/cookies" className="text-indigo-600 hover:underline">Política de Cookies</a>.</p>
+          <p>El Sitio utiliza cookies propias y de terceros. Puedes obtener más información en nuestra <a href="/cookies" className="text-accent hover:underline">Política de Cookies</a>.</p>
         </section>
 
         <section>

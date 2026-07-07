@@ -11,6 +11,9 @@ export default function PreloaderV2() {
 
   useEffect(() => {
     if (sessionStorage.getItem("preloader-shown")) {
+      // setState en effect a propósito: sessionStorage no existe en SSR y
+      // un useState inicializador causaría hydration mismatch
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisible(false);
       return;
     }

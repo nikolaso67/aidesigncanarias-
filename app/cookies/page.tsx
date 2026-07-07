@@ -61,17 +61,17 @@ export default function CookiesPage() {
           <h2 className="text-xl font-semibold text-slate-900 mb-3">4. Cómo gestionar o eliminar las cookies</h2>
           <p>Puedes configurar tu navegador para rechazar o eliminar cookies en cualquier momento. Ten en cuenta que esto puede afectar al funcionamiento del sitio. Instrucciones por navegador:</p>
           <ul className="mt-3 space-y-1 list-disc pl-5">
-            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">Google Chrome</a></li>
-            <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">Mozilla Firefox</a></li>
-            <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">Safari</a></li>
-            <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">Microsoft Edge</a></li>
+            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Google Chrome</a></li>
+            <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Mozilla Firefox</a></li>
+            <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Safari</a></li>
+            <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Microsoft Edge</a></li>
           </ul>
-          <p className="mt-3">También puedes optar por la exclusión de Google Analytics en: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">tools.google.com/dlpage/gaoptout</a>.</p>
+          <p className="mt-3">También puedes optar por la exclusión de Google Analytics en: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">tools.google.com/dlpage/gaoptout</a>.</p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold text-slate-900 mb-3">5. Más información</h2>
-          <p>Para cualquier consulta sobre el uso de cookies, contacta con nosotros en <a href="mailto:info@aidesigncanarias.com" className="text-indigo-600 hover:underline">info@aidesigncanarias.com</a>. Consulta también nuestra <a href="/privacidad" className="text-indigo-600 hover:underline">Política de Privacidad</a>.</p>
+          <p>Para cualquier consulta sobre el uso de cookies, contacta con nosotros en <a href="mailto:info@aidesigncanarias.com" className="text-accent hover:underline">info@aidesigncanarias.com</a>. Consulta también nuestra <a href="/privacidad" className="text-accent hover:underline">Política de Privacidad</a>.</p>
         </section>
 
       </div>
