@@ -13,7 +13,7 @@ export default function FAQV2() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-5 lg:sticky lg:top-32 self-start">
             <SectionTitle
-              eyebrow="06 — FAQ"
+              eyebrow="07 — FAQ"
               title={
                 <>
                   Lo que suelen{" "}

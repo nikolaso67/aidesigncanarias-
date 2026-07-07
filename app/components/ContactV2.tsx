@@ -69,7 +69,7 @@ export default function ContactV2() {
         <div className="mb-16 max-w-2xl">
           <span className="inline-flex items-center gap-3 text-xs font-semibold tracking-[0.25em] uppercase text-accent-bright mb-6">
             <span className="w-8 h-px bg-accent-bright" aria-hidden />
-            08 — Contacto
+            09 — Contacto
           </span>
           <h2 className="font-display font-bold tracking-tight leading-[1.02] text-4xl md:text-5xl lg:text-6xl text-white mb-6">
             Cuéntanos tu{" "}

@@ -89,7 +89,7 @@ export default function PricingV2() {
       <div className="relative max-w-7xl mx-auto">
         <div className="mb-20">
           <SectionTitle
-            eyebrow="05 — Precios"
+            eyebrow="06 — Precios"
             title={
               <>
                 Transparentes.{" "}

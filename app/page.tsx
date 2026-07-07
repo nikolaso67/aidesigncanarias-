@@ -5,6 +5,7 @@ import Marquee from "./components/Marquee";
 import Services from "./components/ServicesV2";
 import About from "./components/AboutV2";
 import Portfolio from "./components/PortfolioV2";
+import Proceso from "./components/ProcesoV2";
 import Contact from "./components/ContactV2";
 import Footer from "./components/FooterV2";
 import Chat from "./components/Chat";
@@ -30,6 +31,7 @@ export default function Home() {
         <Services />
         <About />
         <Portfolio />
+        <Proceso />
         <Results />
         <Pricing />
         <FAQ />

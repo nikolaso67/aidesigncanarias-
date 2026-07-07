@@ -97,7 +97,7 @@ export default function ResultsV2() {
       <div className="relative max-w-7xl mx-auto">
         <div className="mb-20">
           <SectionTitle
-            eyebrow="04 — Compromisos"
+            eyebrow="05 — Compromisos"
             tone="dark"
             title={
               <>

@@ -17,7 +17,7 @@ export default function ZonasV2() {
       <div className="relative max-w-7xl mx-auto">
         <div className="mb-16">
           <SectionTitle
-            eyebrow="07 — Cobertura"
+            eyebrow="08 — Cobertura"
             title={
               <>
                 Diseño web en{" "}
