@@ -1,7 +1,6 @@
 import { Resend } from "resend";
 import { rateLimit, getIP } from "@/lib/ratelimit";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 const CONTACT_LIMIT = 5;
 const CONTACT_WINDOW_MS = 60 * 60 * 1000; // 1 hora
@@ -59,6 +58,12 @@ export async function POST(request: Request) {
     return Response.json({ error: "Email inválido." }, { status: 400 });
   }
 
+  if (!process.env.RESEND_API_KEY) {
+    console.error("RESEND_API_KEY no configurada — no se puede enviar el email de contacto");
+    return Response.json({ error: "Error interno. Inténtalo más tarde." }, { status: 500 });
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
   await resend.emails.send({
     from: "AI Design Canarias <info@aidesigncanarias.com>",
     to: "info@aidesigncanarias.com",
