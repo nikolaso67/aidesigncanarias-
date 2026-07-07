@@ -29,18 +29,19 @@ export default function PreloaderV2() {
       },
     });
 
+    // Cortina breve (~0,5s total): PageSpeed penaliza cada ms que tapamos el contenido
     tl.to(obj, {
       val: 100,
-      duration: 1.2,
-      ease: "power2.inOut",
+      duration: 0.22,
+      ease: "power2.out",
       onUpdate: () => {
         if (counter) counter.textContent = String(Math.round(obj.val)).padStart(2, "0");
       },
     })
-      .to([labelRef.current, counterRef.current], { autoAlpha: 0, duration: 0.3 }, "+=0.15")
+      .to([labelRef.current, counterRef.current], { autoAlpha: 0, duration: 0.12 })
       .to(overlayRef.current, {
         clipPath: "inset(0% 0% 100% 0%)",
-        duration: 0.7,
+        duration: 0.3,
         ease: "power4.inOut",
       }, "-=0.1");
 

@@ -39,8 +39,8 @@ export default function HeroV2() {
           videoRef.current.pause();
           gsap.set(videoRef.current, { autoAlpha: 0.55 });
         }
-        // Sin animaciones: solo asegurar visibilidad
-        gsap.set([".hv2-badge", ".hv2-word", ".hv2-subtitle", ".hv2-cta", ".hv2-trust", ".hv2-mockup", ".hv2-mockup-frame", ".hv2-slide-0"], {
+        // Sin animaciones: solo asegurar visibilidad (los slides 1+ quedan ocultos por CSS)
+        gsap.set([".hv2-badge", ".hv2-word", ".hv2-subtitle", ".hv2-cta", ".hv2-trust", ".hv2-mockup-frame", ".hv2-slide-0"], {
           autoAlpha: 1,
           x: 0,
           y: 0,
@@ -79,29 +79,35 @@ export default function HeroV2() {
         yoyo: true,
       });
 
-      // Estado inicial
-      gsap.set(".hv2-badge", { y: -16, autoAlpha: 0 });
-      gsap.set(".hv2-word", { yPercent: 110 });
-      gsap.set(".hv2-subtitle", { y: 24, autoAlpha: 0 });
-      gsap.set(".hv2-cta", { y: 18, autoAlpha: 0 });
-      gsap.set(".hv2-trust", { autoAlpha: 0, x: -10 });
-      gsap.set(".hv2-mockup", { autoAlpha: 0 });
-      gsap.set(".hv2-slide-0", { scale: 0.92, y: 30 });
-      gsap.set(".hv2-mockup-frame", { autoAlpha: 0, y: 40 });
+      // Si el JS llega tarde (conexión lenta, Lighthouse), el contenido SSR ya
+      // lleva rato pintado: re-ocultarlo para animarlo destroza LCP/Speed Index.
+      const skipIntro = performance.now() > 1200;
 
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      if (!skipIntro) {
+        // Estado inicial
+        gsap.set(".hv2-badge", { y: -16, autoAlpha: 0 });
+        gsap.set(".hv2-word", { yPercent: 110 });
+        gsap.set(".hv2-subtitle", { y: 24, autoAlpha: 0 });
+        gsap.set(".hv2-cta", { y: 18, autoAlpha: 0 });
+        gsap.set(".hv2-trust", { autoAlpha: 0, x: -10 });
+        gsap.set(".hv2-mockup", { autoAlpha: 0 });
+        gsap.set(".hv2-slide-0", { scale: 0.92, y: 30 });
+        gsap.set(".hv2-mockup-frame", { autoAlpha: 0, y: 40 });
 
-      tl.to(".hv2-badge", { y: 0, autoAlpha: 1, duration: 0.5 })
-        .to(
-          ".hv2-word",
-          { yPercent: 0, duration: 0.85, stagger: 0.05, ease: "expo.out" },
-          "-=0.2",
-        )
-        .to(".hv2-subtitle", { y: 0, autoAlpha: 1, duration: 0.5 }, "-=0.45")
-        .to(".hv2-cta", { y: 0, autoAlpha: 1, duration: 0.45, stagger: 0.08 }, "-=0.35")
-        .to(".hv2-trust", { autoAlpha: 1, x: 0, duration: 0.4, stagger: 0.1 }, "-=0.25")
-        .to(".hv2-mockup-frame", { autoAlpha: 1, y: 0, duration: 0.7 }, 0.35)
-        .to(".hv2-slide-0", { autoAlpha: 1, scale: 1, y: 0, duration: 0.7 }, 0.5);
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        tl.to(".hv2-badge", { y: 0, autoAlpha: 1, duration: 0.5 })
+          .to(
+            ".hv2-word",
+            { yPercent: 0, duration: 0.85, stagger: 0.05, ease: "expo.out" },
+            "-=0.2",
+          )
+          .to(".hv2-subtitle", { y: 0, autoAlpha: 1, duration: 0.5 }, "-=0.45")
+          .to(".hv2-cta", { y: 0, autoAlpha: 1, duration: 0.45, stagger: 0.08 }, "-=0.35")
+          .to(".hv2-trust", { autoAlpha: 1, x: 0, duration: 0.4, stagger: 0.1 }, "-=0.25")
+          .to(".hv2-mockup-frame", { autoAlpha: 1, y: 0, duration: 0.7 }, 0.35)
+          .to(".hv2-slide-0", { autoAlpha: 1, scale: 1, y: 0, duration: 0.7 }, 0.5);
+      }
 
       // Carrusel: cross-fade entre mockups en loop
       const fade = gsap.timeline({ repeat: -1, repeatDelay: 2.6, defaults: { duration: 0.9, ease: "power2.inOut" } });
@@ -265,7 +271,7 @@ export default function HeroV2() {
             {MOCKUPS.map((m, i) => (
               <div
                 key={m.src}
-                className={`hv2-mockup hv2-slide-${i} absolute inset-0`}
+                className={`hv2-mockup hv2-slide-${i} absolute inset-0 ${i > 0 ? "opacity-0" : ""}`}
               >
                 <Image
                   src={m.src}
