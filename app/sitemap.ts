@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { services } from "./servicios/data";
 import { zonas } from "./zonas/data";
+import { sectores } from "./[sector]/data";
 import { getAllPosts } from "@/lib/blog";
 
 export const revalidate = 3600;
@@ -22,6 +23,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  const sectorUrls: MetadataRoute.Sitemap = sectores.map((s) => ({
+    url: `${base}/${s.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
   let postUrls: MetadataRoute.Sitemap = [];
   try {
     const posts = await getAllPosts();
@@ -40,6 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     ...serviceUrls,
     ...zonaUrls,
+    ...sectorUrls,
     ...postUrls,
     { url: `${base}/aviso-legal`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },
     { url: `${base}/privacidad`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },

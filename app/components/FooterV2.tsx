@@ -1,5 +1,12 @@
 import Link from "next/link";
 
+const sectores = [
+  { slug: "web-para-restaurantes-gran-canaria", nombre: "Restaurantes" },
+  { slug: "web-para-peluquerias-gran-canaria", nombre: "Peluquerías" },
+  { slug: "web-para-gimnasios-gran-canaria", nombre: "Gimnasios" },
+  { slug: "web-para-fisioterapeutas-gran-canaria", nombre: "Fisioterapia" },
+];
+
 const zonas = [
   { slug: "las-palmas-de-gran-canaria", nombre: "Las Palmas" },
   { slug: "maspalomas", nombre: "Maspalomas" },
@@ -50,7 +57,7 @@ export default function FooterV2() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 pb-14 border-b border-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 pb-14 border-b border-white/10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="font-bold text-white mb-3">AI Design Canarias</div>
@@ -74,6 +81,26 @@ export default function FooterV2() {
                     data-cursor
                   >
                     {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Sectores */}
+          <div>
+            <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">
+              Sectores
+            </h4>
+            <ul className="space-y-2.5">
+              {sectores.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/${s.slug}`}
+                    className="text-sm text-slate-300 hover:text-white transition-colors"
+                    data-cursor
+                  >
+                    {s.nombre}
                   </Link>
                 </li>
               ))}
