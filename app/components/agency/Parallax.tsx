@@ -16,8 +16,6 @@ interface Props {
    */
   speed?: number;
   className?: string;
-  /** Tag a usar. Default "div" */
-  as?: keyof React.JSX.IntrinsicElements;
 }
 
 /**
@@ -29,7 +27,7 @@ interface Props {
  *   <BackgroundBlob />
  * </Parallax>
  */
-export default function Parallax({ children, speed = 0.2, className, as = "div" }: Props) {
+export default function Parallax({ children, speed = 0.2, className }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,10 +56,9 @@ export default function Parallax({ children, speed = 0.2, className, as = "div" 
     return () => ctx.revert();
   }, [speed]);
 
-  const Tag = as as React.ElementType;
   return (
-    <Tag ref={ref} className={className}>
+    <div ref={ref} className={className}>
       {children}
-    </Tag>
+    </div>
   );
 }

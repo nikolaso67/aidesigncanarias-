@@ -19,7 +19,6 @@ interface Props {
   /** Cuándo dispara el reveal — % del viewport. Default "top 80%" */
   start?: string;
   className?: string;
-  as?: keyof React.JSX.IntrinsicElements;
 }
 
 /**
@@ -36,7 +35,6 @@ export default function RevealOnScroll({
   stagger = 0,
   start = "top 80%",
   className,
-  as = "div",
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -73,10 +71,9 @@ export default function RevealOnScroll({
     return () => ctx.revert();
   }, [y, delay, duration, stagger, start]);
 
-  const Tag = as as React.ElementType;
   return (
-    <Tag ref={ref} className={className}>
+    <div ref={ref} className={className}>
       {children}
-    </Tag>
+    </div>
   );
 }
