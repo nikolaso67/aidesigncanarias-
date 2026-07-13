@@ -11,6 +11,15 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const projects = [
   {
+    name: "ALMA Hair Studio",
+    category: "Peluquería · Web con 3D + cita online",
+    description:
+      "Web para peluquería con hero 3D interactivo, carta de servicios con precios y reserva de cita online en 30 segundos. Entra y pide hora: está viva.",
+    tags: ["3D interactivo", "Cita online", "Next.js"],
+    image: "/portfolio/alma.jpg",
+    url: "https://alma-hair-studio.vercel.app",
+  },
+  {
     name: "La Taberna El Tablero",
     category: "Restaurante · Web + SEO local",
     description:

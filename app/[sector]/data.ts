@@ -194,6 +194,13 @@ export const sectores: Sector[] = [
           "\"¿Cuánto cuesta un balayage?\", \"¿tenéis hueco el sábado?\" — el chat con IA contesta mientras tú atiendes.",
       },
     ],
+    demo: {
+      nombre: "ALMA Hair Studio",
+      url: "https://alma-hair-studio.vercel.app",
+      imagen: "/portfolio/alma.jpg",
+      descripcion:
+        "Nuestro proyecto demo de peluquería: hero 3D, carta de servicios con precios y reserva de cita online en 30 segundos. Ábrelo y pide hora de mentira — así se sentiría la web de tu salón.",
+    },
     faqs: [
       {
         q: "¿Cuánto cuesta una web para una peluquería o barbería?",
