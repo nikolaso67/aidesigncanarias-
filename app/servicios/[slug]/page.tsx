@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { services, getService } from "../data";
+import { getProjectsForService } from "../../data/portfolio";
+import ServiceProof from "../../components/agency/ServiceProof";
+import ServicePricing from "../../components/agency/ServicePricing";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -49,6 +52,11 @@ export default async function ServicePage({
   if (!service) notFound();
 
   const BASE = "https://aidesigncanarias.com";
+  const relatedProjects = getProjectsForService(slug);
+  const hasProof = slug === "integracion-ia" || relatedProjects.length > 0;
+  const whatsappHref = `https://wa.me/34605007753?text=${encodeURIComponent(
+    "Hola, me gustaría información sobre " + service.title + ".",
+  )}`;
 
   const jsonLd = [
     {
@@ -114,9 +122,13 @@ export default async function ServicePage({
           <h1 className="font-display font-bold tracking-tight leading-[1.05] text-4xl md:text-5xl mb-6 text-white">
             {service.h1}
           </h1>
-          <p className="text-xl text-slate-400 leading-relaxed mb-10">
+          <p className="text-xl text-slate-400 leading-relaxed mb-6">
             {service.intro}
           </p>
+          <div className="inline-flex items-center gap-2 mb-10 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">
+            <span className="font-display font-bold text-accent-bright">{service.pricing.price}</span>
+            <span className="text-slate-400">· {service.pricing.note}</span>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#contacto"
@@ -125,7 +137,7 @@ export default async function ServicePage({
               Solicitar presupuesto gratis
             </Link>
             <a
-              href={`https://wa.me/34605007753?text=${encodeURIComponent("Hola, me gustaría información sobre " + service.title + ".")}`}
+              href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-full border border-white/20 hover:border-white/60 hover:bg-white/5 transition-colors font-semibold text-white/90 text-center"
@@ -158,8 +170,30 @@ export default async function ServicePage({
         </div>
       </section>
 
+      {slug === "integracion-ia" ? (
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="font-display text-3xl font-bold text-ink mb-4">
+              No hace falta una demo. Está aquí abajo.
+            </h2>
+            <p className="text-slate-500 leading-relaxed mb-8">
+              El botón violeta de la esquina inferior derecha de{" "}
+              <strong className="text-ink">esta misma página</strong> es un
+              chatbot real con IA, funcionando ahora mismo. Escríbele algo —
+              así de rápido y natural se sentiría en tu web.
+            </p>
+            <div className="inline-flex items-center gap-2 text-accent font-semibold">
+              <span>Pruébalo tú mismo</span>
+              <span aria-hidden className="animate-bounce">↘</span>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <ServiceProof projects={relatedProjects} />
+      )}
+
       {/* Benefits */}
-      <section className="py-20 px-6 bg-white">
+      <section className={`py-20 px-6 ${hasProof ? "bg-paper" : "bg-white"}`}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-3xl font-bold text-ink mb-12">
             Por qué te interesa
@@ -176,6 +210,12 @@ export default async function ServicePage({
           </ul>
         </div>
       </section>
+
+      <ServicePricing
+        pricing={service.pricing}
+        whatsappHref={whatsappHref}
+        bgClassName={hasProof ? "bg-white" : "bg-paper"}
+      />
 
       {/* CTA */}
       <section className="grain relative py-20 px-6 bg-ink overflow-hidden">

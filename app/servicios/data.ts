@@ -1,3 +1,10 @@
+export interface ServicePricing {
+  /** "Desde 299€" | "699€ + 59€/mes" | "Presupuesto personalizado" */
+  price: string;
+  /** "Plan Esencial" | "Complemento" | "A medida", etc. */
+  note: string;
+}
+
 export interface Service {
   slug: string;
   icon: string;
@@ -9,6 +16,7 @@ export interface Service {
   features: { title: string; description: string }[];
   benefits: string[];
   description: string;
+  pricing: ServicePricing;
 }
 
 export const services: Service[] = [
@@ -17,7 +25,7 @@ export const services: Service[] = [
     icon: "🌐",
     title: "Diseño web profesional",
     h1: "Diseño web profesional en Gran Canaria",
-    metaTitle: "Diseño web profesional en Gran Canaria | AI Design Canarias",
+    metaTitle: "Diseño web profesional en Gran Canaria",
     metaDescription:
       "Diseño web profesional en Gran Canaria. Webs modernas, rápidas y optimizadas para Google. Entrega en 7–14 días, sin permanencia. Presupuesto gratis.",
     intro:
@@ -37,13 +45,14 @@ export const services: Service[] = [
       "Velocidad de carga óptima en móvil",
     ],
     description: "Webs modernas, rápidas y adaptadas a todos los dispositivos. Diseñadas para convertir visitantes en clientes.",
+    pricing: { price: "Desde 299€", note: "Plan Esencial · sin permanencia" },
   },
   {
     slug: "integracion-ia",
     icon: "🤖",
     title: "Integración de IA",
     h1: "Integración de IA y chatbots para negocios en Canarias",
-    metaTitle: "Integración de IA y chatbots para negocios en Canarias | AI Design Canarias",
+    metaTitle: "Integración de IA y chatbots para negocios en Canarias",
     metaDescription:
       "Chatbots e inteligencia artificial para negocios en Gran Canaria. Atiende a tus clientes 24/7 sin estar pendiente. Presupuesto gratis en 24h.",
     intro:
@@ -63,13 +72,14 @@ export const services: Service[] = [
       "Diferenciación clara frente a competidores",
     ],
     description: "Chatbots y asistentes virtuales con inteligencia artificial que atienden a tus clientes 24/7 sin que tengas que estar pendiente.",
+    pricing: { price: "Desde 699€", note: "Incluido en el plan Premium + IA" },
   },
   {
     slug: "seo-posicionamiento-canarias",
     icon: "📈",
     title: "SEO y posicionamiento",
     h1: "SEO y posicionamiento web en Gran Canaria",
-    metaTitle: "SEO y posicionamiento web en Gran Canaria | AI Design Canarias",
+    metaTitle: "SEO y posicionamiento web en Gran Canaria",
     metaDescription:
       "SEO local en Gran Canaria y Las Palmas. Aparece en los primeros resultados de Google cuando tus clientes buscan lo que ofreces. Resultados reales.",
     intro:
@@ -89,13 +99,14 @@ export const services: Service[] = [
       "Aparición en Google Maps para búsquedas locales",
     ],
     description: "Aparece en los primeros resultados de Google cuando tus clientes buscan lo que ofreces. Más visibilidad, más ventas.",
+    pricing: { price: "Desde 499€", note: "SEO local incluido en el plan Profesional" },
   },
   {
     slug: "tiendas-online",
     icon: "🛒",
     title: "Tiendas online",
     h1: "Tiendas online en Gran Canaria — vende por internet",
-    metaTitle: "Tiendas online en Gran Canaria | AI Design Canarias",
+    metaTitle: "Tiendas online en Gran Canaria",
     metaDescription:
       "Creamos tiendas online para negocios en Gran Canaria. Gestión sencilla, pagos seguros y entregadas en 7–14 días. Presupuesto gratis.",
     intro:
@@ -115,13 +126,14 @@ export const services: Service[] = [
       "Control total de tu catálogo y stock",
     ],
     description: "Vende tus productos o servicios en internet. Gestión sencilla, pagos seguros y experiencia de compra fluida.",
+    pricing: { price: "699€ + 59€/mes", note: "Complemento sobre cualquier plan" },
   },
   {
     slug: "identidad-visual-branding",
     icon: "🎨",
     title: "Identidad visual y branding",
     h1: "Identidad visual y branding para negocios en Gran Canaria",
-    metaTitle: "Identidad visual y branding en Gran Canaria | AI Design Canarias",
+    metaTitle: "Identidad visual y branding en Gran Canaria",
     metaDescription:
       "Diseño de logo, identidad visual y branding para negocios en Gran Canaria. Imagen coherente que genera confianza. Presupuesto gratis.",
     intro:
@@ -141,13 +153,14 @@ export const services: Service[] = [
       "Base sólida para cualquier material de marketing",
     ],
     description: "Logo, paleta de colores, tipografía y guía de estilo. Una imagen coherente que genera confianza desde el primer vistazo.",
+    pricing: { price: "Presupuesto personalizado", note: "Según alcance del proyecto" },
   },
   {
     slug: "apps-web-progresivas",
     icon: "⚡",
     title: "Apps web progresivas",
     h1: "Apps web progresivas (PWA) para negocios en Canarias",
-    metaTitle: "Apps web progresivas para negocios en Canarias | AI Design Canarias",
+    metaTitle: "Apps web progresivas para negocios en Canarias",
     metaDescription:
       "Desarrollamos apps web progresivas (PWA) para negocios en Gran Canaria. Funcionan como apps nativas sin necesidad de App Store. Presupuesto gratis.",
     intro:
@@ -167,13 +180,14 @@ export const services: Service[] = [
       "Notificaciones directas a tus clientes",
     ],
     description: "Aplicaciones web que funcionan como apps nativas en el móvil. Rápidas, instalables y accesibles sin conexión.",
+    pricing: { price: "Presupuesto personalizado", note: "Según funcionalidades" },
   },
   {
     slug: "mantenimiento-web",
     icon: "🔧",
     title: "Mantenimiento web",
     h1: "Mantenimiento web en Gran Canaria — tu web siempre activa",
-    metaTitle: "Mantenimiento web en Gran Canaria | AI Design Canarias",
+    metaTitle: "Mantenimiento web en Gran Canaria",
     metaDescription:
       "Mantenimiento web para negocios en Gran Canaria. Actualizaciones, seguridad, copias de seguridad y soporte continuo. Sin sorpresas.",
     intro:
@@ -193,13 +207,14 @@ export const services: Service[] = [
       "Tranquilidad para centrarte en tu negocio",
     ],
     description: "Actualizaciones, copias de seguridad, seguridad y soporte continuo. Tu web siempre en perfecto estado.",
+    pricing: { price: "Desde 39€/mes", note: "Incluido en cualquier plan" },
   },
   {
     slug: "software-a-medida",
     icon: "⚙️",
     title: "Software a medida",
     h1: "Software a medida para negocios en Gran Canaria",
-    metaTitle: "Software a medida para negocios en Gran Canaria | AI Design Canarias",
+    metaTitle: "Software a medida para negocios en Gran Canaria",
     metaDescription:
       "Desarrollamos software a medida para negocios en Gran Canaria. Gestión de facturas, reservas, pedidos, inventario y más. Sin pagar licencias eternas. Presupuesto gratis.",
     intro:
@@ -219,13 +234,14 @@ export const services: Service[] = [
       "Sin pagar licencias mensuales a terceros",
     ],
     description: "Herramientas digitales hechas para tu negocio: facturación, reservas, pedidos, inventario y más. Sin licencias eternas.",
+    pricing: { price: "Presupuesto personalizado", note: "Según complejidad" },
   },
   {
     slug: "consultoria-digital",
     icon: "💡",
     title: "Consultoría digital",
     h1: "Consultoría digital para negocios en Gran Canaria",
-    metaTitle: "Consultoría digital para negocios en Gran Canaria | AI Design Canarias",
+    metaTitle: "Consultoría digital para negocios en Gran Canaria",
     metaDescription:
       "Consultoría digital en Gran Canaria. Analizamos tu presencia online y te decimos exactamente qué mejorar para captar más clientes. Sin tecnicismos.",
     intro:
@@ -245,13 +261,14 @@ export const services: Service[] = [
       "Plan realista adaptado a tu presupuesto",
     ],
     description: "Analizamos tu presencia online y te decimos exactamente qué mejorar para captar más clientes. Sin tecnicismos.",
+    pricing: { price: "Presupuesto personalizado", note: "Auditoría + plan de acción" },
   },
   {
     slug: "publicidad-digital",
     icon: "🎯",
     title: "Publicidad digital",
     h1: "Publicidad digital en Gran Canaria — Google, Meta e Instagram",
-    metaTitle: "Publicidad digital en Gran Canaria — Google y Meta Ads | AI Design Canarias",
+    metaTitle: "Publicidad digital en Gran Canaria — Google y Meta Ads",
     metaDescription:
       "Campañas de publicidad digital en Gran Canaria. Google Ads, Meta Ads, Instagram y TikTok. Llegamos a tu cliente ideal y convertimos clics en ventas.",
     intro:
@@ -271,6 +288,7 @@ export const services: Service[] = [
       "Alcance ultra-segmentado en Gran Canaria",
     ],
     description: "Campañas de anuncios en Google, Meta, Instagram y TikTok. Llegamos a tu cliente ideal y convertimos clics en ventas.",
+    pricing: { price: "Presupuesto personalizado", note: "Gestión mensual · inversión aparte" },
   },
 ];
 

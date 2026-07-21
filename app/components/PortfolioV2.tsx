@@ -6,47 +6,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionTitle from "./agency/SectionTitle";
 import ParallaxImage from "./agency/ParallaxImage";
+import { portfolioProjects as projects } from "../data/portfolio";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-const projects = [
-  {
-    name: "ALMA Hair Studio",
-    category: "Peluquería · Web con 3D + cita online",
-    description:
-      "Web para peluquería con hero 3D interactivo, carta de servicios con precios y reserva de cita online en 30 segundos. Entra y pide hora: está viva.",
-    tags: ["3D interactivo", "Cita online", "Next.js"],
-    image: "/portfolio/alma.jpg",
-    url: "https://alma-hair-studio.vercel.app",
-  },
-  {
-    name: "La Taberna El Tablero",
-    category: "Restaurante · Web + SEO local",
-    description:
-      "Web para taberna en El Tablero con menú digital, reservas, ubicación clara y SEO local. Entra y navégala: está publicada y funcionando.",
-    tags: ["Next.js", "SEO Local", "Menú digital"],
-    image: "/portfolio/taberna.webp",
-    url: "https://taberna-el-tablero.vercel.app",
-  },
-  {
-    name: "Cabana by Efi",
-    category: "Gastrobar · Web de autor",
-    description:
-      "Web de autor para gastrobar con identidad visual cuidada, galería de platos y reservas. Una web que vende experiencia, no solo comida.",
-    tags: ["Diseño", "Identidad", "Mobile-first"],
-    image: "/portfolio/cabana.webp",
-    url: "https://cabana-by-efi.vercel.app",
-  },
-  {
-    name: "Ferretería Corona Roja",
-    category: "Comercio · Web + catálogo",
-    description:
-      "Web para ferretería en Playa del Inglés con catálogo de productos, ubicación visible y diseño que respeta la identidad histórica del negocio.",
-    tags: ["Catálogo", "SEO Local", "Branding"],
-    image: "/portfolio/corona.webp",
-    url: "https://coronaroja.vercel.app",
-  },
-];
 
 export default function PortfolioV2() {
   const sectionRef = useRef<HTMLElement>(null);
