@@ -198,7 +198,7 @@ export default function PricingV2() {
         </div>
 
         <p className="text-center text-xs text-slate-400 mt-8">
-          Sin permanencia · Cancela el mantenimiento cuando quieras · Precios con IGIC incluido
+          Sin permanencia · Cancela el mantenimiento cuando quieras · Precios de lanzamiento
         </p>
       </div>
     </section>

@@ -126,7 +126,7 @@ export default async function ServicePage({
             {service.intro}
           </p>
           <div className="inline-flex items-center gap-2 mb-10 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">
-            <span className="font-display font-bold text-accent-bright">{service.pricing.price}</span>
+            <span className="font-display font-bold text-accent-bright">{service.pricing.headline}</span>
             <span className="text-slate-400">· {service.pricing.note}</span>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

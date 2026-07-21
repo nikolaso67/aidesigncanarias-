@@ -47,7 +47,7 @@ export default function ServicesV2() {
                 <span className="text-accent">venda más online</span>
               </>
             }
-            description="9 capacidades que combinamos según lo que necesita tu negocio. Desde una web nueva en 14 días hasta un chatbot con IA atendiendo de madrugada."
+            description="10 capacidades que combinamos según lo que necesita tu negocio. Desde una web nueva en 14 días hasta un chatbot con IA atendiendo de madrugada."
           />
         </div>
 
@@ -56,28 +56,51 @@ export default function ServicesV2() {
             <Link
               key={s.slug}
               href={`/servicios/${s.slug}`}
-              className="sv2-card group relative p-8 rounded-3xl border border-ink/10 bg-white hover:bg-ink hover:border-ink transition-colors duration-300 overflow-hidden"
+              className="sv2-card group relative flex flex-col p-8 rounded-3xl border border-ink/10 bg-white hover:bg-ink hover:border-ink hover:-translate-y-1 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-ink/10"
               data-cursor
             >
-              <div className="relative">
-                <span
-                  className="block font-display font-bold text-sm tracking-[0.2em] text-accent mb-8"
-                  aria-hidden
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+              {/* Icono gigante decorativo de fondo */}
+              <span
+                className="absolute -right-3 -top-3 text-8xl opacity-[0.05] group-hover:opacity-10 transition-opacity duration-300 select-none pointer-events-none"
+                aria-hidden
+              >
+                {s.icon}
+              </span>
+
+              <div className="relative flex flex-col flex-1">
+                <div className="flex items-center justify-between mb-8">
+                  <span
+                    className="font-display font-bold text-sm tracking-[0.2em] text-accent"
+                    aria-hidden
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className="grid place-items-center w-11 h-11 rounded-xl bg-accent/10 text-xl group-hover:bg-white/10 transition-colors duration-300"
+                    aria-hidden
+                  >
+                    {s.icon}
+                  </span>
+                </div>
+
                 <h3 className="font-display font-bold text-2xl text-ink group-hover:text-white mb-3 leading-tight transition-colors duration-300">
                   {s.title}
                 </h3>
-                <p className="text-slate-600 group-hover:text-slate-300 leading-relaxed mb-6 transition-colors duration-300">
+                <p className="text-slate-600 group-hover:text-slate-300 leading-relaxed mb-6 flex-1 transition-colors duration-300">
                   {s.description}
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink group-hover:text-accent-bright transition-colors duration-300">
-                  Ver más
-                  <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>
-                    →
+
+                <div className="flex items-center justify-between gap-4 pt-5 border-t border-ink/8 group-hover:border-white/10 transition-colors duration-300">
+                  <span className="text-xs font-medium text-slate-400 group-hover:text-slate-500 transition-colors duration-300">
+                    {s.pricing.headline}
                   </span>
-                </span>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink group-hover:text-accent-bright transition-colors duration-300">
+                    Ver más
+                    <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>
+                      →
+                    </span>
+                  </span>
+                </div>
               </div>
             </Link>
           ))}

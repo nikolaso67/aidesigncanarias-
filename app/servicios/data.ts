@@ -1,8 +1,16 @@
-export interface ServicePricing {
-  /** "Desde 299€" | "699€ + 59€/mes" | "Presupuesto personalizado" */
+export interface PriceLine {
+  label: string;
   price: string;
-  /** "Plan Esencial" | "Complemento" | "A medida", etc. */
+  note?: string;
+}
+
+export interface ServicePricing {
+  /** Titular grande: "Desde 299€" | "199€/mes" | "Desde 990€" */
+  headline: string;
+  /** Subtítulo corto bajo el titular */
   note: string;
+  /** Desglose opcional cuando el servicio tiene varias modalidades de precio */
+  breakdown?: PriceLine[];
 }
 
 export interface Service {
@@ -45,7 +53,15 @@ export const services: Service[] = [
       "Velocidad de carga óptima en móvil",
     ],
     description: "Webs modernas, rápidas y adaptadas a todos los dispositivos. Diseñadas para convertir visitantes en clientes.",
-    pricing: { price: "Desde 299€", note: "Plan Esencial · sin permanencia" },
+    pricing: {
+      headline: "Desde 299€",
+      note: "Web Esencial + 39€/mes de mantenimiento",
+      breakdown: [
+        { label: "Web Esencial", price: "299€", note: "+ 39€/mes mantenimiento" },
+        { label: "Web Profesional", price: "499€", note: "+ 49€/mes mantenimiento" },
+        { label: "Web Premium + IA", price: "699€", note: "+ 69€/mes mantenimiento" },
+      ],
+    },
   },
   {
     slug: "integracion-ia",
@@ -72,7 +88,15 @@ export const services: Service[] = [
       "Diferenciación clara frente a competidores",
     ],
     description: "Chatbots y asistentes virtuales con inteligencia artificial que atienden a tus clientes 24/7 sin que tengas que estar pendiente.",
-    pricing: { price: "Desde 699€", note: "Incluido en el plan Premium + IA" },
+    pricing: {
+      headline: "Desde 299€",
+      note: "Instalación sobre tu web actual",
+      breakdown: [
+        { label: "Instalación del chatbot", price: "299€", note: "Sobre una web existente" },
+        { label: "Incluido en Web Premium + IA", price: "699€", note: "Si contratas la web con nosotros" },
+        { label: "Mantenimiento", price: "39€/mes", note: "Web nuestra · 59€/mes si es web externa" },
+      ],
+    },
   },
   {
     slug: "seo-posicionamiento-canarias",
@@ -99,7 +123,14 @@ export const services: Service[] = [
       "Aparición en Google Maps para búsquedas locales",
     ],
     description: "Aparece en los primeros resultados de Google cuando tus clientes buscan lo que ofreces. Más visibilidad, más ventas.",
-    pricing: { price: "Desde 499€", note: "SEO local incluido en el plan Profesional" },
+    pricing: {
+      headline: "149€/mes",
+      note: "SEO local · sin permanencia",
+      breakdown: [
+        { label: "SEO local", price: "149€/mes", note: "On-page, Google Business, informe mensual" },
+        { label: "Combo redes + SEO", price: "249€/mes", note: "Ahorras 69€/mes frente a contratarlo por separado" },
+      ],
+    },
   },
   {
     slug: "tiendas-online",
@@ -126,7 +157,7 @@ export const services: Service[] = [
       "Control total de tu catálogo y stock",
     ],
     description: "Vende tus productos o servicios en internet. Gestión sencilla, pagos seguros y experiencia de compra fluida.",
-    pricing: { price: "699€ + 59€/mes", note: "Complemento sobre cualquier plan" },
+    pricing: { headline: "699€", note: "+ 59€/mes de mantenimiento" },
   },
   {
     slug: "identidad-visual-branding",
@@ -153,7 +184,14 @@ export const services: Service[] = [
       "Base sólida para cualquier material de marketing",
     ],
     description: "Logo, paleta de colores, tipografía y guía de estilo. Una imagen coherente que genera confianza desde el primer vistazo.",
-    pricing: { price: "Presupuesto personalizado", note: "Según alcance del proyecto" },
+    pricing: {
+      headline: "Desde 149€",
+      note: "Branding starter",
+      breakdown: [
+        { label: "Branding starter", price: "149€", note: "Logo + variantes básicas" },
+        { label: "Pack identidad completo", price: "349€", note: "Logo + paleta + tipografías + tarjeta + plantillas RRSS" },
+      ],
+    },
   },
   {
     slug: "apps-web-progresivas",
@@ -180,7 +218,7 @@ export const services: Service[] = [
       "Notificaciones directas a tus clientes",
     ],
     description: "Aplicaciones web que funcionan como apps nativas en el móvil. Rápidas, instalables y accesibles sin conexión.",
-    pricing: { price: "Presupuesto personalizado", note: "Según funcionalidades" },
+    pricing: { headline: "Desde 990€", note: "Presupuesto cerrado tras briefing" },
   },
   {
     slug: "mantenimiento-web",
@@ -207,7 +245,17 @@ export const services: Service[] = [
       "Tranquilidad para centrarte en tu negocio",
     ],
     description: "Actualizaciones, copias de seguridad, seguridad y soporte continuo. Tu web siempre en perfecto estado.",
-    pricing: { price: "Desde 39€/mes", note: "Incluido en cualquier plan" },
+    pricing: {
+      headline: "Desde 39€/mes",
+      note: "Según el plan de tu web",
+      breakdown: [
+        { label: "Web Esencial", price: "39€/mes" },
+        { label: "Web Profesional", price: "49€/mes" },
+        { label: "Web Premium + IA", price: "69€/mes" },
+        { label: "Web externa (no nuestra)", price: "49€/mes" },
+        { label: "Pack Todo en uno", price: "349€/mes", note: "Mantenimiento + redes + SEO, todo resuelto" },
+      ],
+    },
   },
   {
     slug: "software-a-medida",
@@ -234,7 +282,7 @@ export const services: Service[] = [
       "Sin pagar licencias mensuales a terceros",
     ],
     description: "Herramientas digitales hechas para tu negocio: facturación, reservas, pedidos, inventario y más. Sin licencias eternas.",
-    pricing: { price: "Presupuesto personalizado", note: "Según complejidad" },
+    pricing: { headline: "Desde 990€", note: "Presupuesto cerrado tras briefing · solo cerramos proyectos que compensen" },
   },
   {
     slug: "consultoria-digital",
@@ -261,7 +309,15 @@ export const services: Service[] = [
       "Plan realista adaptado a tu presupuesto",
     ],
     description: "Analizamos tu presencia online y te decimos exactamente qué mejorar para captar más clientes. Sin tecnicismos.",
-    pricing: { price: "Presupuesto personalizado", note: "Auditoría + plan de acción" },
+    pricing: {
+      headline: "149€",
+      note: "Auditoría completa + plan de acción",
+      breakdown: [
+        { label: "Auditoría + plan de acción", price: "149€" },
+        { label: "Sesión de consultoría", price: "79€", note: "90 minutos" },
+        { label: "Consultoría por horas", price: "59€/h" },
+      ],
+    },
   },
   {
     slug: "publicidad-digital",
@@ -288,7 +344,14 @@ export const services: Service[] = [
       "Alcance ultra-segmentado en Gran Canaria",
     ],
     description: "Campañas de anuncios en Google, Meta, Instagram y TikTok. Llegamos a tu cliente ideal y convertimos clics en ventas.",
-    pricing: { price: "Presupuesto personalizado", note: "Gestión mensual · inversión aparte" },
+    pricing: {
+      headline: "199€/mes",
+      note: "Gestión · inversión en anuncios aparte",
+      breakdown: [
+        { label: "Gestión de campañas", price: "199€/mes", note: "Google Ads / Meta Ads" },
+        { label: "Inversión publicitaria", price: "Aparte", note: "La paga el cliente directo a la plataforma · mínimo recomendado 150€/mes" },
+      ],
+    },
   },
 ];
 
