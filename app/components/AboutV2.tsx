@@ -120,15 +120,15 @@ export default function AboutV2() {
               <span className="text-accent-bright">Expertos en IA.</span>
             </h2>
             <p className="text-lg text-slate-300 leading-relaxed mb-5 max-w-2xl">
-              Un equipo con base en Gran Canaria que combina diseño moderno con
-              tecnología de IA para dar a los negocios locales las mismas
-              herramientas que usan las grandes empresas — sin los precios de
-              las grandes empresas.
+              Con base en Gran Canaria, unimos diseño moderno e inteligencia
+              artificial para dar a los negocios de las islas las mismas
+              herramientas que usan las grandes marcas — sin sus precios y sin
+              sus tiempos de espera.
             </p>
             <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-2xl">
-              Si tienes un negocio en Canarias y quieres más clientes, más
-              visibilidad y una web que trabaje por ti, estás en el lugar
-              correcto.
+              Trabajamos cerca y en español, sin permanencia y con demo antes de
+              pagar. Tú te ocupas de tu negocio; tu web sigue trabajando por ti,
+              también cuando bajas la persiana.
             </p>
             <a
               href="#contacto"
@@ -145,8 +145,8 @@ export default function AboutV2() {
             <div className="relative">
               <div className="av2-image relative rounded-3xl shadow-2xl shadow-accent/20">
                 <ParallaxImage
-                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80"
-                  alt="Gran Canaria — base de AI Design Canarias"
+                  src="https://images.unsplash.com/photo-1611237147279-a98066529cdb?w=900&q=80"
+                  alt="Dunas de Maspalomas, Gran Canaria — AI Design Canarias"
                   sizes="(max-width: 1023px) 100vw, 40vw"
                   className="object-cover"
                   frameClassName="rounded-3xl aspect-[4/5]"
