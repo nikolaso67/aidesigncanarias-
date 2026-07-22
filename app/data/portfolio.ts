@@ -26,13 +26,13 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     name: "Forja Training",
-    category: "Fitness · Plataforma para coaches y deportistas",
+    category: "Gimnasio · Web con vídeo + reservas",
     description:
-      "Plataforma web para gimnasios y entrenadores: planes personalizados, seguimiento en tiempo real y récords automáticos. Diseño oscuro premium con registro y panel. Entra y navégala: está publicada.",
-    tags: ["Diseño de producto", "Dashboard", "Next.js"],
+      "Web para gimnasio en Las Palmas con hero de vídeo a pantalla completa, clases, planes y reserva de clase online. Diseño oscuro y potente que transmite la energía del box. Entra y navégala: está publicada.",
+    tags: ["Vídeo hero", "Reservas", "Next.js"],
     image: "/portfolio/forja.webp",
-    url: "https://forja-training.vercel.app",
-    serviceSlugs: ["diseno-web-gran-canaria", "software-a-medida", "apps-web-progresivas"],
+    url: "https://forja-training-zeta.vercel.app",
+    serviceSlugs: ["diseno-web-gran-canaria", "identidad-visual-branding", "seo-posicionamiento-canarias"],
   },
   {
     name: "La Taberna El Tablero",
