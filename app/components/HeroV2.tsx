@@ -12,6 +12,7 @@ const MOCKUPS = [
   { src: "/portfolio/taberna.webp", label: "La Taberna El Tablero", tag: "Restaurante" },
   { src: "/portfolio/cabana.webp", label: "Cabana by Efi", tag: "Gastrobar" },
   { src: "/portfolio/corona.webp", label: "Corona Roja", tag: "Ferretería" },
+  { src: "/portfolio/forja.webp", label: "Forja Training", tag: "Fitness" },
 ];
 
 /**

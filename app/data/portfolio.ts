@@ -25,6 +25,16 @@ export const portfolioProjects: PortfolioProject[] = [
     serviceSlugs: ["diseno-web-gran-canaria", "software-a-medida", "identidad-visual-branding"],
   },
   {
+    name: "Forja Training",
+    category: "Fitness · Plataforma para coaches y deportistas",
+    description:
+      "Plataforma web para gimnasios y entrenadores: planes personalizados, seguimiento en tiempo real y récords automáticos. Diseño oscuro premium con registro y panel. Entra y navégala: está publicada.",
+    tags: ["Diseño de producto", "Dashboard", "Next.js"],
+    image: "/portfolio/forja.webp",
+    url: "https://forja-training.vercel.app",
+    serviceSlugs: ["diseno-web-gran-canaria", "software-a-medida", "apps-web-progresivas"],
+  },
+  {
     name: "La Taberna El Tablero",
     category: "Restaurante · Web + SEO local",
     description:
