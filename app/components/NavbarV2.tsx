@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const links = [
@@ -15,6 +16,12 @@ const links = [
 export default function NavbarV2() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // En la home, las anclas hacen scroll suave in-page. Desde otras rutas
+  // (p. ej. /blog), se prefijan con "/" para volver a la home y bajar a la sección.
+  const resolve = (href: string) =>
+    href.startsWith("#") && pathname !== "/" ? `/${href}` : href;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -35,7 +42,7 @@ export default function NavbarV2() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#" className="flex items-center shrink-0" data-cursor>
+        <a href="/" className="flex items-center shrink-0" data-cursor>
           <Image
             src="/logo.svg"
             alt="AI Design Canarias"
@@ -55,7 +62,7 @@ export default function NavbarV2() {
           {links.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={resolve(l.href)}
               className={`text-sm font-medium px-4 py-2 rounded-full transition-all ${
                 dark
                   ? "text-white/80 hover:text-white hover:bg-white/10"
@@ -70,7 +77,7 @@ export default function NavbarV2() {
 
         <div className="hidden lg:block">
           <a
-            href="#contacto"
+            href={resolve("#contacto")}
             className={`group inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-full transition-colors font-semibold ${
               dark
                 ? "bg-white text-ink hover:bg-accent hover:text-white"
@@ -107,7 +114,7 @@ export default function NavbarV2() {
           {links.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={resolve(l.href)}
               className="text-base font-medium text-slate-700 hover:text-slate-900 py-3"
               onClick={() => setOpen(false)}
             >
@@ -115,7 +122,7 @@ export default function NavbarV2() {
             </a>
           ))}
           <a
-            href="#contacto"
+            href={resolve("#contacto")}
             className="mt-3 text-sm font-semibold py-3 px-5 rounded-full bg-ink text-white text-center"
             onClick={() => setOpen(false)}
           >

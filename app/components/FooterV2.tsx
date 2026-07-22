@@ -40,7 +40,7 @@ export default function FooterV2() {
           </h3>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
-              href="#contacto"
+              href="/#contacto"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-ink hover:bg-accent hover:text-white transition-colors font-semibold"
               data-cursor
             >
