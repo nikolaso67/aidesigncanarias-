@@ -148,7 +148,10 @@ const structuredData = {
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mantenimiento web" } },
         ],
       },
-      sameAs: [],
+      sameAs: [
+        "https://www.instagram.com/aidesigncanarias",
+        "https://www.tiktok.com/@aidesigncanarias",
+      ],
     },
   ],
 };
