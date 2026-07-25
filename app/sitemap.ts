@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { services } from "./servicios/data";
 import { zonas } from "./zonas/data";
 import { sectores } from "./[sector]/data";
+import { portfolioProjects } from "./data/portfolio";
 import { getAllPosts } from "@/lib/blog";
 
 export const revalidate = 3600;
@@ -30,6 +31,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }));
 
+  const proyectoUrls: MetadataRoute.Sitemap = portfolioProjects.map((p) => ({
+    url: `${base}/proyectos/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
   let postUrls: MetadataRoute.Sitemap = [];
   try {
     const posts = await getAllPosts();
@@ -46,9 +54,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: base, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
     { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/proyectos`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     ...serviceUrls,
     ...zonaUrls,
     ...sectorUrls,
+    ...proyectoUrls,
     ...postUrls,
     { url: `${base}/aviso-legal`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },
     { url: `${base}/privacidad`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },

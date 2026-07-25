@@ -155,6 +155,8 @@ export default function FooterV2() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
           <span>© {new Date().getFullYear()} AI Design Canarias — Gran Canaria, Islas Canarias</span>
           <div className="flex items-center gap-5">
+            <Link href="/proyectos" className="hover:text-white transition-colors" data-cursor>Proyectos</Link>
+            <Link href="/blog" className="hover:text-white transition-colors" data-cursor>Blog</Link>
             <Link href="/aviso-legal" className="hover:text-white transition-colors" data-cursor>Aviso legal</Link>
             <Link href="/privacidad" className="hover:text-white transition-colors" data-cursor>Privacidad</Link>
             <Link href="/cookies" className="hover:text-white transition-colors" data-cursor>Cookies</Link>

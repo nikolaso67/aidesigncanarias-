@@ -28,6 +28,8 @@ export interface SectorDemo {
   url: string;
   imagen: string;
   descripcion: string;
+  /** Slug del caso en app/data/portfolio.ts → /proyectos/<slug> */
+  proyectoSlug: string;
 }
 
 export interface Sector {
@@ -109,6 +111,7 @@ export const sectores: Sector[] = [
       nombre: "La Taberna El Tablero",
       url: "https://taberna-el-tablero.vercel.app",
       imagen: "/portfolio/taberna.webp",
+      proyectoSlug: "taberna-el-tablero",
       descripcion:
         "Nuestro proyecto demo de restaurante canario: carta digital, reservas y SEO local. Ábrelo y tócalo — así se sentiría la web de tu restaurante.",
     },
@@ -198,6 +201,7 @@ export const sectores: Sector[] = [
       nombre: "ALMA Hair Studio",
       url: "https://alma-hair-studio.vercel.app",
       imagen: "/portfolio/alma.jpg",
+      proyectoSlug: "alma-hair-studio",
       descripcion:
         "Nuestro proyecto demo de peluquería: hero 3D, carta de servicios con precios y reserva de cita online en 30 segundos. Ábrelo y pide hora de mentira — así se sentiría la web de tu salón.",
     },
@@ -283,6 +287,14 @@ export const sectores: Sector[] = [
           "Precios, horarios, si hay ducha, cómo reservar clase... el chat con IA responde a las 23:00, que es cuando la gente decide cambiar de vida.",
       },
     ],
+    demo: {
+      nombre: "Forja Training",
+      url: "https://forja-training-zeta.vercel.app",
+      imagen: "/portfolio/forja.webp",
+      proyectoSlug: "forja-training",
+      descripcion:
+        "Nuestro proyecto demo de gimnasio: vídeo a pantalla completa, parrilla de clases, planes con precio y reserva de clase de prueba. Ábrelo en el móvil — así se sentiría la web de tu box.",
+    },
     faqs: [
       {
         q: "¿Cuánto cuesta una web para un gimnasio o un box?",

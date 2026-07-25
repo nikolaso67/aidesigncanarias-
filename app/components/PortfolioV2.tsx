@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -53,44 +54,46 @@ export default function PortfolioV2() {
 
         <div className="pv2-grid grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((p, i) => (
-            <a
+            <div
               key={p.name}
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`pv2-card group relative ${i === 0 ? "md:col-span-2" : ""}`}
-              data-cursor
+              className={`pv2-card relative ${i === 0 ? "md:col-span-2" : ""}`}
             >
-              <div className="relative rounded-3xl shadow-xl shadow-slate-200/80 border border-slate-200">
-                <ParallaxImage
-                  src={p.image}
-                  alt={`${p.name} — web creada por AI Design Canarias`}
-                  sizes={i === 0 ? "(max-width: 767px) 100vw, 1200px" : "(max-width: 767px) 100vw, 600px"}
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                  frameClassName="aspect-[16/10] rounded-3xl bg-slate-100"
-                  intensity={0.7}
-                />
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-slate-900/70 via-slate-900/0 to-transparent opacity-80 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4">
-                  <div>
-                    <span className="inline-block text-xs font-medium tracking-widest uppercase text-white/70 mb-2">
-                      {p.category}
+              <Link
+                href={`/proyectos/${p.slug}`}
+                className="group block"
+                data-cursor
+              >
+                <div className="relative rounded-3xl shadow-xl shadow-slate-200/80 border border-slate-200">
+                  <ParallaxImage
+                    src={p.image}
+                    alt={`${p.name} — web creada por AI Design Canarias`}
+                    sizes={i === 0 ? "(max-width: 767px) 100vw, 1200px" : "(max-width: 767px) 100vw, 600px"}
+                    className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                    frameClassName="aspect-[16/10] rounded-3xl bg-slate-100"
+                    intensity={0.7}
+                  />
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-slate-900/70 via-slate-900/0 to-transparent opacity-80 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4">
+                    <div>
+                      <span className="inline-block text-xs font-medium tracking-widest uppercase text-white/70 mb-2">
+                        {p.category}
+                      </span>
+                      <h3 className="font-display font-bold text-white text-2xl md:text-3xl leading-tight">
+                        {p.name}
+                      </h3>
+                    </div>
+                    <span className="grid place-items-center w-12 h-12 rounded-full bg-white text-slate-900 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-45 shrink-0" aria-hidden>
+                      ↗
                     </span>
-                    <h3 className="font-display font-bold text-white text-2xl md:text-3xl leading-tight">
-                      {p.name}
-                    </h3>
                   </div>
-                  <span className="grid place-items-center w-12 h-12 rounded-full bg-white text-slate-900 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-45 shrink-0" aria-hidden>
-                    ↗
-                  </span>
                 </div>
-              </div>
+              </Link>
 
               <div className="mt-6 px-2">
                 <p className="text-slate-600 leading-relaxed mb-4 max-w-2xl">
                   {p.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-5">
                   {p.tags.map((tag) => (
                     <span
                       key={tag}
@@ -100,9 +103,36 @@ export default function PortfolioV2() {
                     </span>
                   ))}
                 </div>
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+                  <Link
+                    href={`/proyectos/${p.slug}`}
+                    className="font-semibold text-accent hover:underline"
+                  >
+                    Ver el proyecto por dentro
+                  </Link>
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-500 hover:text-ink transition-colors"
+                  >
+                    Abrir la web en vivo ↗
+                  </a>
+                </div>
               </div>
-            </a>
+            </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link
+            href="/proyectos"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-ink/15 hover:border-ink hover:bg-ink hover:text-white transition-colors font-semibold text-ink"
+            data-cursor
+          >
+            Ver todos los proyectos por dentro
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </div>
     </section>

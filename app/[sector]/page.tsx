@@ -223,15 +223,23 @@ export default async function SectorPage({
                 Míralo funcionando: {sector.demo.nombre}
               </h2>
               <p className="text-slate-400 leading-relaxed mb-8">{sector.demo.descripcion}</p>
-              <a
-                href={sector.demo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-ink hover:bg-accent hover:text-white transition-colors font-semibold"
-              >
-                Abrir la demo
-                <span aria-hidden>→</span>
-              </a>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                <a
+                  href={sector.demo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-ink hover:bg-accent hover:text-white transition-colors font-semibold"
+                >
+                  Abrir la demo
+                  <span aria-hidden>→</span>
+                </a>
+                <Link
+                  href={`/proyectos/${sector.demo.proyectoSlug}`}
+                  className="text-sm font-semibold text-accent-bright hover:underline"
+                >
+                  Ver cómo está hecha
+                </Link>
+              </div>
             </div>
             <a
               href={sector.demo.url}
