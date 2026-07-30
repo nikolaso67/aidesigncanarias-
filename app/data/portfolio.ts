@@ -342,6 +342,65 @@ export const portfolioProjects: PortfolioProject[] = [
       stack: ["HTML", "CSS", "Vercel"],
     },
   },
+  {
+    slug: "risco-tienda-online",
+    name: "RISCO",
+    category: "Moda · Tienda online",
+    description:
+      "Tienda online de ropa con catálogo filtrable, tallas y colores, carrito que no se pierde al recargar y checkout completo. Entra y llena el carrito: funciona.",
+    tags: ["Carrito real", "Checkout", "Filtros"],
+    image: "/portfolio/risco.webp",
+    url: "https://risco-delta.vercel.app",
+    serviceSlugs: ["tiendas-online", "diseno-web-gran-canaria", "identidad-visual-branding"],
+    caseStudy: {
+      sectorLabel: "Moda y tienda online",
+      metaTitle: "RISCO: tienda online de ropa con carrito y checkout",
+      metaDescription:
+        "Proyecto demo de tienda online de ropa: catálogo con filtros, tallas y colores, carrito persistente y checkout en tres pasos. Publicada y navegable.",
+      h1: "RISCO: una tienda de ropa que se puede usar, no mirar",
+      intro:
+        "RISCO es una marca inventada por nosotros para poder enseñar una tienda online de verdad. Las prendas no existen y el pago está simulado, pero todo lo demás funciona: filtras el catálogo, eliges talla y color, llenas el carrito y llegas al final del checkout.",
+      planteamiento: [
+        "Casi todo el que empieza a vender ropa lo hace por mensajes directos: el cliente pregunta el precio, pregunta si queda su talla, y hay que contestar uno a uno. Funciona con veinte pedidos al mes y se cae solo cuando llegan doscientos, porque nadie puede atender el Instagram a las once de la noche.",
+        "Una tienda de ropa además tiene un problema que otros negocios no tienen: el mismo modelo existe en varias tallas y varios colores, y cada combinación puede estar agotada por separado. Si eso no está bien resuelto, se venden cosas que no hay.",
+        "RISCO es un proyecto propio, sin cliente detrás. Lo montamos para poder enseñar una tienda que se toca, en lugar de prometer una en una reunión.",
+      ],
+      decisiones: [
+        {
+          title: "Un carrito de verdad, no un formulario de pedido",
+          description:
+            "Suma, resta, recalcula y sobrevive a cerrar la pestaña. Enseña cuánto falta para el envío gratis y lo aplica solo al pasar del importe. Muchas «tiendas» baratas son en realidad un formulario de contacto disfrazado.",
+        },
+        {
+          title: "Talla y color como variantes separadas",
+          description:
+            "Cada combinación de talla y color es una unidad distinta, y las tallas agotadas salen tachadas y no se pueden añadir. Es la forma en que una tienda real controla el stock, y es lo que evita vender lo que no queda.",
+        },
+        {
+          title: "Filtros que responden al instante",
+          description:
+            "Categoría, talla y precio filtran sin recargar la página, y cuando no queda nada lo dice en lugar de dejar la rejilla vacía. En catálogo de moda, cada recarga esperando es gente que se va.",
+        },
+        {
+          title: "Checkout en tres pasos y el pago señalado como simulado",
+          description:
+            "Contacto, envío y pago, con validación en cada paso. Los campos de tarjeta están desactivados a propósito y avisados: es una demo y nadie debe escribir ahí datos reales. La pasarela real (Stripe, Redsys o el checkout de Shopify) entra en ese hueco.",
+        },
+        {
+          title: "Hecha para el móvil, que es donde se compra ropa",
+          description:
+            "Los botones de talla, los filtros y el carrito tienen el tamaño mínimo que pide un dedo, y los campos usan letra de 16 px para que Safari no haga zoom al tocarlos. Está medido a 320, 375, 390 y 430 px de ancho.",
+        },
+      ],
+      capacidades: [
+        "Vender sin ir contestando precios y tallas por mensaje privado",
+        "Que el cliente vea qué está agotado antes de pedirlo",
+        "Envío gratis a partir de un importe, aplicado automáticamente",
+        "Una base preparada para enchufar pasarela de pago o Shopify sin rehacer la tienda",
+      ],
+      stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    },
+  },
 ];
 
 export function getProjectsForService(slug: string): PortfolioProject[] {
