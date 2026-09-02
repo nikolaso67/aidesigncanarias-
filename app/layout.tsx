@@ -151,6 +151,7 @@ const structuredData = {
       sameAs: [
         "https://www.instagram.com/aidesigncanarias",
         "https://www.tiktok.com/@aidesigncanarias",
+        "https://www.google.com/maps?cid=15761079999547495278",
       ],
     },
   ],
