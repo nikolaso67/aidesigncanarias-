@@ -16,6 +16,19 @@ import Pricing from "./components/PricingV2";
 import FAQ from "./components/FAQV2";
 import Zonas from "./components/ZonasV2";
 import { faqStructuredData } from "./data/faq-data";
+import type { Metadata } from "next";
+
+const SITE_URL = "https://aidesigncanarias.com";
+
+// La canónica vive aquí y no en el layout raíz: los metadatos se fusionan de
+// forma superficial, así que en el layout la heredaba cualquier página sin
+// `alternates` propio (p. ej. /blog) y le decía a Google que era la home.
+export const metadata: Metadata = {
+  alternates: {
+    canonical: SITE_URL,
+    languages: { "es-ES": SITE_URL, "x-default": SITE_URL },
+  },
+};
 
 export default function Home() {
   return (

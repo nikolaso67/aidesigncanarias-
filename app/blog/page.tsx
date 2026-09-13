@@ -2,10 +2,16 @@ import { getAllPosts } from "@/lib/blog";
 import Link from "next/link";
 import type { Metadata } from "next";
 
+const BLOG_URL = "https://aidesigncanarias.com/blog";
+
 export const metadata: Metadata = {
   title: "Blog — Diseño Web y SEO en Gran Canaria",
   description:
     "Artículos sobre diseño web, SEO local y presencia digital para negocios en Gran Canaria. Consejos prácticos de AI Design Canarias.",
+  alternates: {
+    canonical: BLOG_URL,
+    languages: { "es-ES": BLOG_URL, "x-default": BLOG_URL },
+  },
 };
 
 export const revalidate = 3600; // revalidate every hour

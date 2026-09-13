@@ -46,13 +46,6 @@ export const metadata: Metadata = {
   authors: [{ name: "AI Design Canarias", url: SITE_URL }],
   creator: "AI Design Canarias",
   publisher: "AI Design Canarias",
-  alternates: {
-    canonical: SITE_URL,
-    languages: {
-      "es-ES": SITE_URL,
-      "x-default": SITE_URL,
-    },
-  },
   openGraph: {
     type: "website",
     locale: "es_ES",
