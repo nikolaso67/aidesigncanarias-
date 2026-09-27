@@ -88,7 +88,7 @@ export default function HeroVideo() {
 
       {/* Titular */}
       <div className="relative z-20 text-center px-6 max-w-6xl mx-auto lg:flex-1 lg:flex lg:flex-col lg:justify-center lg:pt-28 lg:pb-10">
-        <span className="hv-eyebrow inline-flex items-center gap-3 text-xs font-semibold tracking-[0.25em] uppercase text-accent-bright mb-8">
+        <span className="hv-eyebrow self-center inline-flex items-center gap-3 text-xs font-semibold tracking-[0.25em] uppercase text-accent-bright mb-8">
           <span className="w-8 h-px bg-accent-bright" aria-hidden />
           Agencia digital en Gran Canaria
           <span className="w-8 h-px bg-accent-bright" aria-hidden />
