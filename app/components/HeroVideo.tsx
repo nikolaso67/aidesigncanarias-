@@ -87,7 +87,7 @@ export default function HeroVideo() {
       <div className="absolute inset-0 hidden lg:block bg-[radial-gradient(ellipse_at_center,rgba(10,10,18,0.3)_0%,rgba(10,10,18,0.05)_40%,rgba(10,10,18,0.7)_100%)] pointer-events-none" />
 
       {/* Titular */}
-      <div className="relative z-20 text-center px-6 max-w-6xl mx-auto">
+      <div className="relative z-20 text-center px-6 max-w-6xl mx-auto lg:flex-1 lg:flex lg:flex-col lg:justify-center lg:pt-28 lg:pb-10">
         <span className="hv-eyebrow inline-flex items-center gap-3 text-xs font-semibold tracking-[0.25em] uppercase text-accent-bright mb-8">
           <span className="w-8 h-px bg-accent-bright" aria-hidden />
           Agencia digital en Gran Canaria
@@ -112,8 +112,10 @@ export default function HeroVideo() {
         </p>
       </div>
 
-      {/* CTAs + trust — en móvil bajo el titular; en desktop anclados abajo */}
-      <div className="hv-bottom relative z-20 mt-12 w-full px-6 lg:absolute lg:bottom-10 lg:left-0 lg:right-0 lg:mt-0">
+      {/* CTAs + trust — en móvil bajo el titular; en desktop al pie del hero.
+          En flujo (no absolute): en pantallas bajas el titular empuja los CTAs
+          en vez de quedar tapado por ellos */}
+      <div className="hv-bottom relative z-20 mt-12 w-full px-6 lg:mt-0 lg:pb-10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#contacto"
