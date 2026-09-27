@@ -3,47 +3,45 @@
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import HeroSwarm from "./HeroSwarm";
 
 gsap.registerPlugin(useGSAP);
 
 /**
- * Hero con vídeo de fondo a sangre (tratamiento tipo Forja Training):
- * - <video> object-cover a pantalla completa + degradados y grano encima
+ * Hero con fondo animado a sangre (tratamiento tipo Forja Training):
+ * - Canvas de partículas (HeroSwarm) a pantalla completa + degradados y grano encima
  * - Solo desktop (hidden lg:block): en móvil quedan los blobs aurora CSS,
- *   igual que hacía HeroV2, para no cargar vídeo en datos móviles
- * - El titular es texto SSR: el LCP no depende de que el vídeo cargue
- * - prefers-reduced-motion: el vídeo se queda en un frame estático
+ *   igual que hacía HeroV2, para no gastar batería en móviles
+ * - El titular es texto SSR: el LCP no depende de que el canvas arranque
+ * - prefers-reduced-motion: el canvas se queda en un frame estático
  */
 export default function HeroVideo() {
   const sectionRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoOn, setVideoOn] = useState(false);
+  const bgRef = useRef<HTMLDivElement>(null);
+  const [bgOn, setBgOn] = useState(false);
 
-  // El <video> se monta solo en desktop: si se deja en el HTML con display:none
-  // el navegador lo descarga igual (601 KB tirados en datos móviles)
+  // El canvas se monta solo en desktop: en móvil no queremos el bucle de
+  // animación gastando batería detrás de la aurora CSS
   useEffect(() => {
     if (!window.matchMedia("(min-width: 1024px)").matches) return;
-    const id = requestAnimationFrame(() => setVideoOn(true));
+    const id = requestAnimationFrame(() => setBgOn(true));
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Deriva lenta sobre el loop de 10,3s para que no se note la repetición
+  // Deriva lenta de cámara sobre el canvas (HeroSwarm no mueve la cámara)
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      video.pause();
-      return;
-    }
+    const bg = bgRef.current;
+    if (!bg) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const tween = gsap.fromTo(
-      video,
+      bg,
       { scale: 1.06, xPercent: -1 },
       { scale: 1.18, xPercent: 1, duration: 24, ease: "sine.inOut", repeat: -1, yoyo: true },
     );
     return () => {
       tween.kill();
     };
-  }, [videoOn]);
+  }, [bgOn]);
 
   useGSAP(
     () => {
@@ -76,23 +74,15 @@ export default function HeroVideo() {
       <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] max-w-[820px] max-h-[820px] bg-accent/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-[-25%] right-[-5%] w-[45vw] h-[45vw] max-w-[680px] max-h-[680px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Vídeo de fondo — solo desktop, tapa la aurora CSS */}
-      {videoOn && (
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover scale-[1.06]"
-          src="/hero-loop.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden
-        />
+      {/* Fondo de partículas — solo desktop, tapa la aurora CSS */}
+      {bgOn && (
+        <div ref={bgRef} className="absolute inset-0 scale-[1.06]" aria-hidden>
+          <HeroSwarm className="absolute inset-0 w-full h-full" />
+        </div>
       )}
 
       {/* Legibilidad: oscurece arriba (navbar) y abajo (CTAs) dejando ver la
-          cinta de luz en la franja central; viñeta suave en los bordes */}
+          retícula en los bordes; viñeta suave en los bordes */}
       <div className="absolute inset-0 hidden lg:block bg-gradient-to-b from-ink/80 via-ink/10 to-ink/85 pointer-events-none" />
       <div className="absolute inset-0 hidden lg:block bg-[radial-gradient(ellipse_at_center,rgba(10,10,18,0.3)_0%,rgba(10,10,18,0.05)_40%,rgba(10,10,18,0.7)_100%)] pointer-events-none" />
 
