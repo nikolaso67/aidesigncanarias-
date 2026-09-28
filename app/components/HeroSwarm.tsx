@@ -9,6 +9,7 @@ import { useEffect, useRef } from "react";
  * - Hueco elíptico en el centro para que el h1 siempre se lea.
  * - prefers-reduced-motion: se queda quieto con la retícula formada.
  * - Cámara estática: el zoom lento lo pone el GSAP de HeroVideo.
+ * - Se pausa fuera de pantalla (IntersectionObserver) para no gastar batería.
  */
 
 const CYCLE_S = 12;
@@ -67,7 +68,8 @@ function buildLattice(W: number, H: number) {
   const rowH = s * 0.866;
   const cx = W / 2;
   const cy = H / 2;
-  const rx = W * 0.34;
+  // En vertical (móvil) el titular ocupa casi todo el ancho: hueco más ancho
+  const rx = W * (W < H ? 0.46 : 0.34);
   const ry = H * 0.36;
   const cols = Math.ceil(W / s) + 2;
   const rows = Math.ceil(H / rowH) + 2;
@@ -136,6 +138,7 @@ export default function HeroSwarm({ className = "" }: { className?: string }) {
     let phase = reduceMotion ? 0.52 : 0;
     let last = performance.now();
     let raf = 0;
+    let visible = true;
 
     function resize() {
       const rect = canvas!.getBoundingClientRect();
@@ -208,7 +211,7 @@ export default function HeroSwarm({ className = "" }: { className?: string }) {
       last = now;
       phase = (phase + dt / CYCLE_S) % 1;
       draw(phase);
-      raf = requestAnimationFrame(tick);
+      raf = visible ? requestAnimationFrame(tick) : 0;
     }
 
     const ro = new ResizeObserver(resize);
@@ -216,7 +219,17 @@ export default function HeroSwarm({ className = "" }: { className?: string }) {
     resize();
     if (!reduceMotion) raf = requestAnimationFrame(tick);
 
+    const io = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible && !reduceMotion && raf === 0) {
+        last = performance.now();
+        raf = requestAnimationFrame(tick);
+      }
+    });
+    io.observe(canvas);
+
     return () => {
+      io.disconnect();
       ro.disconnect();
       cancelAnimationFrame(raf);
     };

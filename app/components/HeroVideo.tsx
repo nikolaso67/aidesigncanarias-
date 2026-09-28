@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import HeroSwarm from "./HeroSwarm";
@@ -10,24 +10,14 @@ gsap.registerPlugin(useGSAP);
 /**
  * Hero con fondo animado a sangre (tratamiento tipo Forja Training):
  * - Canvas de partículas (HeroSwarm) a pantalla completa + degradados y grano encima
- * - Solo desktop (hidden lg:block): en móvil quedan los blobs aurora CSS,
- *   igual que hacía HeroV2, para no gastar batería en móviles
+ * - En todos los tamaños; se pausa cuando el hero sale de pantalla. Los blobs
+ *   aurora CSS quedan debajo como fallback si el canvas no arranca
  * - El titular es texto SSR: el LCP no depende de que el canvas arranque
  * - prefers-reduced-motion: el canvas se queda en un frame estático
  */
 export default function HeroVideo() {
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
-  const [bgOn, setBgOn] = useState(false);
-
-  // El canvas se monta solo en desktop: en móvil no queremos el bucle de
-  // animación gastando batería detrás de la aurora CSS
-  useEffect(() => {
-    if (!window.matchMedia("(min-width: 1024px)").matches) return;
-    const id = requestAnimationFrame(() => setBgOn(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
   // Deriva lenta de cámara sobre el canvas (HeroSwarm no mueve la cámara)
   useEffect(() => {
     const bg = bgRef.current;
@@ -41,7 +31,7 @@ export default function HeroVideo() {
     return () => {
       tween.kill();
     };
-  }, [bgOn]);
+  }, []);
 
   useGSAP(
     () => {
@@ -74,17 +64,15 @@ export default function HeroVideo() {
       <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] max-w-[820px] max-h-[820px] bg-accent/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-[-25%] right-[-5%] w-[45vw] h-[45vw] max-w-[680px] max-h-[680px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Fondo de partículas — solo desktop, tapa la aurora CSS */}
-      {bgOn && (
-        <div ref={bgRef} className="absolute inset-0 scale-[1.06]" aria-hidden>
-          <HeroSwarm className="absolute inset-0 w-full h-full" />
-        </div>
-      )}
+      {/* Fondo de partículas — tapa la aurora CSS */}
+      <div ref={bgRef} className="absolute inset-0 scale-[1.06]" aria-hidden>
+        <HeroSwarm className="absolute inset-0 w-full h-full" />
+      </div>
 
       {/* Legibilidad: oscurece arriba (navbar) y abajo (CTAs) dejando ver la
           retícula en los bordes; viñeta suave en los bordes */}
-      <div className="absolute inset-0 hidden lg:block bg-gradient-to-b from-ink/80 via-ink/10 to-ink/85 pointer-events-none" />
-      <div className="absolute inset-0 hidden lg:block bg-[radial-gradient(ellipse_at_center,rgba(10,10,18,0.3)_0%,rgba(10,10,18,0.05)_40%,rgba(10,10,18,0.7)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/10 to-ink/85 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,10,18,0.3)_0%,rgba(10,10,18,0.05)_40%,rgba(10,10,18,0.7)_100%)] pointer-events-none" />
 
       {/* Titular */}
       <div className="relative z-20 text-center px-6 max-w-6xl mx-auto lg:flex-1 lg:flex lg:flex-col lg:justify-center lg:pt-28 lg:pb-10">
