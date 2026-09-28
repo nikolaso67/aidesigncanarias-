@@ -21,7 +21,6 @@ const plans = [
       "Google Analytics",
       "SEO básico on-page",
       "Hosting incluido",
-      "Entrega en 7–14 días",
     ],
     highlighted: false,
   },
@@ -37,7 +36,6 @@ const plans = [
       "SEO local avanzado",
       "Google Business optimizado",
       "Ediciones mensuales incluidas",
-      "Entrega en 7–14 días",
     ],
     highlighted: true,
   },
@@ -53,7 +51,6 @@ const plans = [
       "Sistema de reservas o citas",
       "Informes mensuales de SEO",
       "Soporte prioritario",
-      "Entrega en 7–14 días",
     ],
     highlighted: false,
   },
@@ -96,7 +93,7 @@ export default function PricingV2() {
                 <span className="text-accent">Sin sorpresas.</span>
               </>
             }
-            description="Pago único para lanzar tu web. Mantenimiento mensual opcional, sin permanencia. Cancelas cuando quieras."
+            description="Pago único para lanzar tu web y entrega en 7–14 días en todos los planes. Mantenimiento mensual opcional, sin permanencia. Cancelas cuando quieras."
           />
         </div>
 
