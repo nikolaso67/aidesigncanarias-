@@ -9,17 +9,8 @@ import Parallax from "./agency/Parallax";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-// Compromisos verificables — nada de cifras infladas
-const stats = [
-  { value: 14, suffix: " días", label: "Entrega máxima" },
-  { value: 100, suffix: "%", label: "Sin permanencia" },
-  { value: 24, suffix: "/7", label: "IA atendiendo" },
-  { value: 24, suffix: "h", label: "Respuesta a presupuestos" },
-];
-
 export default function AboutV2() {
   const sectionRef = useRef<HTMLElement>(null);
-  const counterRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useGSAP(
     () => {
@@ -29,7 +20,6 @@ export default function AboutV2() {
       gsap.set(".av2-image", { clipPath: "inset(100% 0% 0% 0%)", autoAlpha: 0 });
       gsap.set(".av2-image-badge", { scale: 0.6, autoAlpha: 0 });
       gsap.set(".av2-text-block > *", { y: 30, autoAlpha: 0 });
-      gsap.set(".av2-stat", { y: 30, autoAlpha: 0 });
 
       ScrollTrigger.create({
         trigger: ".av2-image",
@@ -61,35 +51,6 @@ export default function AboutV2() {
         scrollTrigger: { trigger: ".av2-text-block", start: "top 82%", once: true },
       });
 
-      gsap.to(".av2-stat", {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.7,
-        ease: "power3.out",
-        stagger: 0.08,
-        scrollTrigger: { trigger: ".av2-stats", start: "top 85%", once: true },
-      });
-
-      stats.forEach((s, i) => {
-        const el = counterRefs.current[i];
-        if (!el) return;
-        const obj = { val: 0 };
-        ScrollTrigger.create({
-          trigger: ".av2-stats",
-          start: "top 85%",
-          once: true,
-          onEnter: () => {
-            gsap.to(obj, {
-              val: s.value,
-              duration: 1.6,
-              ease: "power2.out",
-              onUpdate: () => {
-                el.textContent = Math.round(obj.val) + s.suffix;
-              },
-            });
-          },
-        });
-      });
     },
     { scope: sectionRef },
   );
@@ -109,7 +70,7 @@ export default function AboutV2() {
       </Parallax>
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="av2-text-block lg:col-span-7 order-2 lg:order-1">
             <span className="inline-flex items-center gap-3 text-xs font-semibold tracking-[0.25em] uppercase text-accent-bright mb-6">
               <span className="w-8 h-px bg-accent-bright" aria-hidden />
@@ -165,17 +126,6 @@ export default function AboutV2() {
           </div>
         </div>
 
-        {/* Stats en fila */}
-        <div className="av2-stats grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-white/10">
-          {stats.map((s, i) => (
-            <div key={s.label} className="av2-stat">
-              <div className="font-display text-5xl md:text-6xl font-bold tracking-tight text-white mb-2">
-                <span ref={(el) => { counterRefs.current[i] = el; }}>0{s.suffix}</span>
-              </div>
-              <div className="text-sm text-slate-400 uppercase tracking-wider">{s.label}</div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

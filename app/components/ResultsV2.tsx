@@ -14,13 +14,6 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
  */
 const commitments = [
   {
-    stat: "90",
-    suffix: "+",
-    prefix: "",
-    label: "de puntuación en Google PageSpeed como objetivo en cada entrega",
-    detail: "Rendimiento",
-  },
-  {
     stat: "14",
     suffix: " días",
     prefix: "",
@@ -109,7 +102,7 @@ export default function ResultsV2() {
           />
         </div>
 
-        <div className="rv2-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10 border-y border-white/10">
+        <div className="rv2-grid grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-white/10 border-y border-white/10">
           {commitments.map((c, i) => (
             <div key={i} className="rv2-card p-8 lg:p-10 flex flex-col gap-3">
               <div className="font-display font-bold tracking-tight text-accent-bright text-6xl md:text-7xl leading-none">
