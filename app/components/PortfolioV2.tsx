@@ -53,11 +53,8 @@ export default function PortfolioV2() {
         </div>
 
         <div className="pv2-grid grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {projects.map((p, i) => (
-            <div
-              key={p.name}
-              className={`pv2-card relative ${i === 0 ? "md:col-span-2" : ""}`}
-            >
+          {projects.map((p) => (
+            <div key={p.name} className="pv2-card relative">
               <Link
                 href={`/proyectos/${p.slug}`}
                 className="group block"
@@ -67,7 +64,7 @@ export default function PortfolioV2() {
                   <ParallaxImage
                     src={p.image}
                     alt={`${p.name} — web creada por AI Design Canarias`}
-                    sizes={i === 0 ? "(max-width: 767px) 100vw, 1200px" : "(max-width: 767px) 100vw, 600px"}
+                    sizes="(max-width: 767px) 100vw, 600px"
                     className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                     frameClassName="aspect-[16/10] rounded-3xl bg-slate-100"
                     intensity={0.7}

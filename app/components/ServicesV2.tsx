@@ -104,6 +104,27 @@ export default function ServicesV2() {
               </div>
             </Link>
           ))}
+
+          {/* Cierre: con 3 columnas completa la última fila (10 servicios + 2 celdas) */}
+          <a
+            href="#contacto"
+            className="sv2-card group relative flex flex-col justify-between gap-8 p-8 md:col-span-2 rounded-3xl bg-ink text-white overflow-hidden hover:-translate-y-1 transition-transform duration-300 shadow-xl shadow-ink/10"
+            data-cursor
+          >
+            <div className="absolute -right-24 -bottom-24 w-80 h-80 bg-accent/30 rounded-full blur-3xl pointer-events-none" aria-hidden />
+            <div className="relative">
+              <span className="font-display font-bold text-sm tracking-[0.2em] text-accent-bright">
+                ¿Y SI NO ESTÁ EN LA LISTA?
+              </span>
+              <h3 className="font-display font-bold text-3xl md:text-4xl leading-tight mt-5 max-w-lg">
+                Cuéntanos qué necesitas y lo combinamos para tu negocio.
+              </h3>
+            </div>
+            <span className="relative inline-flex items-center gap-2 self-start px-7 py-3.5 rounded-full bg-white text-ink font-semibold group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+              Pedir presupuesto gratis
+              <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
+            </span>
+          </a>
         </div>
       </div>
     </section>
