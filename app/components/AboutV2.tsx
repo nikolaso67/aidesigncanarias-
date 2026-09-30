@@ -106,14 +106,35 @@ export default function AboutV2() {
             <div className="relative">
               <div className="av2-image relative rounded-3xl shadow-2xl shadow-accent/20">
                 <ParallaxImage
-                  src="https://images.unsplash.com/photo-1611237147279-a98066529cdb?w=900&q=80"
-                  alt="Dunas de Maspalomas, Gran Canaria — AI Design Canarias"
+                  src="/gran-canaria-caldera-tejeda.jpg"
+                  alt="Caldera de Tejeda con el Roque Bentayga entre la bruma, Gran Canaria"
                   sizes="(max-width: 1023px) 100vw, 40vw"
                   className="object-cover"
                   frameClassName="rounded-3xl aspect-[4/5]"
                   intensity={1.2}
                 />
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                {/* Crédito obligatorio por la licencia CC BY-SA 3.0 ES de la foto */}
+                <p className="absolute top-4 right-4 px-3 py-1 rounded-full bg-slate-950/55 backdrop-blur-sm text-[11px] text-white/75">
+                  Caldera de Tejeda · Foto:{" "}
+                  <a
+                    href="https://commons.wikimedia.org/wiki/File:Gran_Canaria,_Caldera_de_Tejeda.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-white/30 hover:text-white"
+                  >
+                    Tamara k
+                  </a>
+                  ,{" "}
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/3.0/es/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-white/30 hover:text-white"
+                  >
+                    CC BY-SA 3.0
+                  </a>
+                </p>
               </div>
               <div className="av2-image-badge absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-2xl px-5 py-3 flex items-center gap-3">
                 <span className="text-2xl" aria-hidden>🌴</span>
