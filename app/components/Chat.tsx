@@ -92,8 +92,11 @@ export default function Chat() {
         <div className="fixed bottom-24 right-6 z-[100] w-80 sm:w-96 rounded-2xl border border-slate-200 bg-white shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
           <div className="px-5 py-4 bg-accent flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm">
-              🤖
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white" aria-hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
+                <path d="M11 3.5l1.9 5.1 5.1 1.9-5.1 1.9L11 17.5l-1.9-5.1L4 10.5l5.1-1.9z" />
+                <path d="M18.5 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" />
+              </svg>
             </div>
             <div>
               <div className="font-semibold text-sm text-white">Asistente AI</div>

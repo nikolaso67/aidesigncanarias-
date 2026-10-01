@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { services } from "../servicios/data";
 import SectionTitle from "./agency/SectionTitle";
+import ServiceIcon from "./ServiceIcon";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -60,12 +61,10 @@ export default function ServicesV2() {
               data-cursor
             >
               {/* Icono gigante decorativo de fondo */}
-              <span
-                className="absolute -right-3 -top-3 text-8xl opacity-[0.05] group-hover:opacity-10 transition-opacity duration-300 select-none pointer-events-none"
-                aria-hidden
-              >
-                {s.icon}
-              </span>
+              <ServiceIcon
+                slug={s.slug}
+                className="absolute -right-6 -top-6 w-36 h-36 text-ink group-hover:text-white opacity-[0.05] group-hover:opacity-10 transition duration-300 pointer-events-none"
+              />
 
               <div className="relative flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-8">
@@ -76,10 +75,10 @@ export default function ServicesV2() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span
-                    className="grid place-items-center w-11 h-11 rounded-xl bg-accent/10 text-xl group-hover:bg-white/10 transition-colors duration-300"
+                    className="grid place-items-center w-11 h-11 rounded-xl bg-accent/10 text-accent group-hover:bg-white/10 group-hover:text-accent-bright transition-colors duration-300"
                     aria-hidden
                   >
-                    {s.icon}
+                    <ServiceIcon slug={s.slug} className="w-[22px] h-[22px]" />
                   </span>
                 </div>
 

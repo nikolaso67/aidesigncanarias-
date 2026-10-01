@@ -83,8 +83,10 @@ export default function ContactV2() {
 
         {sent ? (
           <div className="p-12 rounded-3xl border border-emerald-400/30 bg-emerald-400/5 backdrop-blur text-center">
-            <span className="text-5xl mb-4 block" aria-hidden>
-              ✅
+            <span className="mx-auto mb-5 grid place-items-center w-16 h-16 rounded-full bg-emerald-400/15 text-emerald-300" aria-hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                <path d="M5 12.5l4.5 4.5L19 7.5" />
+              </svg>
             </span>
             <h3 className="text-2xl font-bold mb-3 text-white">Mensaje enviado</h3>
             <p className="text-slate-300">

@@ -137,7 +137,12 @@ export default function AboutV2() {
                 </p>
               </div>
               <div className="av2-image-badge absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-2xl px-5 py-3 flex items-center gap-3">
-                <span className="text-2xl" aria-hidden>🌴</span>
+                <span className="grid place-items-center w-10 h-10 rounded-xl bg-accent/10 text-accent" aria-hidden>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                    <path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z" />
+                    <circle cx="12" cy="10" r="2.3" />
+                  </svg>
+                </span>
                 <div>
                   <div className="text-xs text-slate-500">Con base en</div>
                   <div className="font-bold text-slate-900 text-sm">Gran Canaria</div>

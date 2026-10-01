@@ -3,12 +3,12 @@ import SectionTitle from "./agency/SectionTitle";
 import RevealOnScroll from "./agency/RevealOnScroll";
 
 const zonas = [
-  { slug: "las-palmas-de-gran-canaria", nombre: "Las Palmas de Gran Canaria", emoji: "🏙️" },
-  { slug: "maspalomas", nombre: "Maspalomas y Playa del Inglés", emoji: "🏖️" },
-  { slug: "telde", nombre: "Telde", emoji: "🏭" },
-  { slug: "santa-lucia-de-tirajana", nombre: "Santa Lucía de Tirajana", emoji: "🌿" },
-  { slug: "mogan", nombre: "Mogán y Puerto de Mogán", emoji: "⛵" },
-  { slug: "arucas", nombre: "Arucas", emoji: "🍹" },
+  { slug: "las-palmas-de-gran-canaria", nombre: "Las Palmas de Gran Canaria" },
+  { slug: "maspalomas", nombre: "Maspalomas y Playa del Inglés" },
+  { slug: "telde", nombre: "Telde" },
+  { slug: "santa-lucia-de-tirajana", nombre: "Santa Lucía de Tirajana" },
+  { slug: "mogan", nombre: "Mogán y Puerto de Mogán" },
+  { slug: "arucas", nombre: "Arucas" },
 ];
 
 export default function ZonasV2() {

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ParallaxImage from "../../components/agency/ParallaxImage";
+import ServiceIcon from "../../components/ServiceIcon";
 import { portfolioProjects, getProject } from "../../data/portfolio";
 import { getService } from "../../servicios/data";
 import { getSector } from "../../[sector]/data";
@@ -279,7 +280,9 @@ export default async function ProyectoPage({
                   href={`/servicios/${s.slug}`}
                   className="group p-6 rounded-2xl border border-ink/10 bg-white hover:border-ink transition-all"
                 >
-                  <span className="text-2xl" aria-hidden>{s.icon}</span>
+                  <span className="grid place-items-center w-10 h-10 rounded-xl bg-accent/10 text-accent" aria-hidden>
+                    <ServiceIcon slug={s.slug} className="w-5 h-5" />
+                  </span>
                   <h3 className="font-semibold text-ink mt-3 mb-2 group-hover:text-accent transition-colors">
                     {s.title}
                   </h3>

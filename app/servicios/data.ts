@@ -15,7 +15,6 @@ export interface ServicePricing {
 
 export interface Service {
   slug: string;
-  icon: string;
   title: string;
   h1: string;
   metaTitle: string;
@@ -30,7 +29,6 @@ export interface Service {
 export const services: Service[] = [
   {
     slug: "diseno-web-gran-canaria",
-    icon: "🌐",
     title: "Diseño web profesional",
     h1: "Diseño web profesional en Gran Canaria",
     metaTitle: "Diseño web profesional en Gran Canaria",
@@ -65,7 +63,6 @@ export const services: Service[] = [
   },
   {
     slug: "integracion-ia",
-    icon: "🤖",
     title: "Integración de IA",
     h1: "Integración de IA y chatbots para negocios en Canarias",
     metaTitle: "Integración de IA y chatbots para negocios en Canarias",
@@ -100,7 +97,6 @@ export const services: Service[] = [
   },
   {
     slug: "seo-posicionamiento-canarias",
-    icon: "📈",
     title: "SEO y posicionamiento",
     h1: "SEO y posicionamiento web en Gran Canaria",
     metaTitle: "SEO y posicionamiento web en Gran Canaria",
@@ -134,7 +130,6 @@ export const services: Service[] = [
   },
   {
     slug: "tiendas-online",
-    icon: "🛒",
     title: "Tiendas online",
     h1: "Tiendas online en Gran Canaria — vende por internet",
     metaTitle: "Tiendas online en Gran Canaria",
@@ -161,7 +156,6 @@ export const services: Service[] = [
   },
   {
     slug: "identidad-visual-branding",
-    icon: "🎨",
     title: "Identidad visual y branding",
     h1: "Identidad visual y branding para negocios en Gran Canaria",
     metaTitle: "Identidad visual y branding en Gran Canaria",
@@ -195,7 +189,6 @@ export const services: Service[] = [
   },
   {
     slug: "apps-web-progresivas",
-    icon: "⚡",
     title: "Apps web progresivas",
     h1: "Apps web progresivas (PWA) para negocios en Canarias",
     metaTitle: "Apps web progresivas para negocios en Canarias",
@@ -222,7 +215,6 @@ export const services: Service[] = [
   },
   {
     slug: "mantenimiento-web",
-    icon: "🔧",
     title: "Mantenimiento web",
     h1: "Mantenimiento web en Gran Canaria — tu web siempre activa",
     metaTitle: "Mantenimiento web en Gran Canaria",
@@ -259,7 +251,6 @@ export const services: Service[] = [
   },
   {
     slug: "software-a-medida",
-    icon: "⚙️",
     title: "Software a medida",
     h1: "Software a medida para negocios en Gran Canaria",
     metaTitle: "Software a medida para negocios en Gran Canaria",
@@ -286,7 +277,6 @@ export const services: Service[] = [
   },
   {
     slug: "consultoria-digital",
-    icon: "💡",
     title: "Consultoría digital",
     h1: "Consultoría digital para negocios en Gran Canaria",
     metaTitle: "Consultoría digital para negocios en Gran Canaria",
@@ -321,7 +311,6 @@ export const services: Service[] = [
   },
   {
     slug: "publicidad-digital",
-    icon: "🎯",
     title: "Publicidad digital",
     h1: "Publicidad digital en Gran Canaria — Google, Meta e Instagram",
     metaTitle: "Publicidad digital en Gran Canaria — Google y Meta Ads",
