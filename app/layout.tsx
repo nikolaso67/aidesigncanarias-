@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Bricolage_Grotesque } from "next/font/google";
 import SmoothScroll from "./components/SmoothScroll";
 import CookieConsent from "./components/CookieConsent";
+import SkipLink from "./components/SkipLink";
 import "./globals.css";
 
 
@@ -163,6 +164,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased">
+        <SkipLink />
         <SmoothScroll>{children}</SmoothScroll>
         {/* Analítica (GA4 + Clarity) solo tras aceptar: ver app/lib/consent.ts */}
         <CookieConsent />

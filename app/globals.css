@@ -33,6 +33,15 @@ body {
 h1 {
   letter-spacing: -0.03em;
 }
+
+/* Foco de teclado visible en toda la web; el ratón no lo muestra (:focus-visible) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+main:focus {
+  outline: none;
+}
 h2 {
   letter-spacing: -0.02em;
 }
