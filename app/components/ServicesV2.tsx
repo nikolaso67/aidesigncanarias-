@@ -63,7 +63,7 @@ export default function ServicesV2() {
               {/* Icono gigante decorativo de fondo */}
               <ServiceIcon
                 slug={s.slug}
-                className="absolute -right-6 -top-6 w-36 h-36 text-ink group-hover:text-white opacity-[0.05] group-hover:opacity-10 transition duration-300 pointer-events-none"
+                className="absolute -right-10 -top-10 w-44 h-44 text-ink group-hover:text-white opacity-[0.035] group-hover:opacity-[0.08] transition duration-300 pointer-events-none"
               />
 
               <div className="relative flex flex-col flex-1">
