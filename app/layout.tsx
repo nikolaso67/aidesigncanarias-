@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Bricolage_Grotesque } from "next/font/google";
-import Script from "next/script";
 import SmoothScroll from "./components/SmoothScroll";
+import CookieConsent from "./components/CookieConsent";
 import "./globals.css";
 
-const GA_ID = "G-M5DNQL035H";
-const CLARITY_ID = "wmeor4nkaw";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -158,26 +156,16 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${geist.variable} ${bricolage.variable}`}>
       <head>
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="lazyOnload"
-      />
-      <Script id="ga4" strategy="lazyOnload">
-        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}');`}
-      </Script>
-      <Script id="clarity" strategy="lazyOnload">
-        {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`}
-      </Script>
       <body className="min-h-screen bg-white text-slate-900 antialiased">
         <SmoothScroll>{children}</SmoothScroll>
+        {/* Analítica (GA4 + Clarity) solo tras aceptar: ver app/lib/consent.ts */}
+        <CookieConsent />
       </body>
     </html>
   );

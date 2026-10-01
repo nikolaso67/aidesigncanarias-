@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookieSettingsButton } from "./CookieConsent";
 
 const sectores = [
   { slug: "web-para-restaurantes-gran-canaria", nombre: "Restaurantes" },
@@ -160,6 +161,7 @@ export default function FooterV2() {
             <Link href="/aviso-legal" className="hover:text-white transition-colors" data-cursor>Aviso legal</Link>
             <Link href="/privacidad" className="hover:text-white transition-colors" data-cursor>Privacidad</Link>
             <Link href="/cookies" className="hover:text-white transition-colors" data-cursor>Cookies</Link>
+            <CookieSettingsButton className="hover:text-white transition-colors" />
           </div>
         </div>
       </div>

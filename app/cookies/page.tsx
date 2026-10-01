@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CookieSettingsButton } from "../components/CookieConsent";
 
 export const metadata: Metadata = {
   title: "Política de Cookies | AI Design Canarias",
@@ -10,7 +11,7 @@ export default function CookiesPage() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-32">
       <h1 className="text-3xl font-bold text-slate-900 mb-8">Política de Cookies</h1>
-      <p className="text-sm text-slate-400 mb-10">Última actualización: mayo de 2026</p>
+      <p className="text-sm text-slate-400 mb-10">Última actualización: octubre de 2026</p>
 
       <div className="space-y-8 text-slate-600 leading-relaxed">
 
@@ -45,20 +46,40 @@ export default function CookiesPage() {
                   <td className="p-3 border border-slate-200">Google Analytics — mantiene el estado de la sesión</td>
                   <td className="p-3 border border-slate-200">2 años</td>
                 </tr>
+                <tr>
+                  <td className="p-3 border border-slate-200 font-mono text-xs">_clck</td>
+                  <td className="p-3 border border-slate-200">Analítica</td>
+                  <td className="p-3 border border-slate-200">Microsoft Clarity — guarda un identificador anónimo de visitante y sus preferencias</td>
+                  <td className="p-3 border border-slate-200">1 año</td>
+                </tr>
+                <tr className="bg-slate-50">
+                  <td className="p-3 border border-slate-200 font-mono text-xs">_clsk</td>
+                  <td className="p-3 border border-slate-200">Analítica</td>
+                  <td className="p-3 border border-slate-200">Microsoft Clarity — agrupa las páginas vistas en una misma sesión</td>
+                  <td className="p-3 border border-slate-200">1 día</td>
+                </tr>
+                <tr>
+                  <td className="p-3 border border-slate-200 font-mono text-xs">CLID, MUID</td>
+                  <td className="p-3 border border-slate-200">Analítica (de terceros)</td>
+                  <td className="p-3 border border-slate-200">Microsoft Clarity — identifican el navegador en los dominios de Microsoft (clarity.ms, bing.com)</td>
+                  <td className="p-3 border border-slate-200">1 año</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
-          <p className="mt-4">No utilizamos cookies de publicidad ni de redes sociales. No cedemos datos de cookies a terceros con fines comerciales.</p>
+          <p className="mt-4">Microsoft Clarity graba de forma anónima cómo se usa la página (clics, desplazamiento) para detectar problemas de diseño; oculta automáticamente lo que escribes en los formularios. No utilizamos cookies de publicidad ni de redes sociales. No cedemos datos de cookies a terceros con fines comerciales.</p>
+          <p className="mt-3">Además guardamos en tu navegador (localStorage, no es una cookie) si has aceptado o rechazado la analítica, para no volver a preguntarte en cada visita.</p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold text-slate-900 mb-3">3. Base jurídica</h2>
-          <p>Las cookies de analítica se instalan bajo tu consentimiento, que puedes revocar en cualquier momento. Las cookies estrictamente necesarias para el funcionamiento del sitio no requieren consentimiento.</p>
+          <p>Las cookies de analítica solo se instalan si las aceptas en el aviso que aparece en tu primera visita. Si las rechazas o no respondes, Google Analytics y Microsoft Clarity no llegan a cargarse. Puedes cambiar tu decisión en cualquier momento; si retiras el consentimiento, borramos esas cookies de tu navegador.</p>
         </section>
 
         <section>
           <h2 className="text-xl font-semibold text-slate-900 mb-3">4. Cómo gestionar o eliminar las cookies</h2>
+          <p className="mb-4">Para aceptar o rechazar la analítica en esta web: <CookieSettingsButton className="text-accent font-semibold hover:underline" />.</p>
           <p>Puedes configurar tu navegador para rechazar o eliminar cookies en cualquier momento. Ten en cuenta que esto puede afectar al funcionamiento del sitio. Instrucciones por navegador:</p>
           <ul className="mt-3 space-y-1 list-disc pl-5">
             <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Google Chrome</a></li>
