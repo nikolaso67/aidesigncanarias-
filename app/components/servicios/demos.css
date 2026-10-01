@@ -1,0 +1,55 @@
+/* Mini demos en bucle para el bento de servicios. Solo transform/opacity.
+   Con prefers-reduced-motion se quedan quietas en su estado final. */
+
+/* --- Web que se monta (8 s) --- */
+@keyframes wb-in {
+  0% { opacity: 0; transform: scaleX(0.35); }
+  7% { opacity: 1; transform: scaleX(1); }
+  84% { opacity: 1; transform: scaleX(1); }
+  94%, 100% { opacity: 0; transform: scaleX(1); }
+}
+@keyframes wb-pop {
+  0%, 52% { opacity: 0; transform: translateY(8px) scale(0.9); }
+  58% { opacity: 1; transform: translateY(0) scale(1); }
+  86% { opacity: 1; transform: translateY(0) scale(1); }
+  94%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+}
+.wb-el { transform-origin: 0 50%; animation: wb-in 8s cubic-bezier(0.22, 1, 0.36, 1) infinite both; }
+.wb-pop { animation: wb-pop 8s cubic-bezier(0.22, 1, 0.36, 1) infinite both; }
+
+/* --- Chat de IA (8 s) --- */
+@keyframes ch-user { 0%, 4% { opacity: 0; transform: translateY(10px) scale(0.96); } 9%, 88% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+@keyframes ch-typing { 0%, 17% { opacity: 0; } 20%, 31% { opacity: 1; } 33%, 100% { opacity: 0; } }
+@keyframes ch-ai { 0%, 32% { opacity: 0; transform: translateY(10px) scale(0.96); } 37%, 88% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+@keyframes ch-chip { 0%, 50% { opacity: 0; transform: translateY(10px); } 56%, 88% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+@keyframes ch-dot { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-4px); opacity: 1; } }
+.ch-user { animation: ch-user 8s ease-out infinite both; }
+.ch-typing { animation: ch-typing 8s linear infinite both; }
+.ch-ai { animation: ch-ai 8s ease-out infinite both; }
+.ch-chip { animation: ch-chip 8s ease-out infinite both; }
+.ch-dot { animation: ch-dot 0.9s ease-in-out infinite; }
+
+/* --- SEO: la línea sube y la posición rueda de 14 a 1 (7 s) --- */
+@keyframes seo-draw { 0%, 6% { stroke-dashoffset: 1; } 62%, 88% { stroke-dashoffset: 0; } 97%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes seo-area { 0%, 30% { opacity: 0; } 62%, 88% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes seo-roll {
+  0%, 8% { transform: translateY(0); }
+  20% { transform: translateY(-1em); }
+  32% { transform: translateY(-2em); }
+  44% { transform: translateY(-3em); }
+  56%, 92% { transform: translateY(-4em); }
+  100% { transform: translateY(0); }
+}
+@keyframes seo-badge { 0%, 56% { opacity: 0; transform: scale(0.8); } 62%, 88% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+.seo-line { stroke-dasharray: 1; animation: seo-draw 7s cubic-bezier(0.65, 0, 0.35, 1) infinite both; }
+.seo-area { animation: seo-area 7s ease-out infinite both; }
+.seo-roll { animation: seo-roll 7s cubic-bezier(0.65, 0, 0.35, 1) infinite both; }
+.seo-badge { animation: seo-badge 7s ease-out infinite both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wb-el, .wb-pop, .ch-user, .ch-ai, .ch-chip, .seo-area, .seo-badge { animation: none; opacity: 1; transform: none; }
+  .ch-typing { animation: none; opacity: 0; }
+  .ch-dot { animation: none; }
+  .seo-line { animation: none; stroke-dashoffset: 0; }
+  .seo-roll { animation: none; transform: translateY(-4em); }
+}

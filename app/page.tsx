@@ -3,7 +3,7 @@ import Navbar from "./components/NavbarV2";
 // PRUEBA: hero con vídeo de fondo a sangre (alternativas en el repo: HeroV3D, HeroV2)
 import Hero from "./components/HeroVideo";
 import Marquee from "./components/Marquee";
-import Services from "./components/ServicesV2";
+import Services from "./components/servicios/Services";
 import About from "./components/AboutV2";
 import Portfolio from "./components/PortfolioV2";
 import Proceso from "./components/ProcesoV2";
