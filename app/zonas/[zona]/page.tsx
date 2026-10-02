@@ -36,7 +36,7 @@ export default async function ZonaPage({
 
   const BASE = "https://aidesigncanarias.com";
 
-  const jsonLd = [
+  const jsonLd: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -68,6 +68,17 @@ export default async function ZonaPage({
       ],
     },
   ];
+  if (zona.faq?.length) {
+    jsonLd.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: zona.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
 
   const serviciosDestacados = [
     { href: "/servicios/diseno-web-gran-canaria", label: "Diseño web profesional" },
@@ -146,6 +157,26 @@ export default async function ZonaPage({
         </div>
       </section>
 
+      {zona.contexto && (
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-3xl font-bold text-ink mb-8">{zona.contexto.titulo}</h2>
+            <div className="space-y-5 text-slate-600 text-lg leading-relaxed">
+              {zona.contexto.parrafos.map((p) => (
+                <p key={p.slice(0, 40)}>{p}</p>
+              ))}
+            </div>
+            <p className="mt-8 text-slate-600">
+              ¿Quieres saber cuánto costaría la tuya?{" "}
+              <Link href="/servicios/diseno-web-gran-canaria" className="text-accent font-semibold hover:underline">
+                Mira qué incluye cada plan y su precio
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Servicios */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
@@ -187,6 +218,27 @@ export default async function ZonaPage({
           ))}
         </div>
       </section>
+
+      {zona.faq && zona.faq.length > 0 && (
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-3xl font-bold text-ink mb-10">
+              Preguntas frecuentes sobre diseño web en {zona.nombreCorto}
+            </h2>
+            <div className="divide-y divide-ink/10 border-y border-ink/10">
+              {zona.faq.map((f) => (
+                <details key={f.q} className="group py-5">
+                  <summary className="flex items-start justify-between gap-6 cursor-pointer list-none font-semibold text-ink text-lg">
+                    {f.q}
+                    <span className="mt-1 text-accent transition-transform group-open:rotate-45" aria-hidden>+</span>
+                  </summary>
+                  <p className="mt-3 text-slate-600 leading-relaxed">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Referencia local */}
       <section className="py-12 px-6 bg-white">

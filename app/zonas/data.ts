@@ -8,6 +8,10 @@ export interface Zona {
   metaDescription: string;
   negociosTipo: string[];
   referencia: string;
+  /** Párrafos con contexto real del municipio (opcional). Solo hechos comprobables. */
+  contexto?: { titulo: string; parrafos: string[] };
+  /** Preguntas frecuentes de la zona (opcional). Se publican también como FAQPage JSON-LD. */
+  faq?: { q: string; a: string }[];
 }
 
 export const zonas: Zona[] = [
@@ -42,7 +46,34 @@ export const zonas: Zona[] = [
     metaTitle: "Diseño web en Telde, Gran Canaria | AI Design Canarias",
     metaDescription: "Agencia de diseño web en Telde. Webs profesionales con SEO local para empresas y negocios del segundo municipio más grande de Gran Canaria.",
     negociosTipo: ["talleres mecánicos y automoción", "empresas de construcción", "comercios locales", "clínicas y consultas", "academias y centros educativos"],
-    referencia: "Polígono Industrial de Arinaga, Telde centro",
+    referencia: "San Gregorio, San Juan, Jinámar, Melenara o los polígonos de Salinetas y El Goro",
+    contexto: {
+      titulo: "Qué necesita la web de un negocio en Telde",
+      parrafos: [
+        "Telde no es un único mercado. La zona comercial de San Gregorio, los cascos históricos de San Juan y San Francisco, barrios como Jinámar o Las Remudas, la costa de Melenara, Salinetas y La Garita y los polígonos industriales de Salinetas y El Goro tienen clientes distintos que buscan en Google de forma distinta.",
+        "Un comercio o una clínica de San Gregorio compite por búsquedas cercanas del tipo «fisioterapeuta en Telde» o «tienda de … cerca de mí». Ahí pesan sobre todo la ficha de Google Business Profile, las reseñas y una web rápida en el móvil que diga claramente en qué barrio estás y cómo llegar.",
+        "Una empresa de los polígonos vende sobre todo a otras empresas: necesita una web que explique bien sus servicios, enseñe trabajos reales y permita pedir presupuesto sin llamar. Y un restaurante de la costa necesita lo contrario: carta actualizada, horario, reservas y fotos que abran el apetito.",
+        "Por eso no hacemos la misma web para todos. Primero vemos qué buscan tus clientes y desde dónde, y después diseñamos para eso.",
+      ],
+    },
+    faq: [
+      {
+        q: "¿Cuánto cuesta una página web para un negocio en Telde?",
+        a: "La web Esencial cuesta 299 €, la Profesional 499 € y la Premium con IA 699 €, en pago único. El mantenimiento es opcional, desde 39 € al mes y sin permanencia. Te damos el presupuesto cerrado en menos de 24 horas.",
+      },
+      {
+        q: "¿Tengo que desplazarme o tenéis que venir a mi negocio?",
+        a: "No hace falta. Todo el proceso se hace por WhatsApp, llamada o videollamada: nos cuentas tu negocio, te enseñamos una primera versión de la web y solo pagas si te convence.",
+      },
+      {
+        q: "¿Cuánto tardaré en aparecer en Google cuando busquen mi negocio en Telde?",
+        a: "Depende de la competencia de tu sector. Con la ficha de Google Business Profile verificada y una web bien optimizada, las búsquedas por el nombre del negocio suelen funcionar en pocas semanas. Las búsquedas genéricas como «restaurante en Telde» llevan más tiempo. Nadie puede garantizar una posición concreta en Google, y desconfía de quien lo haga.",
+      },
+      {
+        q: "Ya tengo web pero no me trae clientes. ¿Podéis revisarla?",
+        a: "Sí. Te hacemos una revisión exprés gratuita: velocidad, cómo se ve en el móvil, si Google la entiende bien y qué cambiaríamos primero. Si se puede mejorar sin rehacerla, te lo decimos.",
+      },
+    ],
   },
   {
     slug: "santa-lucia-de-tirajana",
