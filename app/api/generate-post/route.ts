@@ -79,7 +79,7 @@ El artículo debe:
   * SEO: /servicios/seo-posicionamiento-canarias
   * Chatbot IA: /servicios/integracion-ia
   * Tiendas online: /servicios/tiendas-online
-  * Redes sociales: /servicios/gestion-redes-sociales
+  * Publicidad en Google y redes: /servicios/publicidad-digital
   * Las Palmas: /zonas/las-palmas-de-gran-canaria
   * Maspalomas: /zonas/maspalomas
   * Telde: /zonas/telde

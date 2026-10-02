@@ -63,8 +63,8 @@ export default async function ZonaPage({
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Inicio", item: BASE },
-        { "@type": "ListItem", position: 2, name: "Zonas", item: `${BASE}/zonas` },
-        { "@type": "ListItem", position: 3, name: zona.nombre, item: `${BASE}/zonas/${slug}` },
+        // No existe /zonas como página: la miga va directa de Inicio a la zona
+        { "@type": "ListItem", position: 2, name: zona.nombre, item: `${BASE}/zonas/${slug}` },
       ],
     },
   ];
@@ -74,7 +74,7 @@ export default async function ZonaPage({
     { href: "/servicios/seo-posicionamiento-canarias", label: "SEO y posicionamiento" },
     { href: "/servicios/integracion-ia", label: "Chatbot con IA" },
     { href: "/servicios/tiendas-online", label: "Tiendas online" },
-    { href: "/servicios/gestion-redes-sociales", label: "Redes sociales" },
+    { href: "/servicios/publicidad-digital", label: "Publicidad digital" },
   ];
 
   return (
