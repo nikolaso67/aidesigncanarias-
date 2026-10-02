@@ -24,18 +24,24 @@ export interface Service {
   benefits: string[];
   description: string;
   pricing: ServicePricing;
+  /** Texto largo opcional (guía) que se muestra tras "Qué incluye". */
+  guide?: { heading: string; paragraphs: string[] }[];
+  /** Preguntas frecuentes opcionales; también se publican como FAQPage JSON-LD. */
+  faq?: { q: string; a: string }[];
 }
 
 export const services: Service[] = [
   {
     slug: "diseno-web-gran-canaria",
     title: "Diseño web profesional",
-    h1: "Diseño web profesional en Gran Canaria",
-    metaTitle: "Diseño web profesional en Gran Canaria",
+    // Esta página va a por la intención "precio" y deja «diseño web gran canaria»
+    // a la home: antes las dos tenían el mismo H1 y competían entre sí.
+    h1: "Cuánto cuesta una página web en Gran Canaria",
+    metaTitle: "Precio de una página web en Gran Canaria: desde 299 €",
     metaDescription:
-      "Diseño web profesional en Gran Canaria. Webs modernas, rápidas y optimizadas para Google. Entrega en 7–14 días, sin permanencia. Presupuesto gratis.",
+      "Cuánto cuesta una página web en Gran Canaria: Esencial 299 €, Profesional 499 € y Premium con IA 699 €. Qué incluye cada plan, plazos y mantenimiento sin permanencia.",
     intro:
-      "Creamos páginas web profesionales para negocios en Gran Canaria y Las Palmas de Gran Canaria. Rápidas, modernas, adaptadas a todos los dispositivos y optimizadas desde el primer día para aparecer en Google. Entrega garantizada en 7 a 14 días.",
+      "Precios cerrados y publicados: una web profesional para tu negocio desde 299 €, en pago único y entregada en 7 a 14 días. Aquí tienes qué incluye cada plan, qué cuesta mantenerla y qué no vas a pagar.",
     features: [
       { title: "Diseño a medida", description: "Cada web es única, adaptada a tu negocio y tu imagen de marca." },
       { title: "Optimizada para Google", description: "SEO técnico incluido desde el inicio: velocidad, estructura y metadatos correctos." },
@@ -60,6 +66,58 @@ export const services: Service[] = [
         { label: "Web Premium + IA", price: "699€", note: "+ 69€/mes mantenimiento" },
       ],
     },
+    guide: [
+      {
+        heading: "Los tres planes, explicados",
+        paragraphs: [
+          "Web Esencial, 299 €. Hasta 5 páginas, diseño adaptado al móvil, formulario de contacto, Google Analytics, SEO básico y hosting incluido. Es el plan para un negocio que necesita una presencia profesional y clara: un taller, una cafetería, un profesional autónomo.",
+          "Web Profesional, 499 €. Hasta 10 páginas, blog, SEO local avanzado y tu ficha de Google Business optimizada. Es el plan para competir en Google en tu zona, cuando tus clientes buscan «tu servicio + tu municipio».",
+          "Web Premium + IA, 699 €. Páginas ilimitadas, chatbot con IA que atiende las 24 horas, sistema de reservas o citas e informes mensuales de SEO. Es el plan para negocios que reciben consultas y reservas a cualquier hora: restaurantes, clínicas, peluquerías, gimnasios.",
+        ],
+      },
+      {
+        heading: "Qué cuesta mantenerla cada mes",
+        paragraphs: [
+          "El mantenimiento es opcional y sin permanencia: 39 €, 49 € o 69 € al mes según el plan. Incluye actualizaciones, copias de seguridad, vigilancia de que la web esté siempre en línea y soporte en español. Los cambios que no entran en el plan se cobran a 39 € la hora, y siempre te decimos el coste antes de hacerlos.",
+          "Si en algún momento quieres dejarlo, lo dejas. No hay contrato de permanencia ni coste de salida, y la web es tuya.",
+        ],
+      },
+      {
+        heading: "¿Por qué algunas webs cuestan mucho más?",
+        paragraphs: [
+          "Una web cuesta más cuando necesita trabajo a medida: integraciones con programas de facturación o de gestión, áreas privadas para clientes, catálogos de cientos de productos o funciones que no existen de serie. Para esos casos hacemos software a medida, desde 990 € y con presupuesto cerrado tras hablar contigo.",
+          "Para la mayoría de negocios locales no hace falta nada de eso. Lo que necesitan es una web rápida, que se vea bien en el móvil, que Google entienda y que convierta visitas en llamadas, mensajes o reservas. Eso es lo que cubren los tres planes.",
+        ],
+      },
+      {
+        heading: "Primero la ves, luego la pagas",
+        paragraphs: [
+          "Antes de pagar nada te enseñamos una primera versión de tu web funcionando. Si te convence, la terminamos y la publicamos en 7 a 14 días desde que das el visto bueno al diseño. Si no te convence, no pagas.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto cuesta una página web para un negocio en Gran Canaria?",
+        a: "Con nosotros, entre 299 € y 699 € en pago único según el plan: Esencial 299 €, Profesional 499 € y Premium con IA 699 €. Una tienda online cuesta 699 €. El mantenimiento mensual es opcional, desde 39 €.",
+      },
+      {
+        q: "¿Es obligatorio pagar el mantenimiento mensual?",
+        a: "No. Es opcional y sin permanencia. Si lo contratas, nos ocupamos de actualizaciones, copias de seguridad y soporte; si no, la web sigue siendo tuya igualmente.",
+      },
+      {
+        q: "¿Cuánto se tarda en tener la web publicada?",
+        a: "Entre 7 y 14 días laborables desde que das el visto bueno al diseño.",
+      },
+      {
+        q: "¿Puedo ver la web antes de pagar?",
+        a: "Sí. Te enseñamos una primera versión funcionando antes de cobrarte nada. Si no te convence, no pagas.",
+      },
+      {
+        q: "¿Y si lo que necesito es una tienda online?",
+        a: "La tienda online cuesta 699 € más 59 € al mes de mantenimiento, con pasarela de pago, gestión de productos y pedidos.",
+      },
+    ],
   },
   {
     slug: "integracion-ia",

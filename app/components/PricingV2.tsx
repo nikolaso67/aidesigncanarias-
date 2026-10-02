@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -196,6 +197,11 @@ export default function PricingV2() {
 
         <p className="text-center text-xs text-slate-400 mt-8">
           Sin permanencia · Cancela el mantenimiento cuando quieras · Precios de lanzamiento
+        </p>
+        <p className="text-center mt-4">
+          <Link href="/servicios/diseno-web-gran-canaria" className="text-sm font-semibold text-accent hover:underline">
+            Cuánto cuesta una web y qué incluye cada plan, en detalle →
+          </Link>
         </p>
       </div>
     </section>

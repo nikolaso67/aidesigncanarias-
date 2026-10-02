@@ -58,7 +58,7 @@ export default async function ServicePage({
     "Hola, me gustaría información sobre " + service.title + ".",
   )}`;
 
-  const jsonLd = [
+  const jsonLd: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -94,6 +94,17 @@ export default async function ServicePage({
       ],
     },
   ];
+  if (service.faq?.length) {
+    jsonLd.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: service.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
 
   return (
     <>
@@ -190,6 +201,42 @@ export default async function ServicePage({
         </section>
       ) : (
         <ServiceProof projects={relatedProjects} />
+      )}
+
+      {service.guide && (
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-3xl mx-auto space-y-14">
+            {service.guide.map((g) => (
+              <div key={g.heading}>
+                <h2 className="font-display text-3xl font-bold text-ink mb-6 text-balance">{g.heading}</h2>
+                <div className="space-y-5 text-slate-600 text-lg leading-relaxed">
+                  {g.paragraphs.map((p) => (
+                    <p key={p.slice(0, 40)}>{p}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {service.faq && service.faq.length > 0 && (
+        <section className="py-20 px-6 bg-paper">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-3xl font-bold text-ink mb-10">Preguntas frecuentes</h2>
+            <div className="divide-y divide-ink/10 border-y border-ink/10">
+              {service.faq.map((f) => (
+                <details key={f.q} className="group py-5">
+                  <summary className="flex items-start justify-between gap-6 cursor-pointer list-none font-semibold text-ink text-lg">
+                    {f.q}
+                    <span className="mt-1 text-accent transition-transform group-open:rotate-45" aria-hidden>+</span>
+                  </summary>
+                  <p className="mt-3 text-slate-600 leading-relaxed">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* Benefits */}
