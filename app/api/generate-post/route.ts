@@ -5,7 +5,6 @@ import { put } from "@vercel/blob";
 const client = new Anthropic();
 
 const TOPIC_POOL = [
-  "cuánto cuesta una página web en Gran Canaria",
   "por qué los negocios locales de Las Palmas necesitan una web profesional",
   "SEO local para negocios en Canarias: guía completa",
   "cómo crear una tienda online en Gran Canaria paso a paso",
@@ -69,6 +68,7 @@ async function generatePost(req: NextRequest) {
 Escribe un artículo de blog SEO-optimizado sobre: "${topic}"
 
 El artículo debe:
+- NO citar precios ni rangos de precios (ni nuestros ni de mercado). Si el tema lo pide, enlaza a /servicios/diseno-web-gran-canaria, que es donde están los precios oficiales
 - Estar dirigido a propietarios de pequeños negocios en Gran Canaria
 - Tener entre 700 y 900 palabras
 - Incluir el topic principal y variaciones de la keyword de forma natural

@@ -31,6 +31,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Post antiguo («… 2025») con precios de mercado que contradecían los
+      // nuestros y competía con la página de precios: se consolida en ella.
+      {
+        source: "/blog/cuanto-cuesta-una-pagina-web-en-gran-canaria-2026-06-29",
+        destination: "/servicios/diseno-web-gran-canaria",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
