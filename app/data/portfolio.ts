@@ -287,59 +287,59 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     slug: "ferreteria-corona-roja",
     name: "Ferretería Corona Roja",
-    category: "Comercio · Web + catálogo",
+    category: "Comercio · Web + pedidos por WhatsApp",
     description:
-      "Web para ferretería en Playa del Inglés con catálogo de productos, ubicación visible y diseño que respeta la identidad histórica del negocio.",
-    tags: ["Catálogo", "SEO Local", "Branding"],
-    image: "/portfolio/corona.webp",
+      "Web para ferretería en Playa del Inglés: buscador «¿Lo tenéis?» que pregunta por WhatsApp, horario con aviso de abierto o cerrado en tiempo real, catálogo por secciones y mapa para llegar.",
+    tags: ["Pedidos por WhatsApp", "Horario en vivo", "SEO Local"],
+    image: "/portfolio/corona-v2.webp",
     url: "https://coronaroja.vercel.app",
     serviceSlugs: ["diseno-web-gran-canaria", "seo-posicionamiento-canarias", "identidad-visual-branding"],
     caseStudy: {
       sectorLabel: "Comercio local",
       metaTitle: "Ferretería Corona Roja: web para un comercio de toda la vida",
       metaDescription:
-        "Proyecto demo de web para ferretería en Playa del Inglés: catálogo, zona de servicio, horario y contacto en una sola página estática y muy rápida.",
-      h1: "Ferretería Corona Roja: el comercio de barrio, en Google",
+        "Proyecto demo de web para ferretería en Playa del Inglés: buscador que pregunta por WhatsApp, horario en tiempo real, catálogo por secciones y mapa. Una sola página, muy rápida.",
+      h1: "Ferretería Corona Roja: el mostrador, también en el móvil",
       intro:
-        "No todos los negocios necesitan una web grande. Corona Roja es nuestro proyecto demo para el comercio de toda la vida: una sola página, muy rápida, que responde qué venden, a qué zona sirven, cuándo abren y cómo llegar.",
+        "Corona Roja es nuestro proyecto demo para el comercio de toda la vida. La pregunta que más se hace en una ferretería es «¿lo tenéis?», así que la web está construida alrededor de esa pregunta: se responde por WhatsApp, sin tener que ir a la tienda a probar suerte.",
       planteamiento: [
-        "Un comercio así no vive de la web: vive del mostrador. Pero el cliente que busca «ferretería en Playa del Inglés» a las nueve de la mañana desde el móvil sí decide con lo que encuentre en Google. Si no hay nada, va a la siguiente.",
-        "El planteamiento fue deliberadamente austero: la web más pequeña que resuelve el problema, sin panel de administración ni funciones que nadie va a usar.",
+        "Un comercio así no vive de la web: vive del mostrador. Pero el cliente que busca «ferretería en Playa del Inglés» desde el móvil decide con lo que encuentra: si tienen lo suyo, si están abiertos ahora y cómo llegar. Si no lo encuentra, va a la siguiente.",
+        "Por eso la web no intenta ser una tienda online con miles de referencias. Hace tres cosas y las hace bien: preguntar por un producto, saber si está abierto y llegar.",
       ],
       decisiones: [
         {
-          title: "Una sola página estática, sin framework",
+          title: "«¿Lo tenéis?» como protagonista",
           description:
-            "HTML y CSS, sin capas de más. Carga casi instantánea, nada que actualizar cada mes y coste de mantenimiento mínimo. Meterle un framework a esto habría sido cobrar por complejidad que el negocio no necesita.",
+            "El buscador de la portada no busca en un inventario: abre WhatsApp con la pregunta ya escrita («Hola, ¿tienen un bombín de seguridad?»). Para el cliente es inmediato y para la tienda no hay que mantener ningún catálogo al día.",
         },
         {
-          title: "Catálogo por familias, no inventario completo",
+          title: "«Mándenos una foto de la pieza»",
           description:
-            "El bloque «todo para su proyecto» agrupa las familias de producto. Un comercio con miles de referencias no necesita listarlas: necesita que sepas que tiene lo tuyo.",
+            "En una ferretería mucha gente no sabe cómo se llama lo que busca. La web lo convierte en un proceso de tres pasos: foto por WhatsApp, confirmación de la tienda y recogida en el mostrador.",
         },
         {
-          title: "Zona de servicio explícita",
+          title: "Abierto o cerrado, en tiempo real",
           description:
-            "Una sección dice qué zona turística cubren. Es contenido útil para el cliente y, a la vez, exactamente lo que Google necesita leer para el «cerca de mí».",
+            "Arriba del todo se ve si la tienda está abierta y a qué hora cierra o vuelve a abrir, calculado con la hora de Canarias. Es la duda que más llamadas genera y ahora se resuelve sin llamar.",
         },
         {
-          title: "Horario y contacto como protagonistas",
+          title: "Catálogo como etiquetas de estantería",
           description:
-            "«¿Cuándo puede visitarnos?» y «¿Necesita algo?» son secciones enteras. En comercio local esas dos son casi todas las visitas.",
+            "Nueve secciones con su número, ejemplos de producto y un botón para preguntar disponibilidad. La estética viene del propio mundo de la ferretería: rótulos condensados, rojo de marca y amarillo de seguridad.",
         },
         {
-          title: "El tono del negocio, respetado",
+          title: "Una sola página estática, el tono de siempre",
           description:
-            "La web habla de usted, como en el mostrador. Modernizar un comercio histórico no es borrar su carácter y ponerle la estética de una startup.",
+            "HTML, CSS y un poco de JavaScript, sin framework: carga casi instantánea y nada que mantener cada mes. Y la web habla de usted, como en el mostrador. Modernizar un comercio histórico no es borrar su carácter.",
         },
       ],
       capacidades: [
-        "Aparecer en las búsquedas de ferretería de la zona",
-        "Horario y teléfono sin tener que llamar para preguntarlos",
-        "Una web que no envejece ni exige mantenimiento mensual",
-        "Imagen cuidada sin traicionar la identidad del negocio",
+        "Preguntar si tienen un producto sin ir a la tienda",
+        "Saber si está abierto ahora y a qué hora cierra",
+        "Pedir por WhatsApp enviando una foto de la pieza",
+        "Llegar con un botón, desde el mapa de Google",
       ],
-      stack: ["HTML", "CSS", "Vercel"],
+      stack: ["HTML", "CSS", "JavaScript", "Vercel"],
     },
   },
   {
