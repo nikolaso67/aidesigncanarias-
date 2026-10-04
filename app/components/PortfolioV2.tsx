@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionTitle from "./agency/SectionTitle";
 import ParallaxImage from "./agency/ParallaxImage";
-import { portfolioProjects as projects } from "../data/portfolio";
+import { portfolioProjects as projects, kindLabel } from "../data/portfolio";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -44,11 +44,11 @@ export default function PortfolioV2() {
             eyebrow="03 — Portfolio"
             title={
               <>
-                Proyectos que puedes{" "}
-                <span className="text-accent">visitar ahora mismo</span>
+                Webs que puedes{" "}
+                <span className="text-accent">abrir ahora mismo</span>
               </>
             }
-            description="Nuestro portfolio: webs publicadas y en producción, no mockups. Cada una demuestra cómo trabajamos el diseño, el SEO local y la velocidad."
+            description="Webs reales y navegables, no mockups. Algunas son demos con marcas inventadas; otras, propuestas de rediseño que preparamos para negocios de la isla que todavía no son clientes. Cada una enseña cómo trabajamos el diseño, el SEO local y la velocidad."
           />
         </div>
 
@@ -70,6 +70,13 @@ export default function PortfolioV2() {
                     intensity={0.7}
                   />
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-slate-900/70 via-slate-900/0 to-transparent opacity-80 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  <span
+                    className={`absolute top-5 left-5 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur ${
+                      p.kind === "propuesta" ? "bg-white/90 text-ink" : "bg-ink/70 text-white"
+                    }`}
+                  >
+                    {kindLabel(p)}
+                  </span>
                   <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4">
                     <div>
                       <span className="inline-block text-xs font-medium tracking-widest uppercase text-white/70 mb-2">

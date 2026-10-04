@@ -24,6 +24,9 @@ export async function generateMetadata({
   const { caseStudy } = project;
   const url = `${BASE}/proyectos/${slug}`;
   return {
+    // Las propuestas llevan el nombre de un negocio real que no es cliente:
+    // no deben salir en Google cuando alguien busca ese negocio.
+    ...(project.kind === "propuesta" && { robots: { index: false, follow: true } }),
     title: caseStudy.metaTitle,
     description: caseStudy.metaDescription,
     alternates: {
@@ -129,7 +132,9 @@ export default async function ProyectoPage({
           </p>
           <div className="inline-flex items-center gap-2 mb-10 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">
             <span className="w-2 h-2 rounded-full bg-accent-bright" aria-hidden />
-            Proyecto demo propio · publicado y navegable
+            {project.kind === "propuesta"
+              ? `Propuesta de diseño · no es la web oficial de ${project.name} ni es cliente`
+              : "Demo · marca ficticia · publicada y navegable"}
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

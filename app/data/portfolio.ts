@@ -7,7 +7,10 @@ export interface CaseStudyBlock {
  * Contenido de la página /proyectos/[slug].
  *
  * REGLAS DE CONTENIDO (mismas que las landings de sector):
- * - Son proyectos demo propios. Nunca presentarlos como clientes de pago.
+ * - Ningún proyecto es de un cliente de pago. Hay dos tipos (campo `kind`):
+ *   · "demo": marca inventada, hecha para enseñar un sector.
+ *   · "propuesta": rediseño para un negocio REAL que no lo ha encargado. No es
+ *     su web oficial: se dice siempre y su página no se indexa en Google.
  * - Cero métricas inventadas (visitas, conversiones, ventas): no hay datos
  *   reales que medir. Se habla de decisiones de diseño y de capacidades.
  * - Todo lo que se afirma aquí tiene que ser comprobable abriendo la web viva.
@@ -38,6 +41,8 @@ export interface PortfolioProject {
   tags: string[];
   image: string;
   url: string;
+  /** "demo" = marca inventada · "propuesta" = negocio real que no lo ha encargado */
+  kind: "demo" | "propuesta";
   /** Slugs de app/servicios/data.ts a los que este proyecto sirve de ejemplo real */
   serviceSlugs: string[];
   caseStudy: CaseStudy;
@@ -57,6 +62,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tags: ["3D interactivo", "Cita online", "Next.js"],
     image: "/portfolio/alma.jpg",
     url: "https://alma-hair-studio.vercel.app",
+    kind: "demo",
     serviceSlugs: ["diseno-web-gran-canaria", "software-a-medida", "identidad-visual-branding"],
     caseStudy: {
       sectorLabel: "Peluquería y estética",
@@ -116,6 +122,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tags: ["Vídeo hero", "Reservas", "Next.js"],
     image: "/portfolio/forja.webp",
     url: "https://forja-training-zeta.vercel.app",
+    kind: "demo",
     serviceSlugs: ["diseno-web-gran-canaria", "identidad-visual-branding", "seo-posicionamiento-canarias"],
     caseStudy: {
       sectorLabel: "Gimnasio y box",
@@ -171,19 +178,20 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "La Taberna El Tablero",
     category: "Restaurante · Web + SEO local",
     description:
-      "Web para taberna en El Tablero con menú digital, reservas, ubicación clara y SEO local. Entra y navégala: está publicada y funcionando.",
+      "Propuesta de rediseño para una taberna de El Tablero: menú digital, reservas, ubicación clara y SEO local. No es su web oficial: la preparamos para enseñársela.",
     tags: ["Next.js", "SEO Local", "Menú digital"],
     image: "/portfolio/taberna.webp",
     url: "https://taberna-el-tablero.vercel.app",
+    kind: "propuesta",
     serviceSlugs: ["diseno-web-gran-canaria", "seo-posicionamiento-canarias"],
     caseStudy: {
       sectorLabel: "Restaurante",
       metaTitle: "La Taberna El Tablero: web de restaurante con carta digital",
       metaDescription:
-        "Proyecto demo de web para restaurante en Gran Canaria: carta digital legible en móvil, reservas, ubicación y SEO local. Publicada y navegable.",
+        "Propuesta de diseño de web para un restaurante de El Tablero: carta digital legible en móvil, reservas, ubicación y SEO local. No es la web oficial del negocio.",
       h1: "La Taberna El Tablero: carta digital, reservas y SEO local",
       intro:
-        "Cuando alguien busca dónde comer cerca, decide en el móvil y en menos de un minuto. La Taberna El Tablero es nuestro proyecto demo de restaurante canario: carta que se lee sin hacer zoom, reserva sin llamar y ubicación a un toque.",
+        "Cuando alguien busca dónde comer cerca, decide en el móvil y en menos de un minuto. La Taberna El Tablero es una propuesta que preparamos para un restaurante canario de El Tablero, sin que nos la encargaran: carta que se lee sin hacer zoom, reserva sin llamar y ubicación a un toque.",
       planteamiento: [
         "El punto de partida es el de casi cualquier restaurante de la isla: la carta es un PDF escaneado que obliga a hacer zoom, las reservas entran por teléfono justo en plena hora punta, y el turista que busca «dónde comer» en Maspalomas o El Tablero nunca llega a ver el sitio.",
         "Es un proyecto propio, no un encargo. Sirve para enseñar cómo tratamos los tres frentes a la vez —carta, reservas y búsqueda local— en una web que se puede abrir y tocar ahora mismo.",
@@ -230,19 +238,20 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "Cabana by Efi",
     category: "Gastrobar · Web de autor",
     description:
-      "Web de autor para gastrobar con identidad visual cuidada, galería de platos y reservas. Una web que vende experiencia, no solo comida.",
+      "Propuesta de rediseño para un gastrobar de El Tablero: identidad visual cuidada, galería de platos y reservas. No es su web oficial: la preparamos para enseñársela.",
     tags: ["Diseño", "Identidad", "Mobile-first"],
     image: "/portfolio/cabana.webp",
     url: "https://cabana-by-efi.vercel.app",
+    kind: "propuesta",
     serviceSlugs: ["diseno-web-gran-canaria", "identidad-visual-branding"],
     caseStudy: {
       sectorLabel: "Gastrobar",
       metaTitle: "Cabana by Efi: web de autor para un gastrobar",
       metaDescription:
-        "Proyecto demo de web para gastrobar: identidad visual propia, carta, reservas y datos estructurados para Google. Publicada y navegable.",
+        "Propuesta de diseño de web para un gastrobar de El Tablero: identidad visual propia, carta y reservas. No es la web oficial del negocio.",
       h1: "Cabana by Efi: una web de autor para un gastrobar",
       intro:
-        "Un gastrobar no compite por precio, compite por experiencia. Cabana by Efi es nuestro proyecto demo para ese caso: una web con identidad propia, donde la carta y la reserva están, pero lo que primero se transmite es el sitio.",
+        "Un gastrobar no compite por precio, compite por experiencia. Cabana by Efi es una propuesta de rediseño que preparamos para un gastrobar de El Tablero, sin que nos la encargaran: una web con identidad propia, donde la carta y la reserva están, pero lo que primero se transmite es el sitio.",
       planteamiento: [
         "Cuando el negocio vive de la experiencia, la web genérica de restaurante trabaja en contra: iguala hacia abajo. El planteamiento aquí fue el opuesto al de una carta funcional — cuánta personalidad se puede meter sin que la reserva se pierda por el camino.",
         "Como los demás, es un proyecto propio. Nos sirve para enseñar el lado de diseño e identidad del trabajo, no solo el lado técnico.",
@@ -264,9 +273,9 @@ export const portfolioProjects: PortfolioProject[] = [
             "Reservas y horario tienen bloques propios y accesibles desde la navegación. La estética no puede costarle al visitante encontrar cómo sentarse a la mesa.",
         },
         {
-          title: "Datos estructurados para Google",
+          title: "Datos para Google, solo en la web oficial",
           description:
-            "La web incluye marcado schema.org en el layout, que es lo que permite a Google entender que hay un negocio con dirección y horarios detrás de un diseño así de libre.",
+            "La versión definitiva llevaría marcado schema.org con dirección y horarios, que es lo que permite a Google entender que hay un negocio detrás de un diseño así de libre. En la propuesta lo dejamos fuera a propósito: no es la web oficial del negocio y no debe hablar en su nombre ante Google."
         },
         {
           title: "Diseñada desde el móvil",
@@ -277,7 +286,7 @@ export const portfolioProjects: PortfolioProject[] = [
       capacidades: [
         "Una imagen digital al nivel del local",
         "Carta y reservas dentro de la misma experiencia",
-        "Datos de negocio legibles por Google desde el primer día",
+        "Preparada para que Google entienda el negocio en cuanto sea su web oficial",
         "Diseño propio, sin cara de plantilla reutilizada",
       ],
       stack: ["Next.js", "Tailwind CSS", "Schema.org", "Vercel"],
@@ -289,19 +298,20 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "Ferretería Corona Roja",
     category: "Comercio · Web + pedidos por WhatsApp",
     description:
-      "Web para ferretería en Playa del Inglés: buscador «¿Lo tenéis?» que pregunta por WhatsApp, horario con aviso de abierto o cerrado en tiempo real, catálogo por secciones y mapa para llegar.",
+      "Propuesta de rediseño para una ferretería de Playa del Inglés, no su web oficial: buscador «¿Lo tenéis?» que pregunta por WhatsApp, horario con aviso de abierto o cerrado en tiempo real, catálogo por secciones y mapa para llegar.",
     tags: ["Pedidos por WhatsApp", "Horario en vivo", "SEO Local"],
     image: "/portfolio/corona-v2.webp",
     url: "https://coronaroja.vercel.app",
+    kind: "propuesta",
     serviceSlugs: ["diseno-web-gran-canaria", "seo-posicionamiento-canarias", "identidad-visual-branding"],
     caseStudy: {
       sectorLabel: "Comercio local",
       metaTitle: "Ferretería Corona Roja: web para un comercio de toda la vida",
       metaDescription:
-        "Proyecto demo de web para ferretería en Playa del Inglés: buscador que pregunta por WhatsApp, horario en tiempo real, catálogo por secciones y mapa. Una sola página, muy rápida.",
+        "Propuesta de diseño de web para una ferretería de Playa del Inglés: buscador que pregunta por WhatsApp, horario en tiempo real, catálogo y mapa. No es la web oficial del negocio.",
       h1: "Ferretería Corona Roja: el mostrador, también en el móvil",
       intro:
-        "Corona Roja es nuestro proyecto demo para el comercio de toda la vida. La pregunta que más se hace en una ferretería es «¿lo tenéis?», así que la web está construida alrededor de esa pregunta: se responde por WhatsApp, sin tener que ir a la tienda a probar suerte.",
+        "Corona Roja es una propuesta de rediseño que preparamos para una ferretería de toda la vida de Playa del Inglés, sin que nos la encargaran. La pregunta que más se hace en una ferretería es «¿lo tenéis?», así que la web está construida alrededor de esa pregunta: se responde por WhatsApp, sin tener que ir a la tienda a probar suerte.",
       planteamiento: [
         "Un comercio así no vive de la web: vive del mostrador. Pero el cliente que busca «ferretería en Playa del Inglés» desde el móvil decide con lo que encuentra: si tienen lo suyo, si están abiertos ahora y cómo llegar. Si no lo encuentra, va a la siguiente.",
         "Por eso la web no intenta ser una tienda online con miles de referencias. Hace tres cosas y las hace bien: preguntar por un producto, saber si está abierto y llegar.",
@@ -351,6 +361,7 @@ export const portfolioProjects: PortfolioProject[] = [
     tags: ["Carrito real", "Checkout", "Filtros"],
     image: "/portfolio/risco.webp",
     url: "https://risco-delta.vercel.app",
+    kind: "demo",
     serviceSlugs: ["tiendas-online", "diseno-web-gran-canaria", "identidad-visual-branding"],
     caseStudy: {
       sectorLabel: "Moda y tienda online",
@@ -402,6 +413,11 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
 ];
+
+/** Etiqueta corta para tarjetas: deja claro qué es cada proyecto. */
+export function kindLabel(p: PortfolioProject): string {
+  return p.kind === "propuesta" ? "Propuesta de diseño" : "Demo · marca ficticia";
+}
 
 export function getProjectsForService(slug: string): PortfolioProject[] {
   return portfolioProjects.filter((p) => p.serviceSlugs.includes(slug));

@@ -1,9 +1,11 @@
 "use client";
 
+// Sin nombres de negocios: una cinta así se lee como "clientes que confían en
+// nosotros", y los proyectos con nombre real son propuestas, no clientes.
 const ITEMS = [
-  "La Taberna El Tablero",
-  "Cabana by Efi",
-  "Corona Roja",
+  "Restaurantes",
+  "Peluquerías",
+  "Comercio local",
   "Diseño web",
   "Integración de IA",
   "SEO local",

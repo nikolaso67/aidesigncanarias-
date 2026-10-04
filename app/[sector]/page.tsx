@@ -249,7 +249,7 @@ export default async function SectorPage({
             >
               <Image
                 src={sector.demo.imagen}
-                alt={`${sector.demo.nombre} — proyecto demo de AI Design Canarias`}
+                alt={`${sector.demo.nombre} — propuesta o demo de AI Design Canarias`}
                 fill
                 sizes="(max-width: 1023px) 100vw, 50vw"
                 className="object-cover object-top"

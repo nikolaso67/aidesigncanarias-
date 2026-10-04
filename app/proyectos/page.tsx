@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ParallaxImage from "../components/agency/ParallaxImage";
-import { portfolioProjects } from "../data/portfolio";
+import { portfolioProjects, kindLabel } from "../data/portfolio";
 
 const BASE = "https://aidesigncanarias.com";
 const URL = `${BASE}/proyectos`;
@@ -82,9 +82,10 @@ export default function ProyectosPage() {
             Webs que puedes abrir ahora mismo
           </h1>
           <p className="text-xl text-slate-400 leading-relaxed">
-            Cada proyecto está publicado y navegable. Son demos propias, no
-            trabajos de clientes: las montamos para enseñar cómo trabajamos cada
-            sector sin pedirte que te fíes de un mockup.
+            Cada proyecto está publicado y navegable, y ninguno es un trabajo de
+            cliente. Las demos usan marcas inventadas; las propuestas son
+            rediseños que preparamos para negocios reales que aún no nos los han
+            encargado, y no son su web oficial.
           </p>
         </div>
       </section>
@@ -105,6 +106,13 @@ export default function ProyectosPage() {
                     intensity={0.5}
                   />
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-slate-900/70 via-slate-900/0 to-transparent opacity-80 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  <span
+                    className={`absolute top-4 left-4 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur ${
+                      p.kind === "propuesta" ? "bg-white/90 text-ink" : "bg-ink/70 text-white"
+                    }`}
+                  >
+                    {kindLabel(p)}
+                  </span>
                   <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
                     <div>
                       <span className="inline-block text-xs font-medium tracking-widest uppercase text-white/70 mb-1.5">

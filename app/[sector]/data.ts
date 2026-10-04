@@ -113,7 +113,7 @@ export const sectores: Sector[] = [
       imagen: "/portfolio/taberna.webp",
       proyectoSlug: "taberna-el-tablero",
       descripcion:
-        "Nuestro proyecto demo de restaurante canario: carta digital, reservas y SEO local. Ábrelo y tócalo — así se sentiría la web de tu restaurante.",
+        "Una propuesta de rediseño que preparamos para un restaurante canario de El Tablero (no es su web oficial): carta digital, reservas y SEO local. Ábrela y tócala: así se sentiría la web de tu restaurante.",
     },
     faqs: [
       {
