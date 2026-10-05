@@ -151,7 +151,8 @@ export default function ContactV2() {
 
             {error && (
               <p className="text-red-400 text-sm text-center" role="alert">
-                Ha ocurrido un error. Inténtalo de nuevo.
+                No hemos podido enviar tu mensaje. Escríbenos directamente a{" "}
+                <a href="mailto:info@aidesigncanarias.com" className="underline">info@aidesigncanarias.com</a>.
               </p>
             )}
 

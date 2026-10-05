@@ -64,7 +64,9 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
-  await resend.emails.send({
+  // Resend no lanza excepción si rechaza el envío: devuelve { error }. Hay que comprobarlo,
+  // si no la web le dice al cliente "enviado" y el mensaje se pierde sin dejar rastro.
+  const { error } = await resend.emails.send({
     from: "AI Design Canarias <info@aidesigncanarias.com>",
     to: "info@aidesigncanarias.com",
     subject: `Nuevo mensaje de ${escapeHtml(nombre)}`,
@@ -79,6 +81,11 @@ export async function POST(request: Request) {
     `,
     replyTo: email,
   });
+
+  if (error) {
+    console.error("Resend rechazó el email de contacto", { name: error.name, message: error.message });
+    return Response.json({ error: "No se pudo enviar el mensaje." }, { status: 502 });
+  }
 
   return Response.json({ ok: true });
 }
