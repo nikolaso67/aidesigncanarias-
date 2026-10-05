@@ -37,11 +37,11 @@ export const services: Service[] = [
     // Esta página va a por la intención "precio" y deja «diseño web gran canaria»
     // a la home: antes las dos tenían el mismo H1 y competían entre sí.
     h1: "Cuánto cuesta una página web en Gran Canaria",
-    metaTitle: "Precio de una página web en Gran Canaria: desde 299 €",
+    metaTitle: "Precio de una página web en Gran Canaria: desde 249 €",
     metaDescription:
-      "Cuánto cuesta una página web en Gran Canaria: Esencial 299 €, Profesional 499 € y Premium con IA 699 €. Qué incluye cada plan, plazos y mantenimiento sin permanencia.",
+      "Cuánto cuesta una página web en Gran Canaria: Esencial 249 €, Profesional 350 € y Premium con IA 420 €. Qué incluye cada plan, plazos y mantenimiento sin permanencia.",
     intro:
-      "Precios cerrados y publicados: una web profesional para tu negocio desde 299 €, en pago único y entregada en 7 a 14 días. Aquí tienes qué incluye cada plan, qué cuesta mantenerla y qué no vas a pagar.",
+      "Precios cerrados y publicados: una web profesional para tu negocio desde 249 €, en pago único y entregada en 7 a 14 días. Aquí tienes qué incluye cada plan, qué cuesta mantenerla y qué no vas a pagar.",
     features: [
       { title: "Diseño a medida", description: "Cada web es única, adaptada a tu negocio y tu imagen de marca." },
       { title: "Optimizada para Google", description: "SEO técnico incluido desde el inicio: velocidad, estructura y metadatos correctos." },
@@ -58,21 +58,21 @@ export const services: Service[] = [
     ],
     description: "Webs modernas, rápidas y adaptadas a todos los dispositivos. Diseñadas para convertir visitantes en clientes.",
     pricing: {
-      headline: "Desde 299€",
+      headline: "Desde 249€",
       note: "Web Esencial + 39€/mes de mantenimiento",
       breakdown: [
-        { label: "Web Esencial", price: "299€", note: "+ 39€/mes mantenimiento" },
-        { label: "Web Profesional", price: "499€", note: "+ 49€/mes mantenimiento" },
-        { label: "Web Premium + IA", price: "699€", note: "+ 69€/mes mantenimiento" },
+        { label: "Web Esencial", price: "249€", note: "+ 39€/mes mantenimiento" },
+        { label: "Web Profesional", price: "350€", note: "+ 49€/mes mantenimiento" },
+        { label: "Web Premium + IA", price: "420€", note: "+ 69€/mes mantenimiento" },
       ],
     },
     guide: [
       {
         heading: "Los tres planes, explicados",
         paragraphs: [
-          "Web Esencial, 299 €. Hasta 5 páginas, diseño adaptado al móvil, formulario de contacto, Google Analytics, SEO básico y hosting incluido. Es el plan para un negocio que necesita una presencia profesional y clara: un taller, una cafetería, un profesional autónomo.",
-          "Web Profesional, 499 €. Hasta 10 páginas, blog, SEO local avanzado y tu ficha de Google Business optimizada. Es el plan para competir en Google en tu zona, cuando tus clientes buscan «tu servicio + tu municipio».",
-          "Web Premium + IA, 699 €. Páginas ilimitadas, chatbot con IA que atiende las 24 horas, sistema de reservas o citas e informes mensuales de SEO. Es el plan para negocios que reciben consultas y reservas a cualquier hora: restaurantes, clínicas, peluquerías, gimnasios.",
+          "Web Esencial, 249 €. Hasta 5 páginas, diseño adaptado al móvil, formulario de contacto, Google Analytics, SEO básico y hosting incluido. Es el plan para un negocio que necesita una presencia profesional y clara: un taller, una cafetería, un profesional autónomo.",
+          "Web Profesional, 350 €. Hasta 10 páginas, blog, SEO local avanzado y tu ficha de Google Business optimizada. Es el plan para competir en Google en tu zona, cuando tus clientes buscan «tu servicio + tu municipio».",
+          "Web Premium + IA, 420 €. Páginas ilimitadas, chatbot con IA que atiende las 24 horas, sistema de reservas o citas e informes mensuales de SEO. Es el plan para negocios que reciben consultas y reservas a cualquier hora: restaurantes, clínicas, peluquerías, gimnasios.",
         ],
       },
       {
@@ -99,7 +99,7 @@ export const services: Service[] = [
     faq: [
       {
         q: "¿Cuánto cuesta una página web para un negocio en Gran Canaria?",
-        a: "Con nosotros, entre 299 € y 699 € en pago único según el plan: Esencial 299 €, Profesional 499 € y Premium con IA 699 €. Una tienda online cuesta 699 €. El mantenimiento mensual es opcional, desde 39 €.",
+        a: "Con nosotros, entre 249 € y 420 € en pago único según el plan: Esencial 249 €, Profesional 350 € y Premium con IA 420 €. Una tienda online cuesta 500 €. El mantenimiento mensual es opcional, desde 39 €.",
       },
       {
         q: "¿Es obligatorio pagar el mantenimiento mensual?",
@@ -115,7 +115,7 @@ export const services: Service[] = [
       },
       {
         q: "¿Y si lo que necesito es una tienda online?",
-        a: "La tienda online cuesta 699 € más 59 € al mes de mantenimiento, con pasarela de pago, gestión de productos y pedidos.",
+        a: "La tienda online cuesta 500 € más 59 € al mes de mantenimiento, con pasarela de pago, gestión de productos y pedidos.",
       },
     ],
   },
@@ -148,7 +148,7 @@ export const services: Service[] = [
       note: "Instalación sobre tu web actual",
       breakdown: [
         { label: "Instalación del chatbot", price: "299€", note: "Sobre una web existente" },
-        { label: "Incluido en Web Premium + IA", price: "699€", note: "Si contratas la web con nosotros" },
+        { label: "Incluido en Web Premium + IA", price: "420€", note: "Si contratas la web con nosotros" },
         { label: "Mantenimiento", price: "39€/mes", note: "Web nuestra · 59€/mes si es web externa" },
       ],
     },
@@ -210,7 +210,7 @@ export const services: Service[] = [
       "Control total de tu catálogo y stock",
     ],
     description: "Vende tus productos o servicios en internet. Gestión sencilla, pagos seguros y experiencia de compra fluida.",
-    pricing: { headline: "699€", note: "+ 59€/mes de mantenimiento" },
+    pricing: { headline: "500€", note: "+ 59€/mes de mantenimiento" },
   },
   {
     slug: "identidad-visual-branding",

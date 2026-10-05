@@ -59,7 +59,7 @@ export const zonas: Zona[] = [
     faq: [
       {
         q: "¿Cuánto cuesta una página web para un negocio en Telde?",
-        a: "La web Esencial cuesta 299 €, la Profesional 499 € y la Premium con IA 699 €, en pago único. El mantenimiento es opcional, desde 39 € al mes y sin permanencia. Te damos el presupuesto cerrado en menos de 24 horas.",
+        a: "La web Esencial cuesta 249 €, la Profesional 350 € y la Premium con IA 420 €, en pago único. El mantenimiento es opcional, desde 39 € al mes y sin permanencia. Te damos el presupuesto cerrado en menos de 24 horas.",
       },
       {
         q: "¿Tengo que desplazarme o tenéis que venir a mi negocio?",

@@ -12,7 +12,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const plans = [
   {
     name: "Esencial",
-    price: 299,
+    price: 249,
     monthly: 39,
     description: "Presencia digital profesional para empezar.",
     features: [
@@ -27,7 +27,7 @@ const plans = [
   },
   {
     name: "Profesional",
-    price: 499,
+    price: 350,
     monthly: 49,
     description: "Para crecer en Google y captar más clientes.",
     features: [
@@ -42,7 +42,7 @@ const plans = [
   },
   {
     name: "Premium + IA",
-    price: 699,
+    price: 420,
     monthly: 69,
     description: "Atender clientes 24/7 sin esfuerzo humano.",
     features: [
@@ -183,7 +183,7 @@ export default function PricingV2() {
             </p>
           </div>
           <div className="text-right shrink-0">
-            <div className="font-display text-4xl font-bold tracking-tight text-slate-900">699€</div>
+            <div className="font-display text-4xl font-bold tracking-tight text-slate-900">500€</div>
             <div className="text-xs text-slate-400">+ 59€/mes mantenimiento</div>
           </div>
           <a

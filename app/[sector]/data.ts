@@ -54,7 +54,7 @@ export const sectores: Sector[] = [
     nombre: "Restaurantes",
     metaTitle: "Páginas web para restaurantes en Gran Canaria",
     metaDescription:
-      "Web para tu restaurante en Gran Canaria con carta digital, reservas online y SEO local para salir en Google y Maps. Demo gratis antes de pagar. Desde 299€.",
+      "Web para tu restaurante en Gran Canaria con carta digital, reservas online y SEO local para salir en Google y Maps. Demo gratis antes de pagar. Desde 249€.",
     h1: "Páginas web para restaurantes en Gran Canaria",
     intro:
       "Cuando alguien busca dónde comer en tu zona, o apareces tú o aparece el de enfrente. Hacemos webs para restaurantes con carta digital, reservas online y SEO local — y te enseñamos una demo funcionando antes de que pagues nada.",
@@ -118,7 +118,7 @@ export const sectores: Sector[] = [
     faqs: [
       {
         q: "¿Cuánto cuesta una página web para un restaurante?",
-        a: "Desde 299€ con carta digital, formulario de reservas y SEO básico incluidos. Si quieres chatbot con IA o sistema de reservas avanzado, el plan Premium sale por 699€. Sin permanencia y el mantenimiento desde 39€/mes.",
+        a: "Desde 249€ con carta digital, formulario de reservas y SEO básico incluidos. Si quieres chatbot con IA o sistema de reservas avanzado, el plan Premium sale por 420€. Sin permanencia y el mantenimiento desde 39€/mes.",
       },
       {
         q: "¿Puedo cambiar la carta y los precios yo mismo?",
@@ -144,7 +144,7 @@ export const sectores: Sector[] = [
     nombre: "Peluquerías y estética",
     metaTitle: "Páginas web para peluquerías en Gran Canaria",
     metaDescription:
-      "Web para tu peluquería, barbería o centro de estética en Gran Canaria con cita online 24/7 y galería de trabajos. Menos teléfono, menos huecos vacíos. Desde 299€.",
+      "Web para tu peluquería, barbería o centro de estética en Gran Canaria con cita online 24/7 y galería de trabajos. Menos teléfono, menos huecos vacíos. Desde 249€.",
     h1: "Páginas web para peluquerías y centros de estética en Gran Canaria",
     intro:
       "Deja de coger citas con el secador en una mano y el teléfono en la otra. Hacemos webs para peluquerías, barberías y centros de estética con reserva de cita online — y ves una demo gratis antes de pagar nada.",
@@ -208,7 +208,7 @@ export const sectores: Sector[] = [
     faqs: [
       {
         q: "¿Cuánto cuesta una web para una peluquería o barbería?",
-        a: "Desde 299€ con galería, servicios con precios y formulario de cita. Con sistema de citas avanzado y chatbot IA, el plan Premium sale por 699€. Sin permanencia y mantenimiento desde 39€/mes.",
+        a: "Desde 249€ con galería, servicios con precios y formulario de cita. Con sistema de citas avanzado y chatbot IA, el plan Premium sale por 420€. Sin permanencia y mantenimiento desde 39€/mes.",
       },
       {
         q: "¿La reserva de citas funciona con la agenda que ya uso?",
@@ -234,7 +234,7 @@ export const sectores: Sector[] = [
     nombre: "Gimnasios y entrenadores",
     metaTitle: "Páginas web para gimnasios en Gran Canaria",
     metaDescription:
-      "Web para tu gimnasio, box de CrossFit o estudio de pilates en Gran Canaria: horarios de clases, altas online y SEO local. Demo gratis antes de pagar. Desde 299€.",
+      "Web para tu gimnasio, box de CrossFit o estudio de pilates en Gran Canaria: horarios de clases, altas online y SEO local. Demo gratis antes de pagar. Desde 249€.",
     h1: "Páginas web para gimnasios, boxes y estudios en Gran Canaria",
     intro:
       "Tu gimnasio cambia vidas, pero si tus horarios viven en una foto de Instagram, estás perdiendo altas. Hacemos webs para gimnasios, boxes de CrossFit, estudios de pilates y entrenadores personales — con demo gratis antes de pagar.",
@@ -298,7 +298,7 @@ export const sectores: Sector[] = [
     faqs: [
       {
         q: "¿Cuánto cuesta una web para un gimnasio o un box?",
-        a: "Desde 299€ con horarios, tarifas y formulario de alta. Con reserva de clases avanzada y chatbot IA, el plan Premium sale por 699€. Sin permanencia — sabemos lo que se odian las permanencias en este sector.",
+        a: "Desde 249€ con horarios, tarifas y formulario de alta. Con reserva de clases avanzada y chatbot IA, el plan Premium sale por 420€. Sin permanencia — sabemos lo que se odian las permanencias en este sector.",
       },
       {
         q: "¿Puedo actualizar los horarios de clases yo mismo?",
@@ -324,7 +324,7 @@ export const sectores: Sector[] = [
     nombre: "Fisioterapia y clínicas",
     metaTitle: "Páginas web para fisioterapeutas y clínicas en Gran Canaria",
     metaDescription:
-      "Web para tu clínica de fisioterapia en Gran Canaria: cita online, servicios explicados con claridad y SEO local para \"fisio cerca de mí\". Demo gratis. Desde 299€.",
+      "Web para tu clínica de fisioterapia en Gran Canaria: cita online, servicios explicados con claridad y SEO local para \"fisio cerca de mí\". Demo gratis. Desde 249€.",
     h1: "Páginas web para fisioterapeutas y clínicas en Gran Canaria",
     intro:
       "Tus pacientes llegan por recomendación, pero antes de llamar te buscan en Google. Si no encuentran nada — o encuentran algo viejo — la recomendación se enfría. Hacemos webs para fisios, clínicas y consultas privadas, con demo gratis antes de pagar.",
@@ -380,7 +380,7 @@ export const sectores: Sector[] = [
     faqs: [
       {
         q: "¿Cuánto cuesta una web para una clínica de fisioterapia?",
-        a: "Desde 299€ con tus tratamientos, formulario de cita y SEO básico. Con cita online avanzada y chatbot IA, el plan Premium sale por 699€. Sin permanencia y mantenimiento desde 39€/mes.",
+        a: "Desde 249€ con tus tratamientos, formulario de cita y SEO básico. Con cita online avanzada y chatbot IA, el plan Premium sale por 420€. Sin permanencia y mantenimiento desde 39€/mes.",
       },
       {
         q: "¿Sirve también para podólogos, osteópatas o psicólogos?",
