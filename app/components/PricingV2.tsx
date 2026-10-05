@@ -43,7 +43,7 @@ const plans = [
   {
     name: "Premium + IA",
     price: 420,
-    monthly: 69,
+    monthly: 60,
     description: "Atender clientes 24/7 sin esfuerzo humano.",
     features: [
       "Páginas ilimitadas",
@@ -184,7 +184,7 @@ export default function PricingV2() {
           </div>
           <div className="text-right shrink-0">
             <div className="font-display text-4xl font-bold tracking-tight text-slate-900">500€</div>
-            <div className="text-xs text-slate-400">+ 59€/mes mantenimiento</div>
+            <div className="text-xs text-slate-400">+ 50€/mes mantenimiento</div>
           </div>
           <a
             href="#contacto"

@@ -63,7 +63,7 @@ export const services: Service[] = [
       breakdown: [
         { label: "Web Esencial", price: "249€", note: "+ 39€/mes mantenimiento" },
         { label: "Web Profesional", price: "350€", note: "+ 49€/mes mantenimiento" },
-        { label: "Web Premium + IA", price: "420€", note: "+ 69€/mes mantenimiento" },
+        { label: "Web Premium + IA", price: "420€", note: "+ 60€/mes mantenimiento" },
       ],
     },
     guide: [
@@ -78,7 +78,7 @@ export const services: Service[] = [
       {
         heading: "Qué cuesta mantenerla cada mes",
         paragraphs: [
-          "El mantenimiento es opcional y sin permanencia: 39 €, 49 € o 69 € al mes según el plan. Incluye actualizaciones, copias de seguridad, vigilancia de que la web esté siempre en línea y soporte en español. Los cambios que no entran en el plan se cobran a 39 € la hora, y siempre te decimos el coste antes de hacerlos.",
+          "El mantenimiento es opcional y sin permanencia: 39 €, 49 € o 60 € al mes según el plan. Incluye actualizaciones, copias de seguridad, vigilancia de que la web esté siempre en línea y soporte en español. Los cambios que no entran en el plan se cobran a 39 € la hora, y siempre te decimos el coste antes de hacerlos.",
           "Si en algún momento quieres dejarlo, lo dejas. No hay contrato de permanencia ni coste de salida, y la web es tuya.",
         ],
       },
@@ -115,7 +115,7 @@ export const services: Service[] = [
       },
       {
         q: "¿Y si lo que necesito es una tienda online?",
-        a: "La tienda online cuesta 500 € más 59 € al mes de mantenimiento, con pasarela de pago, gestión de productos y pedidos.",
+        a: "La tienda online cuesta 500 € más 50 € al mes de mantenimiento, con pasarela de pago, gestión de productos y pedidos.",
       },
     ],
   },
@@ -210,7 +210,7 @@ export const services: Service[] = [
       "Control total de tu catálogo y stock",
     ],
     description: "Vende tus productos o servicios en internet. Gestión sencilla, pagos seguros y experiencia de compra fluida.",
-    pricing: { headline: "500€", note: "+ 59€/mes de mantenimiento" },
+    pricing: { headline: "500€", note: "+ 50€/mes de mantenimiento" },
   },
   {
     slug: "identidad-visual-branding",
@@ -301,7 +301,7 @@ export const services: Service[] = [
       breakdown: [
         { label: "Web Esencial", price: "39€/mes" },
         { label: "Web Profesional", price: "49€/mes" },
-        { label: "Web Premium + IA", price: "69€/mes" },
+        { label: "Web Premium + IA", price: "60€/mes" },
         { label: "Web externa (no nuestra)", price: "49€/mes" },
         { label: "Pack Todo en uno", price: "349€/mes", note: "Mantenimiento + redes + SEO, todo resuelto" },
       ],
