@@ -1,4 +1,4 @@
-import { getPostBySlug, getAllPosts } from "@/lib/blog";
+import { getPostBySlug, getAllPosts, getRelatedPosts } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -79,6 +79,8 @@ export default async function BlogPostPage({
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
 
+  const related = await getRelatedPosts(slug);
+
   return (
     <main className="min-h-screen bg-white">
       <script
@@ -118,6 +120,27 @@ export default async function BlogPostPage({
             Pide presupuesto gratis
           </Link>
         </div>
+
+        {related.length > 0 && (
+          <nav aria-label="Artículos relacionados" className="mt-16">
+            <h2 className="font-display text-2xl font-bold text-ink mb-6">Sigue leyendo</h2>
+            <ul className="grid gap-4 sm:grid-cols-3">
+              {related.map((r) => (
+                <li key={r.slug}>
+                  <Link
+                    href={`/blog/${r.slug}`}
+                    className="group block h-full p-5 rounded-2xl border border-ink/10 hover:border-ink transition-colors"
+                  >
+                    <span className="block font-semibold text-ink leading-snug group-hover:text-accent transition-colors">
+                      {r.title}
+                    </span>
+                    <span className="mt-2 block text-sm text-slate-500 line-clamp-3">{r.description}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </div>
     </main>
   );
