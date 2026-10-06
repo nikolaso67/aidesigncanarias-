@@ -18,7 +18,9 @@ export default function AvisoLegalPage() {
           <h2 className="text-xl font-semibold text-slate-900 mb-3">1. Datos identificativos del titular</h2>
           <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los siguientes datos:</p>
           <ul className="mt-3 space-y-1 list-none pl-0">
-            <li><strong>Denominación:</strong> AI Design Canarias</li>
+            <li><strong>Titular:</strong> Nikolay Cocolina Ojeda</li>
+            <li><strong>NIF:</strong> 42230303A</li>
+            <li><strong>Nombre comercial:</strong> AI Design Canarias</li>
             <li><strong>Actividad:</strong> Diseño web, desarrollo de software e integración de inteligencia artificial</li>
             <li><strong>Domicilio:</strong> Las Palmas de Gran Canaria, Gran Canaria, Islas Canarias, España</li>
             <li><strong>Correo electrónico:</strong> info@aidesigncanarias.com</li>
@@ -29,7 +31,7 @@ export default function AvisoLegalPage() {
 
         <section>
           <h2 className="text-xl font-semibold text-slate-900 mb-3">2. Objeto y ámbito de aplicación</h2>
-          <p>El presente aviso legal regula el acceso y uso del sitio web <strong>aidesigncanarias.com</strong> (en adelante, «el Sitio»), titularidad de AI Design Canarias. El acceso al Sitio implica la aceptación plena y sin reservas de las presentes condiciones.</p>
+          <p>El presente aviso legal regula el acceso y uso del sitio web <strong>aidesigncanarias.com</strong> (en adelante, «el Sitio»), titularidad de Nikolay Cocolina Ojeda (nombre comercial AI Design Canarias). El acceso al Sitio implica la aceptación plena y sin reservas de las presentes condiciones.</p>
         </section>
 
         <section>

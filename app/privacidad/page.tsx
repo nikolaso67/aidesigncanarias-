@@ -18,7 +18,8 @@ export default function PrivacidadPage() {
           <h2 className="text-xl font-semibold text-slate-900 mb-3">1. Responsable del tratamiento</h2>
           <p>El responsable del tratamiento de los datos personales recogidos a través de este sitio web es:</p>
           <ul className="mt-3 space-y-1 list-none pl-0">
-            <li><strong>Titular:</strong> AI Design Canarias</li>
+            <li><strong>Titular:</strong> Nikolay Cocolina Ojeda (nombre comercial AI Design Canarias)</li>
+            <li><strong>NIF:</strong> 42230303A</li>
             <li><strong>Correo electrónico:</strong> info@aidesigncanarias.com</li>
             <li><strong>Teléfono:</strong> +34 605 007 753</li>
             <li><strong>Domicilio:</strong> Las Palmas de Gran Canaria, Gran Canaria, Islas Canarias</li>
