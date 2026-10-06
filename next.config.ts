@@ -40,6 +40,12 @@ const nextConfig: NextConfig = {
         destination: "/servicios/diseno-web-gran-canaria",
         permanent: true,
       },
+      // Dos posts sobre el mismo tema competían entre sí: se queda el más completo
+      {
+        source: "/blog/como-atraer-clientes-turistas-con-tu-web-en-el-sur-de-gran-canaria-2026-05-21",
+        destination: "/blog/como-atraer-clientes-turistas-con-tu-web-en-el-sur-de-gran-canaria-2026-07-20",
+        permanent: true,
+      },
     ];
   },
   async headers() {
