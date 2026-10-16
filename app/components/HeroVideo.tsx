@@ -85,11 +85,14 @@ export default function HeroVideo() {
           <span className="block overflow-hidden">
             <span className="hv-line block">Diseño web</span>
           </span>
+          {/* Espacios explícitos: sin ellos Google lee "webprofesionalen" al juntar los bloques */}
+          {" "}
           <span className="block overflow-hidden">
             <span className="hv-line block text-transparent bg-clip-text bg-gradient-to-r from-accent-bright via-violet-400 to-sky-400">
               profesional
             </span>
           </span>
+          {" "}
           <span className="block overflow-hidden">
             <span className="hv-line block">en Gran Canaria</span>
           </span>
