@@ -189,17 +189,17 @@ export const services: Service[] = [
   {
     slug: "tiendas-online",
     title: "Tiendas online",
-    h1: "Tiendas online en Gran Canaria — vende por internet",
-    metaTitle: "Tiendas online en Gran Canaria",
+    h1: "Tiendas online en Gran Canaria: vende por internet desde las islas",
+    metaTitle: "Tienda online en Gran Canaria: 500 €, lista en 7–14 días",
     metaDescription:
-      "Creamos tiendas online para negocios en Gran Canaria. Gestión sencilla, pagos seguros y entregadas en 7–14 días. Presupuesto gratis.",
+      "Creamos tu tienda online en Gran Canaria por 500 €: pagos con tarjeta y Bizum, envíos, IGIC bien configurado y gestión sencilla. La ves funcionando antes de pagar.",
     intro:
       "Montamos tu tienda online en Gran Canaria para que puedas vender tus productos o servicios las 24 horas del día, a clientes de las Islas Canarias y de toda España. Gestión sencilla, pagos seguros y lista en 7 a 14 días.",
     features: [
       { title: "Diseño a medida", description: "Tu tienda con tu imagen, no una plantilla genérica." },
       { title: "Pagos seguros", description: "Tarjeta, Bizum, PayPal y transferencia integrados desde el primer día." },
       { title: "Gestión sencilla", description: "Añades productos, gestionas pedidos y ves tus ventas desde un panel simple." },
-      { title: "Optimizada para móvil", description: "El 70% de las compras online se hacen desde el móvil." },
+      { title: "Optimizada para móvil", description: "Pensada primero para el móvil, que es desde donde compra la mayoría de tus clientes." },
       { title: "SEO incluido", description: "Cada producto está optimizado para aparecer en Google." },
       { title: "Integración con envíos", description: "Conectamos con Correos, MRW, DHL y otros servicios de mensajería." },
     ],
@@ -211,6 +211,52 @@ export const services: Service[] = [
     ],
     description: "Vende tus productos o servicios en internet. Gestión sencilla, pagos seguros y experiencia de compra fluida.",
     pricing: { headline: "500€", note: "+ 50€/mes de mantenimiento" },
+    guide: [
+      {
+        heading: "Vender online desde Canarias tiene sus propias reglas",
+        paragraphs: [
+          "En Canarias no se aplica el IVA sino el IGIC, y una tienda configurada para la Península cobra mal los impuestos desde el primer pedido. Dejamos los precios, el impuesto y las facturas preparados para vender desde las islas.",
+          "Los envíos también cambian. Dentro de Canarias puedes repartir tú mismo o usar mensajería; los paquetes que salen hacia la Península pasan por aduana, y eso afecta al plazo y al coste que ve el cliente. Configuramos las zonas de envío por separado (tu municipio, resto de la isla, otras islas, Península) para que cada cliente vea el precio real antes de pagar.",
+        ],
+      },
+      {
+        heading: "Qué incluyen los 500 €",
+        paragraphs: [
+          "Diseño con tu imagen, catálogo de productos con fotos, variantes (tallas, colores, formatos) y stock, carrito y pago con tarjeta, Bizum o PayPal, avisos de pedido por email y un panel para que gestiones productos y pedidos sin depender de nadie.",
+          "También la parte que no se ve: la tienda carga rápido en el móvil, cada producto tiene su título y descripción para Google, y las páginas legales de compra (envíos, devoluciones, condiciones) quedan en su sitio.",
+          "El mantenimiento son 50 € al mes, sin permanencia: actualizaciones, copias de seguridad, vigilancia de que la tienda esté siempre en línea y soporte en español.",
+        ],
+      },
+      {
+        heading: "Para qué negocios tiene sentido",
+        paragraphs: [
+          "Para comercios que ya venden en tienda física y quieren vender también fuera de horario o a clientes de otras islas: una frutería que prepara pedidos para recoger, una tienda de ropa, una ferretería con productos de recambio, un artesano que vende por Instagram y quiere dejar de cobrar por transferencia.",
+          "Si solo quieres enseñar tus productos y que te escriban por WhatsApp, quizá no necesitas una tienda: una web con catálogo es más barata. Te lo decimos antes de empezar.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto cuesta una tienda online en Gran Canaria?",
+        a: "Con nosotros, 500 € en pago único más 50 € al mes de mantenimiento, sin permanencia. Incluye diseño, catálogo, pagos con tarjeta, Bizum y PayPal, zonas de envío y panel de gestión.",
+      },
+      {
+        q: "¿Os quedáis una comisión por cada venta?",
+        a: "No. El dinero de cada venta es tuyo. El único coste por venta es la comisión que cobra el medio de pago (el banco, Bizum o PayPal), que es la misma que pagarías con cualquier otra tienda.",
+      },
+      {
+        q: "¿Se puede vender a la Península desde Canarias?",
+        a: "Sí. La tienda separa las zonas de envío y los impuestos para que los pedidos a la Península se cobren bien. Ten en cuenta que esos paquetes pasan por aduana, lo que alarga el plazo y suele encarecer el envío; lo dejamos indicado para que el cliente lo sepa antes de comprar.",
+      },
+      {
+        q: "¿Podré añadir productos yo solo?",
+        a: "Sí. Te dejamos un panel sencillo para subir productos, cambiar precios, gestionar el stock y ver los pedidos, y te enseñamos a usarlo.",
+      },
+      {
+        q: "¿Cuánto se tarda en tenerla funcionando?",
+        a: "Entre 7 y 14 días desde que das el visto bueno al diseño, siempre que tengamos las fotos y los datos de los productos. Antes de pagar te enseñamos una primera versión funcionando.",
+      },
+    ],
   },
   {
     slug: "identidad-visual-branding",
@@ -274,10 +320,10 @@ export const services: Service[] = [
   {
     slug: "mantenimiento-web",
     title: "Mantenimiento web",
-    h1: "Mantenimiento web en Gran Canaria — tu web siempre activa",
-    metaTitle: "Mantenimiento web en Gran Canaria",
+    h1: "Mantenimiento web en Gran Canaria: tu web siempre activa",
+    metaTitle: "Mantenimiento web en Gran Canaria desde 39 €/mes",
     metaDescription:
-      "Mantenimiento web para negocios en Gran Canaria. Actualizaciones, seguridad, copias de seguridad y soporte continuo. Sin sorpresas.",
+      "Mantenimiento web en Gran Canaria desde 39 €/mes, sin permanencia: actualizaciones, copias de seguridad, vigilancia 24/7 y soporte en español. También para webs que no hicimos nosotros.",
     intro:
       "Mantenemos tu web en perfecto estado para que nunca tengas que preocuparte de actualizaciones, fallos de seguridad o caídas. Soporte continuo en español, con tiempo de respuesta garantizado.",
     features: [
@@ -306,6 +352,53 @@ export const services: Service[] = [
         { label: "Pack Todo en uno", price: "349€/mes", note: "Mantenimiento + redes + SEO, todo resuelto" },
       ],
     },
+    guide: [
+      {
+        heading: "Qué pasa cuando nadie mantiene una web",
+        paragraphs: [
+          "Una web sin mantenimiento no se rompe el primer día. Se va quedando atrás: los plugins y las librerías dejan de actualizarse, aparecen fallos de seguridad conocidos, un formulario deja de enviar correos sin que nadie se entere, y un día la web no carga y te lo dice un cliente.",
+          "El mantenimiento sirve para que eso no pase, y para que, si pasa algo, haya una copia reciente y alguien que lo arregle ese mismo día.",
+        ],
+      },
+      {
+        heading: "Qué hacemos cada mes",
+        paragraphs: [
+          "Actualizamos lo que haga falta, guardamos copias de seguridad diarias y vigilamos que la web esté en línea a todas horas. Si se cae, nos enteramos nosotros antes que tus clientes.",
+          "Los cambios pequeños de contenido van incluidos: un horario nuevo, un precio, una foto, un texto. Los cambios grandes que no entran en el plan se cobran a 39 € la hora, y siempre te decimos el coste antes de hacerlos.",
+          "Cada mes te mandamos un resumen corto: cómo está la web, cuántas visitas ha tenido y si ha habido alguna incidencia.",
+        ],
+      },
+      {
+        heading: "Precio según tu web",
+        paragraphs: [
+          "Si la web la hicimos nosotros, el mantenimiento cuesta 39 €, 49 € o 60 € al mes según el plan (Esencial, Profesional o Premium con IA). Una tienda online, 50 € al mes.",
+          "Si tu web la hizo otra persona o agencia, también podemos mantenerla, por 49 € al mes. Antes de empezar la revisamos y te decimos en qué estado está y si hay algo que convenga arreglar primero.",
+          "Ningún plan tiene permanencia. Si lo dejas, la web sigue siendo tuya y te damos todos los accesos.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto cuesta el mantenimiento de una página web en Gran Canaria?",
+        a: "Desde 39 € al mes. Para webs hechas por nosotros: 39 €, 49 € o 60 € según el plan; tiendas online, 50 €; webs hechas por otros, 49 €. Sin permanencia.",
+      },
+      {
+        q: "¿Mantenéis webs que no habéis hecho vosotros?",
+        a: "Sí, por 49 € al mes. Primero la revisamos y te decimos en qué estado está antes de que pagues nada.",
+      },
+      {
+        q: "¿Qué cambios entran en el mantenimiento?",
+        a: "Los cambios pequeños de contenido: horarios, precios, fotos, textos. Las páginas nuevas o los cambios de diseño se presupuestan aparte, a 39 € la hora, con el coste cerrado antes de empezar.",
+      },
+      {
+        q: "¿Qué pasa si quiero dejar de pagar el mantenimiento?",
+        a: "Lo dejas cuando quieras, sin penalización. La web es tuya y te entregamos todos los accesos.",
+      },
+      {
+        q: "¿En cuánto tiempo respondéis si hay un problema?",
+        a: "En menos de 24 horas hábiles, por WhatsApp o email y en español. Si la web se cae, la vigilancia nos avisa y nos ponemos con ello sin esperar a que nos escribas.",
+      },
+    ],
   },
   {
     slug: "software-a-medida",
