@@ -262,9 +262,9 @@ export const services: Service[] = [
     slug: "identidad-visual-branding",
     title: "Identidad visual y branding",
     h1: "Identidad visual y branding para negocios en Gran Canaria",
-    metaTitle: "Identidad visual y branding en Gran Canaria",
+    metaTitle: "Diseño de logo y branding en Gran Canaria desde 149 €",
     metaDescription:
-      "Diseño de logo, identidad visual y branding para negocios en Gran Canaria. Imagen coherente que genera confianza. Presupuesto gratis.",
+      "Diseño de logo e identidad visual para negocios de Gran Canaria: logo desde 149 € o pack completo con paleta, tipografías, tarjeta y plantillas para redes por 349 €.",
     intro:
       "Diseñamos la identidad visual de tu negocio en Gran Canaria: logo, paleta de colores, tipografía y guía de estilo. Una imagen coherente y profesional que tus clientes reconocen y en la que confían desde el primer vistazo.",
     features: [
@@ -290,14 +290,55 @@ export const services: Service[] = [
         { label: "Pack identidad completo", price: "349€", note: "Logo + paleta + tipografías + tarjeta + plantillas RRSS" },
       ],
     },
+    guide: [
+      {
+        heading: "Cuándo merece la pena hacer (o rehacer) tu imagen",
+        paragraphs: [
+          "Cuando abres un negocio y no quieres empezar con un logo hecho deprisa. Cuando tu logo actual se ve borroso en Instagram, no cabe en un rótulo o no se lee en pequeño. O cuando cada cosa que publicas tiene colores y letras distintas y el negocio no se reconoce de un sitio a otro.",
+          "No hace falta una gran marca para tener una imagen cuidada. Una frutería, un taller o una peluquería de barrio se recuerdan mejor si su logo, su fachada, su WhatsApp y sus redes dicen lo mismo.",
+        ],
+      },
+      {
+        heading: "Los dos packs",
+        paragraphs: [
+          "Branding starter, 149 €: el logo y sus variantes básicas para que funcione en la web, en las redes y en impresión. Suficiente para empezar con buen pie.",
+          "Pack identidad completo, 349 €: el logo con sus variantes, la paleta de colores, las tipografías, el diseño de tu tarjeta de visita y plantillas para tus publicaciones en redes, para que todo lo que publiques tenga la misma cara sin tener que diseñarlo cada vez.",
+        ],
+      },
+      {
+        heading: "Cómo trabajamos",
+        paragraphs: [
+          "Empezamos con una conversación sobre tu negocio: a quién vendes, qué te diferencia, qué marcas te gustan y cuáles no. Con eso preparamos propuestas, las ajustamos contigo y cerramos el diseño final.",
+          "Te entregamos los archivos en SVG, PNG y PDF, listos para la web, las redes, la imprenta o el rotulista.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto cuesta diseñar un logo para mi negocio en Gran Canaria?",
+        a: "El logo con sus variantes básicas cuesta 149 €. El pack de identidad completo, con paleta, tipografías, tarjeta de visita y plantillas para redes, cuesta 349 €.",
+      },
+      {
+        q: "¿En qué formatos me entregáis el logo?",
+        a: "En SVG (vectorial, para imprenta y rótulos), PNG con fondo transparente (para web y redes) y PDF.",
+      },
+      {
+        q: "Ya tengo logo, ¿podéis mejorarlo en vez de hacer uno nuevo?",
+        a: "Sí. Muchas veces basta con redibujarlo en vectorial, ajustar colores y crear versiones que funcionen en pequeño, sin perder lo que tus clientes ya reconocen.",
+      },
+      {
+        q: "¿Podéis hacer también la web con la nueva imagen?",
+        a: "Sí. Si haces la identidad y la web con nosotros, la web sale directamente con tus colores, tipografías y logo nuevos.",
+      },
+    ],
   },
   {
     slug: "apps-web-progresivas",
     title: "Apps web progresivas",
     h1: "Apps web progresivas (PWA) para negocios en Canarias",
-    metaTitle: "Apps web progresivas para negocios en Canarias",
+    metaTitle: "App para tu negocio sin App Store (PWA) en Canarias",
     metaDescription:
-      "Desarrollamos apps web progresivas (PWA) para negocios en Gran Canaria. Funcionan como apps nativas sin necesidad de App Store. Presupuesto gratis.",
+      "Una app para tu negocio que se instala desde la web, sin App Store ni Google Play: reservas, pedidos, fidelización y avisos. Apps web progresivas desde 990 € en Gran Canaria.",
     intro:
       "Desarrollamos aplicaciones web progresivas (PWA) que funcionan como apps nativas en el móvil de tus clientes — sin necesidad de pasar por el App Store o Google Play. Instalables, rápidas y disponibles sin conexión.",
     features: [
@@ -316,6 +357,47 @@ export const services: Service[] = [
     ],
     description: "Aplicaciones web que funcionan como apps nativas en el móvil. Rápidas, instalables y accesibles sin conexión.",
     pricing: { headline: "Desde 990€", note: "Presupuesto cerrado tras briefing" },
+    guide: [
+      {
+        heading: "Qué es una app web progresiva, sin tecnicismos",
+        paragraphs: [
+          "Es una web que se comporta como una app. Tu cliente entra desde el navegador, pulsa «Añadir a pantalla de inicio» y a partir de ahí la abre con su icono, a pantalla completa, como cualquier otra app del móvil. Funciona en iPhone y en Android.",
+          "La diferencia con una app de las tiendas es que no hay que publicarla en el App Store ni en Google Play, ni esperar a que la aprueben, ni pedir al cliente que se la descargue desde allí. Y cada cambio que hacemos le llega al momento, sin actualizaciones.",
+        ],
+      },
+      {
+        heading: "Para qué la usan los negocios locales",
+        paragraphs: [
+          "Una tarjeta de fidelización digital para una cafetería o una peluquería. Reservas y citas para una clínica o un centro deportivo. Pedidos para recoger en una panadería o un restaurante. Un área privada donde tus clientes ven sus citas, sus bonos o sus facturas.",
+          "Con las notificaciones puedes avisar de una oferta, recordar una cita o decir que el pedido está listo, sin depender de que vean tu publicación en redes.",
+        ],
+      },
+      {
+        heading: "Cuándo no la necesitas",
+        paragraphs: [
+          "Si lo único que quieres es que te encuentren y te escriban, una web bien hecha es suficiente y mucho más barata. Una app web tiene sentido cuando tus clientes vuelven a menudo y hacen algo dentro: reservar, pedir, acumular puntos, consultar su cuenta.",
+          "Si necesitas funciones muy concretas del teléfono o estar sí o sí en las tiendas de apps, te lo diremos y valoraremos contigo otra opción.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto cuesta una app para mi negocio?",
+        a: "Una app web progresiva parte de 990 €. El precio final depende de lo que tenga que hacer (reservas, pedidos, área de clientes…) y te lo damos cerrado después de hablar contigo.",
+      },
+      {
+        q: "¿Funciona en iPhone?",
+        a: "Sí. Se instala desde Safari con «Añadir a pantalla de inicio» y funciona en iPhone y en Android. Las notificaciones también funcionan en iPhone con versiones recientes de iOS.",
+      },
+      {
+        q: "¿Mis clientes tienen que descargarla de una tienda de apps?",
+        a: "No. La instalan directamente desde tu web en dos toques, sin pasar por el App Store ni por Google Play.",
+      },
+      {
+        q: "¿Qué diferencia hay con una app nativa?",
+        a: "Una app nativa se programa por separado para iPhone y Android y se publica en las tiendas, lo que la hace bastante más cara y lenta de actualizar. Una app web progresiva es un solo desarrollo que funciona en los dos sistemas y se actualiza al instante.",
+      },
+    ],
   },
   {
     slug: "mantenimiento-web",
@@ -430,9 +512,9 @@ export const services: Service[] = [
     slug: "consultoria-digital",
     title: "Consultoría digital",
     h1: "Consultoría digital para negocios en Gran Canaria",
-    metaTitle: "Consultoría digital para negocios en Gran Canaria",
+    metaTitle: "Auditoría y consultoría digital en Gran Canaria: 149 €",
     metaDescription:
-      "Consultoría digital en Gran Canaria. Analizamos tu presencia online y te decimos exactamente qué mejorar para captar más clientes. Sin tecnicismos.",
+      "Auditoría de tu web, tu ficha de Google y tus redes por 149 €, con un plan de acción priorizado y sin tecnicismos. Consultoría para negocios de Gran Canaria.",
     intro:
       "Analizamos tu presencia digital en Gran Canaria — web, redes sociales, Google Business, competencia — y te entregamos un plan concreto de qué mejorar para captar más clientes. Sin tecnicismos, con pasos claros y priorizados.",
     features: [
@@ -459,18 +541,60 @@ export const services: Service[] = [
         { label: "Consultoría por horas", price: "59€/h" },
       ],
     },
+    guide: [
+      {
+        heading: "Para quién es",
+        paragraphs: [
+          "Para el negocio que ya tiene web, redes y ficha de Google, pero no sabe si le sirven de algo. O que ha pagado campañas y no ha visto clientes. O que va a invertir en una web nueva y quiere saber antes qué le hace falta de verdad.",
+          "No vendemos la auditoría como paso previo obligatorio para venderte otra cosa. Si lo que necesitas se arregla con tres cambios que puedes hacer tú, te lo decimos así.",
+        ],
+      },
+      {
+        heading: "Qué revisamos",
+        paragraphs: [
+          "Tu web: cuánto tarda en cargar en el móvil, si se entiende en cinco segundos qué ofreces y dónde estás, si es fácil llamarte o escribirte y si Google la puede leer bien.",
+          "Tu ficha de Google Business Profile: categorías, fotos, horario, reseñas y respuestas. En búsquedas como «peluquería en Telde» o «taller cerca de mí» suele pesar más que la propia web.",
+          "Tus redes y tu competencia: qué hacen los negocios que salen por delante de ti en tu zona, y qué puedes copiar o hacer mejor.",
+        ],
+      },
+      {
+        heading: "Qué te llevas",
+        paragraphs: [
+          "Un plan corto y ordenado: qué hacer primero, qué después y qué puedes ignorar. Cada punto explicado sin jerga y con una idea de cuánto cuesta (en tiempo o en dinero) y cuánto puede aportar.",
+          "Lo repasamos juntos en una sesión para que no te quede ninguna duda, y a los 30 días revisamos cómo van los cambios.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto cuesta una auditoría digital para mi negocio?",
+        a: "149 € la auditoría completa con plan de acción. Si solo quieres resolver dudas concretas, una sesión de 90 minutos cuesta 79 €, y la consultoría por horas, 59 € la hora.",
+      },
+      {
+        q: "¿Tengo que contratar después la web o el SEO con vosotros?",
+        a: "No. El plan es tuyo y puedes aplicarlo tú, con otra agencia o con nosotros. Si algo se puede hacer sin pagar a nadie, te lo decimos.",
+      },
+      {
+        q: "No sé nada de marketing digital. ¿Lo voy a entender?",
+        a: "Sí. Está pensado para dueños de negocio, no para técnicos. Explicamos cada punto con ejemplos de tu propia web y de tu competencia.",
+      },
+      {
+        q: "¿Hace falta reunirse en persona?",
+        a: "No. La auditoría la hacemos nosotros y la sesión de repaso puede ser por videollamada o llamada.",
+      },
+    ],
   },
   {
     slug: "publicidad-digital",
     title: "Publicidad digital",
-    h1: "Publicidad digital en Gran Canaria — Google, Meta e Instagram",
-    metaTitle: "Publicidad digital en Gran Canaria — Google y Meta Ads",
+    h1: "Publicidad digital en Gran Canaria: Google, Meta e Instagram",
+    metaTitle: "Publicidad en Google y Meta Ads en Gran Canaria: 199 €/mes",
     metaDescription:
-      "Campañas de publicidad digital en Gran Canaria. Google Ads, Meta Ads, Instagram y TikTok. Llegamos a tu cliente ideal y convertimos clics en ventas.",
+      "Gestión de campañas en Google Ads, Facebook e Instagram para negocios de Gran Canaria por 199 €/mes, sin permanencia. Anuncios segmentados por municipio y resultados medidos en clientes, no en likes.",
     intro:
       "Gestionamos campañas de publicidad digital para negocios en Gran Canaria en Google, Meta, Instagram y TikTok. Llegamos exactamente al cliente que quieres, en el momento en que está buscando lo que ofreces.",
     features: [
-      { title: "Google Ads", description: "Aparece el primero cuando alguien busca tu servicio en Google." },
+      { title: "Google Ads", description: "Aparece arriba cuando alguien busca tu servicio en Google." },
       { title: "Meta e Instagram Ads", description: "Campañas de captación y retargeting en Facebook e Instagram." },
       { title: "TikTok Ads", description: "Llega a audiencias jóvenes con contenido que engancha." },
       { title: "Segmentación local", description: "Mostramos tus anuncios solo en Gran Canaria o donde tú quieras." },
@@ -478,10 +602,10 @@ export const services: Service[] = [
       { title: "Informe mensual", description: "Gastos, clics, conversiones y ROI de cada campaña." },
     ],
     benefits: [
-      "Resultados desde el primer día de campaña",
+      "Visibilidad desde el primer día de campaña",
       "Control total del presupuesto",
-      "Solo pagas por clics o conversiones reales",
-      "Alcance ultra-segmentado en Gran Canaria",
+      "Cada euro medido en llamadas, mensajes o reservas",
+      "Anuncios solo para la zona de Gran Canaria que te interesa",
     ],
     description: "Campañas de anuncios en Google, Meta, Instagram y TikTok. Llegamos a tu cliente ideal y convertimos clics en ventas.",
     pricing: {
@@ -492,6 +616,52 @@ export const services: Service[] = [
         { label: "Inversión publicitaria", price: "Aparte", note: "La paga el cliente directo a la plataforma · mínimo recomendado 150€/mes" },
       ],
     },
+    guide: [
+      {
+        heading: "Google o Instagram: depende de cómo te buscan",
+        paragraphs: [
+          "Google Ads sirve cuando el cliente ya sabe lo que quiere y lo busca: «fontanero urgente Las Palmas», «taller de chapa en Telde». Pagas por aparecer arriba justo en ese momento.",
+          "Facebook e Instagram sirven cuando el cliente todavía no te busca, pero encaja con lo que ofreces: un restaurante nuevo, una clínica estética, una academia. Ahí el anuncio tiene que entrar por los ojos, y lo que medimos son los mensajes y las reservas que genera.",
+          "Muchos negocios locales no necesitan los dos. Te recomendamos uno según tu caso y empezamos por ahí.",
+        ],
+      },
+      {
+        heading: "Segmentar bien en una isla",
+        paragraphs: [
+          "En Gran Canaria no tiene sentido enseñar el anuncio de una peluquería de Vecindario a alguien de Gáldar. Limitamos los anuncios al municipio o al radio que de verdad atiendes, y si trabajas con turismo separamos al residente del visitante, porque buscan cosas distintas y en idiomas distintos.",
+          "Para la mayoría de negocios locales el objetivo que mejor funciona es que te escriban por WhatsApp, con un mensaje ya preparado. Así cada euro se convierte en una conversación que puedes contar.",
+        ],
+      },
+      {
+        heading: "Cuánto cuesta y qué esperar",
+        paragraphs: [
+          "La gestión cuesta 199 € al mes, sin permanencia. El dinero de los anuncios va aparte y lo pagas tú directamente a Google o a Meta, con tu tarjeta: nunca pasa por nosotros. Recomendamos empezar con al menos 150 € al mes de inversión.",
+          "Las primeras semanas las plataformas están aprendiendo a quién enseñar el anuncio, así que los resultados mejoran con el tiempo. Nadie puede garantizarte un número de clientes, pero sí que vas a saber exactamente cuánto te cuesta cada uno.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuánto cuesta hacer publicidad en Google o Instagram en Gran Canaria?",
+        a: "Nuestra gestión cuesta 199 € al mes, sin permanencia. Aparte está la inversión en anuncios, que pagas tú directamente a la plataforma; recomendamos un mínimo de 150 € al mes para empezar.",
+      },
+      {
+        q: "¿El dinero de los anuncios pasa por vosotros?",
+        a: "No. La cuenta publicitaria es tuya y pagas a Google o a Meta con tu propia tarjeta. Nosotros solo cobramos la gestión.",
+      },
+      {
+        q: "¿Cuándo voy a ver resultados?",
+        a: "Los anuncios se ven desde el primer día, pero las campañas suelen necesitar unas semanas de aprendizaje para afinar a quién se muestran. Cada mes te mandamos un informe con lo gastado y los clics, mensajes o llamadas conseguidos.",
+      },
+      {
+        q: "¿Hacéis también los anuncios (imágenes y vídeos)?",
+        a: "Sí. Diseñamos las creatividades para cada campaña, adaptadas a tu negocio y al formato de cada plataforma.",
+      },
+      {
+        q: "¿Qué es mejor, el botón «Promocionar» de Instagram o una campaña?",
+        a: "El botón funciona, pero da poco control. Desde el Administrador de anuncios se puede elegir el objetivo (por ejemplo, mensajes a WhatsApp), comparar anuncios y medir lo que importa, por el mismo dinero.",
+      },
+    ],
   },
 ];
 
