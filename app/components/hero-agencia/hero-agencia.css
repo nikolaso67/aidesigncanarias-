@@ -1,0 +1,50 @@
+/* Hero agencia: piezas en miniatura y baraja. Solo transform/opacity.
+   Con prefers-reduced-motion todo se queda quieto en su estado final. */
+
+@keyframes pc-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+/* Los elementos de una pieza entran escalonados cada vez que su tarjeta pasa a primer plano */
+[data-active="true"] .pc-in {
+  animation: pc-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s) both;
+}
+
+/* Baraja de la variante blanca: la posición la decide --depth (0 = delante) */
+.ha-card {
+  transition:
+    transform 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Palabra que rota en "Hacemos tu ___" */
+.ha-slot-word {
+  transition:
+    transform 0.7s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.5s ease;
+}
+
+/* Línea que se rellena bajo la disciplina activa (dura lo mismo que ROTATE_MS) */
+@keyframes ha-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.ha-progress {
+  transform-origin: 0 50%;
+  animation: ha-progress 2.8s linear both;
+}
+/* En pausa la línea se queda llena; al soltar, se remonta (key) y arranca a la par que el temporizador */
+.ha-progress[data-paused="true"] {
+  animation: none;
+  transform: scaleX(1);
+}
+
+/* Línea de detalle de la variante Índice: se remonta (key) con cada disciplina */
+.ha-detail { animation: pc-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ha-detail { animation: none; }
+  [data-active="true"] .pc-in { animation: none; }
+  .ha-card, .ha-slot-word { transition: none; }
+  .ha-progress { animation: none; transform: scaleX(1); }
+}
