@@ -13,7 +13,8 @@ const links = [
   { label: "Contacto", href: "#contacto" },
 ];
 
-export default function NavbarV2() {
+/** heroTone: color del hero sobre el que arranca el navbar transparente. */
+export default function NavbarV2({ heroTone = "dark" }: { heroTone?: "dark" | "light" }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -30,8 +31,9 @@ export default function NavbarV2() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Sobre el hero (tinta) el navbar va claro-sobre-oscuro; con scroll pasa a cristal blanco
-  const dark = !scrolled;
+  // Sobre un hero de tinta el navbar va claro-sobre-oscuro; con scroll (o sobre
+  // un hero blanco) pasa a oscuro-sobre-claro
+  const dark = !scrolled && heroTone === "dark";
 
   return (
     <header
