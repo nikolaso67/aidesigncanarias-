@@ -54,19 +54,19 @@ function Ia() {
         <span className="ml-auto text-[10px] text-white/70">03:07</span>
       </div>
       <div className="pc-in self-end max-w-[85%] rounded-2xl rounded-br-md bg-white text-ink text-xs px-3 py-2" style={d(0.1)}>
-        ¿Abrís el domingo?
+        ¿Hacéis envíos a Fuerteventura?
       </div>
       <div className="pc-in self-start max-w-[90%] rounded-2xl rounded-bl-md bg-ink/40 text-xs px-3 py-2" style={d(0.55)}>
-        Sí, de 10:00 a 14:00. ¿Te reservo a las 11:00?
+        Sí, en 48-72 h. ¿Te paso el enlace para hacer el pedido?
       </div>
       <div className="pc-in self-end max-w-[85%] rounded-2xl rounded-br-md bg-white text-ink text-xs px-3 py-2" style={d(0.95)}>
-        Perfecto, gracias
+        Sí, porfa
       </div>
       <span className="pc-in mt-auto self-start inline-flex items-center gap-1.5 rounded-full bg-emerald-400 text-ink text-[11px] font-semibold px-3 py-1.5" style={d(1.3)}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3">
           <path d="M5 12.5l4.5 4.5L19 7.5" />
         </svg>
-        Reserva hecha mientras dormías
+        Respondido en segundos
       </span>
     </div>
   );
