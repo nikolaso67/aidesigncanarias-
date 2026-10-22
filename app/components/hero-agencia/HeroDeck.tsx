@@ -5,7 +5,7 @@ import Piece from "./Pieces";
 import { DISCIPLINES, useHeroIntro, useRotation } from "./shared";
 
 /**
- * Variante A, "Baraja" (fondo blanco): titular de agencia a la izquierda y, a la
+ * Hero de la home, "Baraja" (fondo blanco): titular de agencia a la izquierda y, a la
  * derecha, una baraja con una pieza real por disciplina (web, IA, SEO, marca,
  * tienda, publicidad). La palabra de "Hacemos tu ___" y la carta de delante van
  * sincronizadas; hover o foco pausa la rotación.
@@ -38,7 +38,7 @@ export default function HeroDeck() {
         aria-hidden
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 lg:pt-24 lg:pb-12 min-h-[100dvh] grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-8 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 lg:pt-24 lg:pb-12 min-h-[100dvh] grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
         <div className="lg:col-span-7">
           <span className="ha-pill inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-1.5 text-sm font-medium text-slate-700">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 text-accent" aria-hidden>
@@ -107,27 +107,10 @@ export default function HeroDeck() {
 
         {/* Baraja */}
         <div className="ha-visual lg:col-span-5 flex flex-col items-center" {...pause}>
-          <div className="relative w-full max-w-[min(420px,58vh)] aspect-square mt-6 lg:mt-0">
-            {DISCIPLINES.map((dsc, i) => {
-              const depth = (i - active + N) % N;
-              return (
-                // Decorativas: sin clics. La que sale cae invisible encima de la
-                // leyenda y, si recibiera eventos, le robaría los clics.
-                <div
-                  key={dsc.id}
-                  data-active={depth === 0}
-                  className="ha-card pointer-events-none absolute inset-0 rounded-[1.75rem] overflow-hidden border border-ink/10 shadow-[0_40px_80px_-30px_rgba(42,35,96,0.45)]"
-                  style={cardStyle(depth)}
-                >
-                  <Piece id={dsc.id} />
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Leyenda de la baraja: hover trae esa carta delante (la rotación sigue al salir);
-              clic o toque la deja fija. El clic hace falta: en móvil y con teclado no hay hover */}
-          <div className="mt-8 flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-[440px]">
+          {/* Pestañas de la baraja: hover trae esa carta delante (la rotación sigue al salir);
+              clic o toque la deja fija. El clic hace falta: en móvil y con teclado no hay hover.
+              Van encima y no debajo: abajo a la derecha está fijo el botón de WhatsApp */}
+          <div className="mb-12 lg:mb-14 flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-[440px]">
             {DISCIPLINES.map((dsc, i) => (
               <button
                 key={dsc.id}
@@ -149,6 +132,23 @@ export default function HeroDeck() {
                 )}
               </button>
             ))}
+          </div>
+          <div className="relative w-full max-w-[min(300px,78vw)] lg:max-w-[min(420px,52vh)] aspect-square">
+            {DISCIPLINES.map((dsc, i) => {
+              const depth = (i - active + N) % N;
+              return (
+                // Decorativas: sin clics. Las ocultas siguen ahí con opacidad 0 y,
+                // si recibieran eventos, robarían los clics de lo que tapan.
+                <div
+                  key={dsc.id}
+                  data-active={depth === 0}
+                  className="ha-card pointer-events-none absolute inset-0 rounded-[1.75rem] overflow-hidden border border-ink/10 shadow-[0_40px_80px_-30px_rgba(42,35,96,0.45)]"
+                  style={cardStyle(depth)}
+                >
+                  <Piece id={dsc.id} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

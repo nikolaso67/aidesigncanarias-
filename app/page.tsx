@@ -1,7 +1,7 @@
 import Preloader from "./components/PreloaderV2";
 import Navbar from "./components/NavbarV2";
-// PRUEBA: hero con vídeo de fondo a sangre (alternativas en el repo: HeroV3D, HeroV2)
-import Hero from "./components/HeroVideo";
+// Hero de agencia con fondo blanco (el anterior, HeroVideo, queda en el repo como alternativa)
+import Hero from "./components/hero-agencia/HeroDeck";
 import Marquee from "./components/Marquee";
 import Services from "./components/servicios/Services";
 import About from "./components/AboutV2";
@@ -38,7 +38,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
-      <Navbar />
+      <Navbar heroTone="light" />
       <main>
         <Hero />
         <Marquee />
